@@ -15,4 +15,15 @@ git merge fuentes/main main
 
 ## Luis Laos Chaqui 
 ## Victor Elias Vivanco Rivera
+<<<<<<< HEAD
 ## Valeria Milagros Ccoa Banda
+=======
+## Alvaro Roberto Paredes Del Castillo
+## César Peña Cadillo
+## Fabian Huamani Zegarra
+# Probando descarga de objeto README
+## César Peña Cadillo
+## Marco Alfaro
+## Omar Gonzales Torres
+## Carlos usuriaga Guerrero
+>>>>>>> fuentes/main
