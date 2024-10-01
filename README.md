@@ -15,3 +15,4 @@ git merge fuentes/main main
 
 ## Luis Laos Chaqui 
 ## Victor Elias Vivanco Rivera
+## Fabian Huamani Zegarra
