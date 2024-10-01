@@ -16,3 +16,5 @@ git merge fuentes/main main
 ## Luis Laos Chaqui 
 ## Victor Elias Vivanco Rivera
 ## César Peña Cadillo
+## Fabian Huamani Zegarra
+# Probando descarga de objeto README
