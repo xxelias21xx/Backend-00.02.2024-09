@@ -19,7 +19,8 @@ git merge fuentes/main main
 ## César Peña Cadillo
 ## Fabian Huamani Zegarra
 # Probando descarga de objeto README
-# Marco Alfaro
+## César Peña Cadillo
+## Marco Alfaro
 ## Omar Gonzales Torres
 ## Carlos usuriaga Guerrero
 ## Bruno Buttgenbach Gustavson
