@@ -23,3 +23,4 @@ git merge fuentes/main main
 ## Omar Gonzales Torres
 ## Carlos usuriaga Guerrero
 ## Bruno Buttgenbach Gustavson
+## Bruno BG
