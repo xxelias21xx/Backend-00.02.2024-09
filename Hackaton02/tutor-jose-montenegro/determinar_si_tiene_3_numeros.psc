@@ -1,4 +1,4 @@
-// Hacer un algoritmo en Pseint que lea un número por el teclado y determinar si tiene tres dígitos.
+// Hacer un algoritmo en Pseint que lea un numero por el teclado y determinar si tiene tres dï¿½gitos.
 Algoritmo determinar_si_tiene_3_numeros
 	Escribir 'Escriba un numero por teclado'
 	Leer num
