@@ -18,8 +18,10 @@ git merge fuentes/main main
 ## Alvaro Roberto Paredes Del Castillo
 ## César Peña Cadillo
 ## Fabian Huamani Zegarra
-# Probando descarga de objeto README
 ## César Peña Cadillo
 ## Marco Alfaro
 ## Omar Gonzales Torres
 ## Carlos usuriaga Guerrero
+## Wilbert Soto
+## Bruno Buttgenbach Gustavson
+## Valeria Milagros Ccoa Banda
