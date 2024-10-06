@@ -1,6 +1,6 @@
-Proceso Ejercicio04
-	//4. Hacer un algoritmo en Pseint que lea tres números enteros y los muestre de menor a mayor.
-	Definir num1, num2, num3 Como Real
+Proceso Ejercicio11
+	
+	Definir num1, num2, num3 Como Entero
 	
 	Escribir "Ingrese Primer Número"
 	Leer num1
@@ -9,7 +9,7 @@ Proceso Ejercicio04
 	Escribir "Ingrese Tercer Número"
 	Leer num3
 	
-		
+	
     Si num1 > num2 Entonces 	//si num1 es mayor que num2 se van a intercambiar los números para que en num1 siempre esté el número menor
         may = num1
         num1 = num2
@@ -28,9 +28,6 @@ Proceso Ejercicio04
         num3 = may
     Fin Si
 	
-    Escribir "Los números de menor a mayor son:"
-    Escribir num1
-	Escribir num2
-	Escribir num3	
-	
+    Escribir "El número mayor es: ", num3
+
 FinProceso
