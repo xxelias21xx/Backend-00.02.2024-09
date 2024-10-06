@@ -22,5 +22,6 @@ git merge fuentes/main main
 ## Marco Alfaro
 ## Omar Gonzales Torres
 ## Carlos usuriaga Guerrero
+## Wilbert Soto
 ## Bruno Buttgenbach Gustavson
 ## Valeria Milagros Ccoa Banda
