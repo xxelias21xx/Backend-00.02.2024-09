@@ -1,4 +1,4 @@
-Proceso Ejercicio21
+Proceso Ejercicio25
 	
 	Escribir "Ingrese un número positivo"
 	Leer num
@@ -17,15 +17,15 @@ Proceso Ejercicio21
 	SiNo
 		
 		Factorial = 1
+		i=1
 		
-		Para i<-1 Hasta num Con Paso 1 Hacer
+		Repetir
 			Factorial = Factorial * i
-		Fin Para
+			i = i + 1
+		Hasta Que i = num + 1
 		
 		Escribir "El factorial de ", num, " es ", factorial
 		
 	FinSi
-	
-
 	
 FinProceso
