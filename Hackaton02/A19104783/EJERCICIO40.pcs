@@ -1,0 +1,21 @@
+Proceso EJERCICIO40
+	Definir p, termino, i, n Como Real
+	
+    // Pedir al usuario el número de términos a calcular
+    Escribir "Ingrese el número de términos para la aproximación de Pi: "
+    Leer n
+	
+    // Inicializar las variables
+    p <- 3  // Primer término de la serie
+    termino <- 4
+	
+    // Calculamos la aproximación de Pi
+    Para i <- 1 Hasta n Hacer
+        p <- p + termino / (2*i * (2*i+1) * (2*i+2))
+        termino <- -termino  // Cambiamos el signo del término
+    FinPara
+	
+    // Mostramos el resultado
+    Escribir "La aproximación de Pi con ", n, " términos es: ", pi
+	
+FinProceso
