@@ -1,6 +1,6 @@
 Algoritmo Ejercicio27
-	//Hacer un algoritmo en Pseint para determinar la media de una lista indefinida de números positivos, se debe acabar el programa al ingresar un número negativo.
-	Definir num Como Real
+	//27.Hacer un algoritmo en Pseint para determinar la media de una lista indefinida de números positivos, se debe acabar el programa al ingresar un número negativo.
+	Definir num Como entero
 	suma = 0
 	contador = 0
 	
