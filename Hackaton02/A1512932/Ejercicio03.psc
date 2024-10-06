@@ -3,11 +3,11 @@ Algoritmo Ejercicio03
 	definir dato,ultimoDigito como entero
 	Escribir 'Escribe un numero, Alumnito:'
 	Leer dato
-	ultimoDigito = dato mod 20
+	ultimoDigito = dato mod 10
 	// Verificar si el último dígito es 4
     Si (ultimoDigito = 4) Entonces
       Escribir "El número termina en 4."
 	Sino
-		Escribir "No has ingresado un número válido."
+		Escribir "Ups!, Alumnito este  numero no termina en 4."
      FinSi
 FinAlgoritmo
