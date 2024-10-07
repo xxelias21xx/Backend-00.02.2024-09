@@ -9,19 +9,3 @@ git remote add fuentes https://github.com/rpinedaec83/Backend-00.02.2024-09.git
 git fetch fuentes
 
 git merge fuentes/main main
-
-
-# Profesor: Roberto Pineda
-
-## Luis Laos Chaqui 
-## Victor Elias Vivanco Rivera
-## Alvaro Roberto Paredes Del Castillo
-## César Peña Cadillo
-## Fabian Huamani Zegarra
-# Probando descarga de objeto README
-## César Peña Cadillo
-## Marco Alfaro
-## Omar Gonzales Torres
-## Carlos usuriaga Guerrero
-## Bruno Buttgenbach Gustavson
-## Bruno BG
