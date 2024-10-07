@@ -25,7 +25,5 @@ Proceso Ejercicio21
 		Escribir "El factorial de ", num, " es ", factorial
 		
 	FinSi
-	
-
-	
+		
 FinProceso
