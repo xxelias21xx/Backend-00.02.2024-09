@@ -6,13 +6,12 @@ Repo del grupo 00.02.2024-09
 
 
 # Extraer archivos nuevos del docente
+
 git fetch fuentes
 
 git merge fuentes/main main
 
-
 # Profesor: Roberto Pineda
-
 ## Luis Laos Chaqui 
 ## Victor Elias Vivanco Rivera
 ## Carlos usuriaga Guerrero
@@ -26,3 +25,4 @@ git merge fuentes/main main
 ## Wilbert Soto
 ## Bruno Buttgenbach Gustavson
 ## Valeria Milagros Ccoa Banda
+
