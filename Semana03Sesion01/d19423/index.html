@@ -13,6 +13,12 @@
         <button onclick="alert('Hola desde el boton')" >Click Me</button>
         <button id="miBoton">Mi Boton 2</button>
 
+        <div id="noVer" style="display: none;">
+            <h1>No deberias ver</h1>
+        </div>
+
+        <h1 id="titulo"></h1>
+
         <script>
             document.getElementById("miBoton").addEventListener("click", function(){
                 alert("Hola desde el otro boton");
@@ -21,6 +27,9 @@
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="script.js"></script>
-        
+        <script>
+            document.getElementById("titulo").innerHTML = camara3;
+        </script>
+
     </body>
 </html>
