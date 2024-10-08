@@ -4,6 +4,7 @@ Repo del grupo 00.02.2024-09
 
 # Conexión unilateral para extraer las actualizaciones de la carpeta del docente
 
+git remote add fuentes https://github.com/rpinedaec83/Backend-00.02.2024-09.git
 
 # Extraer archivos nuevos del docente
 
