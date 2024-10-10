@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+    color: azure;
+
+    h1 {
+        background-color: MediumSeaGreen;
+        color: black; /* same as #ff00ff */
+      }
+
+    }
