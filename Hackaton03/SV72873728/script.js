@@ -119,3 +119,34 @@ function Ejercicio6(){
         alert(`El sueldo es:  ${Sueldo} dolares`)
     }
 }
+
+function Ejercicio7(){
+    /*
+    *  7. Hacer un algoritmo en JavaScript para una tienda de helado que da un descuento por compra a sus clientes con membresía 
+        dependiendo de su tipo, sólo existen tres tipos de membresía, tipo A, tipo B y tipo C. Los descuentos son los siguientes:
+
+        Tipo A 10% de descuento
+        Tipo B 15% de descuento
+        Tipo C 20% de descuento
+    */
+    let Precio = parseFloat(prompt("Ingrese precio del helado"));
+    let Cantidad = parseInt(prompt("Ingrese cantidad de helados"));
+    let Tipo = String(prompt("Ingrese Membresía"));
+        
+    if (Tipo == "A"){
+        Descuento = 0.1
+    } else if (Tipo == "B"){
+        Descuento = 0.15
+    } else if (Tipo == "C"){
+        Descuento = 0.2
+    } else {
+        alert("Sin membresía")
+        Descuento = 0
+    }
+    
+    let PrecioFin = Cantidad * Precio * (1 - Descuento)
+
+    alert(`El precio por helado es:  ${Precio * (1 - Descuento)}
+    El descuento dado es de: ${Descuento * 100}%
+    El monto total a pagar es: ${PrecioFin}`)
+}
