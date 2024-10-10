@@ -151,3 +151,73 @@ function Ejercicio7(){
     El descuento dado es de: ${Descuento * 100}%
     El monto total a pagar es: ${PrecioFin}`)
 }
+
+function Ejercicio8(){
+    /*
+    *  8. Hacer un algoritmo en JavaScript para calcular el promedio de tres notas y determinar si el estudiante aprobó o no.
+    */
+    let nota1 = parseFloat(prompt("Ingrese nota 1"));
+    while (nota1 > 20 || nota1 < 0){
+        alert("Nota no válida")
+        nota1 = parseFloat(prompt("Ingrese nota 1"));
+    }
+    let nota2 = parseFloat(prompt("Ingrese nota 2"));
+    while (nota2 > 20 || nota2 < 0){
+        alert("Nota no válida")
+        nota2 = parseFloat(prompt("Ingrese nota 2"));
+    }
+    let nota3 = parseFloat(prompt("Ingrese nota 3"));
+    while (nota3 > 20 || nota3 < 0){
+        alert("Nota no válida")
+        nota3 = parseFloat(prompt("Ingrese nota 3"));
+    }
+
+    let promedio = (nota1 + nota2+ nota3) / 3
+
+    if (promedio < 10.5){
+        alert(`
+            La nota final es: ${promedio}
+            El alumno reprobó`)
+    } else {
+        alert(`
+            La nota final es: ${promedio}
+            El alumno aprobó`)       
+    }
+}
+
+function Ejercicio9(){
+    /*
+    *  9. Hacer un algoritmo en JavaScript para determinar el aumento de un trabajador, se debe tomar en cuenta que si ganaba 
+        más de $2000 tendrá un aumento del 5%, si generaba menos de $2000 su aumento será de un 10%.
+    */
+    let Sueldo_actual = parseFloat(prompt("Ingrese sueldo del trabajador"));
+    while(Sueldo_actual < 0){
+        alert("Dato no valido")
+        Sueldo_actual = parseFloat(prompt("Ingrese sueldo del trabajador"));
+    }
+    
+    if (Sueldo_actual > 2000){
+        aumento = 0.05
+    } else {
+        aumento = 0.1
+    }
+
+    let Sueldo_nuevo = Sueldo_actual * (1 + aumento)
+
+    alert(`El nuevo sueldo es: ${Sueldo_nuevo}`)
+}
+
+function Ejercicio10(){
+    /*
+    *  10. Hacer un algoritmo en JavaScript que diga si un número es par o impar.
+    */
+    let Dato = parseInt(prompt("Ingrese número"));
+
+    if(Dato == 0){
+        alert("El número es 0")
+    } else if(Dato % 2 == 0){
+        alert("El número es par")
+    } else{
+        alert("El número es impar")
+    }
+}
