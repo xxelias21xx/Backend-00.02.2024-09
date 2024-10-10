@@ -6,6 +6,8 @@ body{
         background-color: MediumSeaGreen;
         color: black; /* same as #ff00ff */
         text-align: center;
+        font-style: normal;
+        font-family: Century;
       }
 
     h2{
@@ -30,6 +32,7 @@ body{
       cursor: pointer;
       height: 40px;
       width: 148px;
+      font-family: Comic;
     }
 
     .button1 {
