@@ -131,7 +131,7 @@ function Ejercicio7(){
     */
     let Precio = parseFloat(prompt("Ingrese precio del helado"));
     let Cantidad = parseInt(prompt("Ingrese cantidad de helados"));
-    let Tipo = String(prompt("Ingrese Membresía"));
+    let Tipo = (prompt("Ingrese Membresía")).toUpperCase();
         
     if (Tipo == "A"){
         Descuento = 0.1
@@ -146,7 +146,8 @@ function Ejercicio7(){
     
     let PrecioFin = Cantidad * Precio * (1 - Descuento)
 
-    alert(`El precio por helado es:  ${Precio * (1 - Descuento)}
+    alert(`
+    El precio por helado es:  ${Precio * (1 - Descuento)}
     El descuento dado es de: ${Descuento * 100}%
     El monto total a pagar es: ${PrecioFin}`)
 }
