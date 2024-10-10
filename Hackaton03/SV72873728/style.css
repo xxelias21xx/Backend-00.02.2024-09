@@ -5,6 +5,7 @@ body{
     h1 {
         background-color: MediumSeaGreen;
         color: black; /* same as #ff00ff */
+        text-align: center;
       }
 
     }

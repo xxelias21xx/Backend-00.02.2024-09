@@ -221,3 +221,64 @@ function Ejercicio10(){
         alert("El número es impar")
     }
 }
+
+function Ejercicio11(){
+    /*
+    *  11. Hacer un algoritmo en JavaScript que lea tres números y diga cuál es el mayor.
+    */  
+    let num1 = parseInt(prompt("Ingrese primer número"));
+    let num2 = parseInt(prompt("Ingrese segundo número")); 
+    let num3 = parseInt(prompt("Ingrese tercer número")); 
+    let may = 0
+
+    if (num1 > num2){
+        may = num1
+        num1 = num2
+        num2 = may   
+    }
+
+    if (num1 > num3){
+        may = num1
+        num1 = num3
+        num3 = may   
+    }  
+
+    if (num2 > num3){
+        may = num2
+        num2 = num3
+        num3 = may   
+    }    
+
+    alert(`El número mayor es: ${num3}`)
+}
+
+function Ejercicio12(){
+    /*
+    *  12. Hacer un algoritmo en JavaScript que lea dos números y diga cuál es el mayor.
+    */      
+    let num1 = parseFloat(prompt("Ingrese primer número"));
+    let num2 = parseFloat(prompt("Ingrese segundo número")); 
+
+    if(num1 > num2){
+        alert(`El número mayor es: ${num1}`)
+    } else if (num2 > num1){
+        alert(`El número mayor es: ${num2}`)
+    } else if(num2 == num1){
+        alert(`${num1} es igual a ${num2}`)
+    } else {
+        alert("No válido")
+    }
+    }
+
+    function Ejercicio13(){
+        /*
+        *  13. Hacer un algoritmo en JavaScript que lea una letra y diga si es una vocal.
+        */
+        let Letra = (prompt("Ingrese Letra")).toUpperCase();
+            
+        if (Letra == "A" || Letra == "E" || Letra == "I" || Letra == "O" || Letra == "U"){
+            alert("La letra es vocal")
+        } else{
+            alert("La letra no es vocal")
+        }
+    }
