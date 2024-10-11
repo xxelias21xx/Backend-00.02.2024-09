@@ -25,8 +25,9 @@ function ejercicio2(){
 
 
 let arrNumeros=[]
-
+// let strInputHtml="e3_input1";
 function subproceso_ejercicio3(){
+    
     let elemento = document.getElementById("e3_input1").value;
     // console .log(elemento);
     arrNumeros.push(parseInt(elemento));
@@ -44,5 +45,67 @@ function ejercicio3(){
     }else{
         document.getElementById("Resultado_ejercicio3").innerHTML = "Sin valores";
     }
+    arrNumeros=[];
 }
 
+
+// let contadorVocales=0;
+function ejercicio4(){
+    /**
+    4. **Contar las vocales en una cadena:**  
+    Escribe una función que cuente cuántas vocales hay en una cadena de texto.
+    */   
+    // let contador =0;
+    // let resultado="";
+    // let vocales=['a','e','i','o','u']
+    let palabra = document.getElementById("e4_input1").value;
+    palabra = palabra.toLowerCase();
+    console.log(palabra)
+    let conteo = palabra.match(/[aeiou]/gi);
+    // let conteo = palabra.match(/[aeiou]]/gi);
+    console.log(conteo.length);
+    
+    document.getElementById("Resultado_ejercicio4").innerHTML = conteo.length;
+}
+
+function ejercicio5(){
+//     5. **Invertir una cadena:**  
+//    Crea una función que reciba una cadena y devuelva la misma cadena invertida.
+    let strPalabra = document.getElementById("e5_input1").value;
+    let resultado =""
+    for (let index = 0; index < strPalabra.length; index++) {
+        let charAux =strPalabra[strPalabra.length-(index+1)];
+        resultado=resultado+charAux;
+    }
+    document.getElementById("Resultado_ejercicio5").innerHTML = resultado;
+}
+
+// strInputHtml = "Resultado_ejercicio6";
+function subproceso_ejercicio6(){
+    
+    let elemento = document.getElementById("e6_input1").value;
+    // console .log(elemento);
+    arrNumeros.push(parseInt(elemento));
+    document.getElementById("e6_input1").value = '';
+    console.log (arrNumeros);
+    // document.getElementById("e3_input1").innerHTML = null;
+}
+function ejercicio6(){
+    //     **Filtrar números pares de un array:**  
+    //    Escribe una función que reciba un array de números y devuelva un nuevo array con solo los números pares.
+    // let aux = 0;
+    console.log(arrNumeros);
+    let arrPares =[];
+    for (let index = 0; index < arrNumeros.length; index++) {
+        if((arrNumeros[index] % 2) === 0 ){
+            arrPares.push(parseInt(arrNumeros[index]));
+        }
+    }
+    console.log(arrPares)
+    if (arrPares.length > 0){
+        document.getElementById("Resultado_ejercicio6").innerHTML = arrPares;
+    }else{
+        document.getElementById("Resultado_ejercicio6").innerHTML = "Sin valores";
+    }
+    
+}
