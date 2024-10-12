@@ -270,15 +270,210 @@ function Ejercicio12(){
     }
     }
 
-    function Ejercicio13(){
-        /*
-        *  13. Hacer un algoritmo en JavaScript que lea una letra y diga si es una vocal.
-        */
-        let Letra = (prompt("Ingrese Letra")).toUpperCase();
+function Ejercicio13(){
+    /*
+    *  13. Hacer un algoritmo en JavaScript que lea una letra y diga si es una vocal.
+    */
+    let Letra = (prompt("Ingrese Letra")).toUpperCase();
             
-        if (Letra == "A" || Letra == "E" || Letra == "I" || Letra == "O" || Letra == "U"){
-            alert("La letra es vocal")
-        } else{
-            alert("La letra no es vocal")
+    if (Letra == "A" || Letra == "E" || Letra == "I" || Letra == "O" || Letra == "U"){
+        alert("La letra es vocal")
+    } else{
+        alert("La letra no es vocal")
+    }
+}
+
+function Ejercicio14(){
+    /*
+    *  14. Hacer un algoritmo en JavaScript que lea un entero positivo del 1 al diez y determine si es un número primo.
+    */
+    let Num = parseInt(prompt("Ingrese número del 0 al 10"));
+    while(Num > 10 || Num < 0){
+        alert("Número no valido")
+        Num = parseInt(prompt("Ingrese número del 0 al 10"));
+    }
+        
+    var primo = 0
+
+    if (Num < 2){
+        primo = 1
+    }
+
+    for (let i = 2; i < Num - 1; i++){
+        if (Num % i == 0){
+            primo = 1
         }
     }
+
+    if (primo == 1){
+        alert("El número no es primo");
+    } else{
+        alert("El número es primo");
+    }
+}
+        
+function Ejercicio15(){
+    /*
+    *  15. Hacer un algoritmo en JavaScript que convierta centímetros a pulgadas y libras a kilogramos.
+    */
+    let Oper = parseInt(prompt(`Ingrese operación que quiere realizar
+        1: Centímetros a pulgadas
+        2: Libras a kilogramos`));
+    switch (Oper){
+        case 1:
+            let centimetro = parseFloat(prompt("Ingrese centimetros"));
+            var pulgadas = centimetro / 2.54
+            alert(`${centimetro} centimetros son: ${pulgadas} pulgadas`);
+        break;
+        case 2:
+            let libras = parseFloat(prompt("Ingrese libras"));
+            var kilogramos = libras / 2.20462
+            alert(`${libras} libras son: ${kilogramos} kilogramos`);
+        break;
+        default:
+            alert("No es operación válida");      
+    }
+}
+
+function Ejercicio16(){
+    /*
+    *  16. Hacer un algoritmo en JavaScript que lea un número y según ese número, indique el día que corresponde.os.
+    */
+    let num = parseInt(prompt(`Ingrese número de día (1 al 7)`));
+    switch (num){
+        case 1:
+            alert(`El día es lunes`);
+        break;
+        case 2:
+            alert(`El día es martes`);
+        break;
+        case 3:
+            alert(`El día es miercoles`);
+        break;
+        case 4:
+            alert(`El día es jueves`);
+        break;
+        case 5:
+            alert(`El día es viernes`);
+        break;
+        case 6:
+            alert(`El día es sabado`);
+        break;
+        case 7:
+            alert(`El día es domigo`);
+        break;
+        default:
+            alert("No es dato válido");      
+    }
+}
+
+function Ejercicio17(){
+    /*
+    *  17. Hacer un algoritmo en JavaScript donde se ingrese una hora y nos calcule la hora dentro de un segundo.
+    */
+    var hora = parseInt(prompt(`Ingrese Horas (0 - 24)`));
+    var min = parseInt(prompt(`Ingrese minutos (0 - 60)`));
+    var seg = parseInt(prompt(`Ingrese segundos (0 - 60)`));
+
+    seg = seg + 1
+
+    if (seg == 60){
+        seg = 0
+        min = min + 1
+    }
+
+    if (min == 60){
+        min = 0
+        hora = hora + 1
+    }
+
+    if (hora == 24){
+        hora = 0
+    }
+
+    alert(`La hora en un segundo será: ${hora}:${min}:${seg}`)
+}
+
+function Ejercicio18(){
+    /*
+    *  18. Hacer un algoritmo en JavaScript para una empresa se encarga de la venta y distribución de CD vírgenes. 
+        Los clientes pueden adquirir los artículos (supongamos un único producto de una única marca) por cantidad. Los precios son:
+
+        $10. Si se compran unidades separadas hasta 9.
+
+        $8. Si se compran entre 10 unidades hasta 99.
+
+        $7. Entre 100 y 499 unidades.
+
+        $6. Para mas de 500 unidades.
+
+    La ganancia para el vendedor es de 8,25 % de la venta. Realizar un algoritmo en JavaScript que dado un número de CDs a vender
+     calcule el precio total para el cliente y la ganancia para el vendedor.
+    */
+    let cantidad = parseInt(prompt(`Ingrese cantidad de CDs que desea comprar`));
+
+    if(cantidad < 0){
+        alert("Cantidad equivocada")
+    } else{
+        if(cantidad <= 9){
+            var precio = 10
+        }
+        if(cantidad > 9 && cantidad <= 99){
+            var precio = 8
+        }
+        if(cantidad > 99 && cantidad <= 499){
+            var precio = 7
+        }
+        if(cantidad > 499){
+            var precio = 6
+        }
+        let precio_fin = cantidad * precio
+        let ganancia = precio_fin * 0.0825
+
+        alert(`El monto total a pagar es: ${precio_fin}
+        Ganancia: ${ganancia}`)
+        
+    }
+}
+
+function Ejercicio19(){
+    /*
+    *  19. Hacer un algoritmo en JavaScript para una heladería se tienen 4 tipos de empleados ordenados de la siguiente forma
+     con su número identificador y salario diario correspondiente:
+
+    Cajero (56$/día).
+
+    Servidor (64$/día).
+
+    Preparador de mezclas (80$/día).
+
+    Mantenimiento (48$/día).
+
+    El dueño de la tienda desea tener un programa donde sólo ingrese dos números enteros que representen al número identificador
+    del empleado y la cantidad de días que trabajó en la semana (6 días máximos). Y el programa le mostrará por pantalla la cantidad
+     de dinero que el dueño le debe pagar al empleado que ingresó
+    */
+     let codigo = parseInt(prompt("Ingrese código de trabajador"));
+     let dias = parseInt(prompt("Ingrese dias trabajados"));
+    while(dias > 6 || dias < 0){
+        alert("Número no valido")
+        dias = parseInt(prompt("Ingrese dias trabajados"));
+    }
+    switch (codigo){
+        case 1:
+            var sueldo = 56 * dias;
+        break;
+        case 2:
+            var sueldo = 64 * dias;
+        break;
+        case 3:
+            var sueldo = 80 * dias;
+        break;
+        case 4:
+            var sueldo = 48 * dias;
+        break;
+        default:
+            alert("No es código válido");      
+    }
+    alert(`El monto a pagar es de: ${sueldo}`)
+}
