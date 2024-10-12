@@ -477,3 +477,362 @@ function Ejercicio19(){
     }
     alert(`El monto a pagar es de: ${sueldo}`)
 }
+
+function Ejercicio20(){
+    /*
+    20. Hacer un algoritmo en JavaScript que que lea 4 números enteros positivos y verifique y realice las siguientes operaciones:
+
+    ¿Cuántos números son Pares?
+
+    ¿Cuál es el mayor de todos?
+
+    Si el tercero es par, calcular el cuadrado del segundo.
+
+    Si el primero es menor que el cuarto, calcular la media de los 4 números.
+
+    Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700. 
+    Si cumple se cumple la segunda condición, calcular la suma de los 4 números.
+    */
+    
+    let num1 = parseInt(prompt("Ingrese Primer Número entero positivo"));
+    while(num1 < 0){
+        alert("Número no valido")
+        num1 = parseInt(prompt("Ingrese Primer Número entero positivo"));
+    }
+    let num2 = parseInt(prompt("Ingrese Segundo Número entero positivo"));
+    while(num2 < 0){
+        alert("Número no valido")
+        num2 = parseInt(prompt("Ingrese Segundo Número entero positivo"));
+    }
+    let num3 = parseInt(prompt("Ingrese Tercer Número entero positivo"));
+    while(num3 < 0){
+        alert("Número no valido")
+        num3 = parseInt(prompt("Ingrese Tercer Número entero positivo"));
+    }
+    let num4 = parseInt(prompt("Ingrese Cuarto Número entero positivo"));
+    while(num4 < 0){
+        alert("Número no valido")
+        num4 = parseInt(prompt("Ingrese Cuarto Número entero positivo"));
+    }
+
+    // -----------------Cantidad de números pares-------------------------//
+
+    let pares = 0;
+    if (num1 % 2 == 0){
+        pares = pares + 1;
+    }
+
+    if (num2 % 2 == 0){
+        pares = pares + 1;
+    }
+
+    if (num3 % 2 == 0){
+        pares = pares + 1;
+    }
+
+    if (num4 % 2 == 0){
+        pares = pares + 1;
+    }
+
+    alert(`Hay ${pares} números pares`)
+
+    // -----------------Mayor de todos-------------------------//
+
+    let mayor = num1;
+    if (mayor < num2){
+        mayor = num2;
+    }
+    if (mayor < num3){
+        mayor = num3;
+    }
+    if (mayor < num4){
+        mayor = num4;
+    }
+
+    alert(`El número mayor es ${mayor}`)
+
+    // -----------------Si el tercero es par, calcular el cuadrado del segundo-------------------------//
+
+    if (num3 % 2 == 0){
+        let cuadrado = num2 * num2;
+        alert(`El tercero es par y el cuadrado del segundo es: ${cuadrado}`)
+    } else{
+        alert("El tercero no es par")
+    }
+
+    // -----------------Si el primero es menor que el cuarto, calcular la media de los 4 números-------------------------//
+
+    if (num1 < num4){
+        let media = (num1 + num2 + num3 + num4) / 4;
+        alert(`El primero es menor que el cuarto número. La media es: ${media}`)
+    } else{
+        alert(`El primero no es menor que el cuarto`)
+    }
+
+    /* ---------Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700--------------
+     -------------------   Si cumple se cumple la segunda condición, calcular la suma de los 4 números------------------------------*/
+     
+    if (num2 > num3){
+        if(num3 <= 700 && num3 >=50){
+            let suma = num1 + num2 + num3 + num4;
+            alert(`El segundo es mayor que el tercero y el tercero se encuentra entre 50 y 700. La suma de los 4 nuemros es: "${suma}`)
+        } else{
+            alert(`El tercer número no esta entre 50 y 700`)
+        }
+    } else{
+        alert(`El segundo número no es mayor que el tercero`)
+    }
+    
+}
+
+function Ejercicio21(){
+    /*
+    *  21. Hacer un algoritmo en JavaScript que permita calcular el factorial de un número.
+    */
+    let num = parseInt(prompt("Ingrese un número positivo"));
+    while(num < 0){
+        alert("Número no válido")
+        num = parseInt(prompt("Ingrese un número positivo"));
+    }
+    
+    if (num == 0){
+        var factorial = 1
+        alert(`El factorial de ${num} es ${factorial}`)
+    } else {
+        var factorial = 1
+        for(let i = 1;i <= num; i++){
+            var factorial = factorial * i;
+        }
+        alert(`El factorial de ${num} es ${factorial}`)
+    }
+}
+
+function Ejercicio22(){
+    /*
+    *  22. Hacer un algoritmo en JavaScript para calcular la suma de los n primeros números.
+    */
+    let num = parseInt(prompt("Ingrese un número positivo"));
+    while(num < 0){
+        alert("Número no válido")
+        num = parseInt(prompt("Ingrese un número positivo"));
+    }
+    
+    let suma = num * (num + 1) / 2
+
+    alert(`La suma de los primeros ${num} números es ${suma}`)
+}
+
+function Ejercicio23(){
+    /*
+    *  23. Hacer un algoritmo en JavaScript para calcular la suma de los números impares menores o iguales a n.
+    */
+    let num = parseInt(prompt("Ingrese un número positivo"));
+    while(num < 0){
+        alert("Número no válido")
+        num = parseInt(prompt("Ingrese un número positivo"));
+    }
+    
+    var suma = 0;
+
+    for (let i = 1; i <= num; i++){
+        if (i % 2 != 0){
+            var suma = suma + i;
+        }
+    }
+
+    alert(`La suma de los primeros ${num} números impares es ${suma}`)
+}
+
+function Ejercicio24(){
+    /*
+    *  24. Hacer un algoritmo en JavaScript para realizar la suma de todos los números pares hasta el 1000.
+    */
+    var suma = 0;
+    for (let i = 1; i <= 1000; i++){
+        if (i % 2 == 0){
+            var suma = suma + i;
+        }
+    }
+
+    alert(`La suma de los primeros 1000 números pares es ${suma}`)
+}
+
+function Ejercicio25(){
+    /*
+    *  25. Hacer un algoritmo en JavaScript para calcular el factorial de un número de una forma distinta.
+    */
+    let num = parseInt(prompt("Ingrese un número positivo"));
+    while(num < 0){
+        alert("Número no válido")
+        num = parseInt(prompt("Ingrese un número positivo"));
+    }
+    
+    if (num == 0){
+        var factorial = 1
+        alert(`El factorial de ${num} es ${factorial}`)
+    } else {
+        var factorial = 1
+        let i = 1
+
+        do {
+            factorial= factorial * i;
+            i = i + 1;
+        }
+        while (i <= num)
+
+        alert(`El factorial de ${num} es ${factorial}`)
+    }
+}
+
+function Ejercicio26(){
+    /*
+    *  26. Hacer un algoritmo en JavaScript para calcular el resto y cociente por medio de restas sucesivas.
+    */
+    let dividendo = parseInt(prompt("Ingrese el dividendo: "));
+    let divisor = parseInt(prompt("Ingrese el divisor: "));
+    var i = 0
+    if (divisor == 0){
+        alert("No se puede dividir entre 0")
+    } else {
+        let resto = dividendo;
+
+        while (resto >= divisor){
+            resto = resto - divisor;
+            var i = i + 1;
+        }
+        alert(`El cociente es: ${i}`)
+        alert(`El resto es: ${resto}`)
+    }
+  }
+
+  function Ejercicio27(){
+    /*
+    *  27. Hacer un algoritmo en JavaScript para determinar la media de una lista 
+        indefinida de números positivos, se debe acabar el programa al ingresar un número negativo.
+    */
+   var num = 0
+   var i = 0
+   var suma = 0
+   var bandera = 1
+
+   while (bandera == 1){
+    let num = parseInt(prompt("Ingrese un número positivo para sumar o un número negativo para terminar"));
+    if (num < 0){
+        bandera = 0;
+    } else {
+        suma = suma + num;
+        i = i + 1;
+    }
+   }
+
+   if (i == 0){
+    alert("No ingresó datos")
+   } else {
+    let media = suma / i;
+    alert(`La media es: ${media}`)
+   }
+}
+
+function Ejercicio28(){
+    /*
+    *  28. Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo repetir.
+    */
+    var suma = 0;
+    var i = 1;
+
+    do{
+        suma = suma + i;
+        i = i + 1;
+    }
+    while (i <= 100);
+    alert(`La suma es: ${suma}`)
+}
+
+function Ejercicio29(){
+    /*
+    *  29. Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo mientras.
+    */
+    var suma = 0;
+    var i = 1;
+
+    while (i <=100){
+        suma = suma + i;
+        i = i + 1
+    }
+    alert(`La suma es: ${suma}`)
+}
+
+function Ejercicio30(){
+    /*
+    *  30. Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo para.
+    */
+    var suma = 0;
+    var i = 1;
+
+    for (i = 1; i <=100; i++){
+        suma = suma + i;
+    }
+    alert(`La suma es: ${suma}`)
+}
+
+function Ejercicio31(){
+    /*
+    *  31. Hacer un algoritmo en JavaScript parar calcular la media de los números pares e impares, sólo se ingresará diez números.
+    */
+    var suma_par = 0;
+    var suma_impar = 0;
+    var contador_par = 0;
+    var contador_impar = 0;
+    var media_par = 0;
+    var media_impar = 0;
+    var i = 0;
+
+    for (i = 1; i <=10; i++){
+        let num = parseInt(prompt("Ingrese número"));
+        if (num % 2 == 0){
+            suma_par = suma_par + num;
+            contador_par = contador_par + 1;
+        } else {
+            suma_impar = suma_impar + num;
+            contador_impar = contador_impar + 1
+        }
+    }
+
+    if (contador_par == 0){
+        alert("No hay números pares")
+    } else{
+        media_par = suma_par / contador_par;
+        alert(`La media de los números pares es: ${media_par}`)
+    }
+    
+    if (contador_impar == 0){
+        alert("No hay números pares")
+    }else{
+        media_impar = suma_impar / contador_impar;
+        alert(`La media de los números impares es: ${media_impar}`)
+    }
+}
+
+function Ejercicio32(){
+    /*
+    *  32. Se quiere saber cuál es la ciudad con la población de más personas, 
+    son tres provincias y once ciudades, hacer un algoritmo en JavaScript que nos permita saber eso.
+    */
+
+    let ciudad, poblacion, maxpoblacion, maxciudad, i;
+
+    maxpoblacion = 0;
+
+
+    for (i = 1; i <=14; i++){
+        ciudad = toString(prompt(`Ingrese el nombre de la ciudad/provincia ${i}`));
+        poblacion = toString(prompt(`Ingrese Población de la ciudad/provincia ${i}`));
+    
+
+        if (poblacion > maxpoblacion){
+            maxpoblacion = poblacion;
+            maxciudad = ciudad;
+        }
+    }
+    alert(`La ciudad/Provincia con mayor población es: ${maxciudad}`)
+}
