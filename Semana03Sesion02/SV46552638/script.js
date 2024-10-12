@@ -107,5 +107,70 @@ function ejercicio6(){
     }else{
         document.getElementById("Resultado_ejercicio6").innerHTML = "Sin valores";
     }
+}
+
+function ejercicio7() {
+//     7. **Generar números aleatorios únicos:**  
+//    Crea una función que genere un array de números aleatorios sin repetición dentro de un rango dado.
+    let intRangoInferior=document.getElementById("e7_input1").value;
+    let intRangoSuperior=document.getElementById("e7_input2").value;
+    let intLongitud= document.getElementById("e7_input3").value;
+    let arrRandom =[];
+    for (let index = 0; index < intLongitud; index++) {
+        arrRandom.push( Math.floor(Math.random()*(intRangoSuperior-intRangoInferior+1)+intRangoInferior));
+    }
+    document.getElementById("Resultado_ejercicio7").innerHTML=arrRandom;
+
+}
+
+function ejercicio8(){
+//     8. **Contar palabras en una cadena:**  
+//    Escribe una función que cuente cuántas palabras hay en una cadena.
+    let strFrase=document.getElementById("e8_input1").value;
+    console.log(strFrase);
+    let contador=0;
+    let charAux=' ';
+    // let conteo = strFrase.match(/" "/gi);
+    for (let index = 0; index < strFrase.length; index++) {
+        if (strFrase[index] === charAux){
+            contador ++;
+        }
+        // console.log(strFrase[index]);
+    }
+    console.log(contador);
+    document.getElementById("Resultado_ejercicio8").innerHTML=contador;
+}
+
+function ejercicio9(){
+//     9. **Comprobar si una cadena es un palíndromo:**  
+//    Crea una función que determine si una cadena es un palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda).
     
+    let strTexto=document.getElementById("e9_input1").value;
+    let strAuxiliar="";
+    
+    for (let index = 0; index < strTexto.length; index++) {
+        let charAux =strTexto[strTexto.length-(index+1)];
+        strAuxiliar=strAuxiliar+charAux;
+    }
+
+    strTexto === strAuxiliar 
+    ?   document.getElementById("Resultado_ejercicio9").innerHTML= "El Texto es Palíndromo"
+    : document.getElementById("Resultado_ejercicio9").innerHTML= "El Texto NO es Palíndromo";
+}
+
+let arrElementos=[];
+function subproceso_ejercicio10(){
+    
+    let elemento = document.getElementById("e10_input1").value;
+    // console .log(elemento);
+    arrElementos.push(elemento);
+    document.getElementById("e10_input1").value = '';
+    console.log(arrElementos)
+}
+
+function ejercicio10(){
+    // 10. **Eliminar elementos duplicados de un array:**  
+    // Escribe una función que elimine los elementos duplicados de un array.
+    let arrNuevo = [...new Set(arrElementos)];
+    document.getElementById("Resultado_ejercicio10").innerHTML=arrNuevo;
 }
