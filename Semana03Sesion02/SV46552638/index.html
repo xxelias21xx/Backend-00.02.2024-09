@@ -72,22 +72,45 @@
             </li>
             <br>
             <li>
-                <input type="text" id="e10_input1" placeholder="Numero: ">
-                <button onclick="subproceso_ejercicio10()">Agregar</button><br>
+                <input type="text" id="e10_input1" placeholder="Elemento: ">
+                <button onclick="subproceso_arraglo('e10_input1')">Agregar</button><br>
                 <button onclick="ejercicio10()" >Ejercio 10</button><br>
                 <label for="" id="Resultado_ejercicio10">Nuevo Arreglo</label><br>
             </li>
             <br>
             <li>
-                <button onclick="ejercicio11()" >Ejercio 11</button>
+                <h6>Ingrese un texto a tranformar </h6>
+                <input type="text" id="e11_input1" placeholder=" "><br>
+                <!-- <button onclick="subproceso_TextoArreglo('e11_input1')">Agregar</button><br> -->
+                <!-- <button onclick="ejercicio11('e11_input1')" >agregar</button><br> -->
+                <label for="">Arreglo Optenido:</label><br>
+                <label for="" id="Resultado1_ejercicio11"> </label><br>
+                <h6>Tipo de ordenamiento</h6>
+                <input type="radio" name="ordenE11" id="ascendente" value="ascendente" checked>
+                <label for="ascendente">Ascendente</label>
+              
+                <input type="radio" name="ordenE11" id="descendente" value="descendente">
+                <label for="descendente">Descendente</label><br>
+              
+                <button onclick="ejercicio11('e11_input1','ordenE11')">Ejercicio 11</button>
+                <br>
+              
+                <label for="" >Nuevo Arreglo: </label><br>
+              
+                <label for="" id="Resultado2_ejercicio11"> </label><br>
             </li>
             <br>
             <li>
-                <button onclick="ejercicio12()" >Ejercio 12</button>
+                <input type="email" id="e12_input1" placeholder="Correo Electrónico: ">
+                <button onclick="ejercicio12()" >Ejercio 12</button><br>
+                <label for="" id ="Resultado_ejercicio12">Validación</label>
             </li>
             <br>
             <li>
-                <button onclick="ejercicio13()" >Ejercio 13</button>
+                <input type="number" id="e13_input1" placeholder="Número: ">
+                <button onclick="ejercicio13()" >Ejercio 13</button><br>
+                <label for="">Conversión :</label>
+                <label for="" id ="Resultado_ejercicio13"> </label>
             </li>
             <br>
             <li>
@@ -103,11 +126,20 @@
             </li>
             <br>
             <li>
-                <button onclick="ejercicio17()" >Ejercio 17</button>
+                <input type="text" id="e17_input1" placeholder="Ingrese un texto: ">  
+                <input type="text" id="e17_input2" placeholder="subtexto: ">  
+                <button onclick="ejercicio17()" >Ejercio 17</button><br>
+                <label for="">Búsqueda :</label>
+                <label for="" id ="Resultado_ejercicio17"> </label>
             </li>
             <br>
             <li>
-                <button onclick="ejercicio18()" >Ejercio 18</button>
+                <input type="number" id="e18_input1" placeholder="Número: ">
+                <button onclick="subproceso_arraglo_18('e18_input1')">Agregar</button><br>
+                <button onclick="ejercicio18()" >Ejercio 18</button><br>
+                <label for="">El mayor es :</label>
+                <label for="" id ="Resultado_ejercicio18"> </label>
+                
             </li>
             <br>
             <li>

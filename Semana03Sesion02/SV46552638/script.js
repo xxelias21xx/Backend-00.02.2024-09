@@ -157,20 +157,192 @@ function ejercicio9(){
     ?   document.getElementById("Resultado_ejercicio9").innerHTML= "El Texto es Palíndromo"
     : document.getElementById("Resultado_ejercicio9").innerHTML= "El Texto NO es Palíndromo";
 }
-
+//creando una funcion generica para agregar arreglos para cualquier ejercicio
 let arrElementos=[];
-function subproceso_ejercicio10(){
+function subproceso_arraglo(inputId){
     
-    let elemento = document.getElementById("e10_input1").value;
+    let elemento = document.getElementById(inputId).value;
     // console .log(elemento);
     arrElementos.push(elemento);
-    document.getElementById("e10_input1").value = '';
+    document.getElementById(inputId).value = '';
     console.log(arrElementos)
 }
 
 function ejercicio10(){
     // 10. **Eliminar elementos duplicados de un array:**  
     // Escribe una función que elimine los elementos duplicados de un array.
+    // document.getElementById("e10_input1").innerHTML=arrElementos;
     let arrNuevo = [...new Set(arrElementos)];
     document.getElementById("Resultado_ejercicio10").innerHTML=arrNuevo;
+    arrElementos=[];
 }
+
+//creando una funcion generica para convertir texto -> arreglo
+function subproceso_TextoArreglo(inputId) {
+    
+    let elemento = document.getElementById(inputId).value;
+    console.log(elemento);
+    let nuevoArr=elemento.split("");
+    // const nuevoArr = Array.from(elemento);
+    console.log(nuevoArr);
+    return nuevoArr;
+}
+
+//funcio para procesar opciones seleccionadeas del radio button
+function subproceso_RadioButton(nameRadio){
+    //recepciono un arreglo con todas las opciones y verifico cual ha sido seleccionada
+    let arrRadios = document.getElementsByName(nameRadio);
+    for (let radio of arrRadios) {
+      if (radio.checked) {
+        // Retorna el valor del radio seleccionado
+        return radio.value; 
+      }
+    }
+}
+
+function ejercicio11(inputId,nameRadio) {
+    // 11. **Ordenar un array de objetos por propiedad:**  
+    // Crea una función que reciba un array de objetos y ordene estos objetos según una propiedad específica.
+    // opteniedo el arreglo
+    let arrNuevo= subproceso_TextoArreglo(inputId);
+    // console.log(arrNuevo);
+    document.getElementById("Resultado1_ejercicio11").innerHTML=arrNuevo;
+    //opteniedo seleccion del radio button
+    let orden= subproceso_RadioButton(nameRadio);
+
+    if (orden === "ascendente") {
+        // Orden ascendente
+        arrNuevo.sort(); 
+      } else if (orden === "descendente") {
+        // Orden descendente
+        arrNuevo.sort().reverse(); 
+    }
+    document.getElementById("Resultado2_ejercicio11").innerHTML=arrNuevo;
+}
+
+function ejercicio12() {
+    // 12. **Validar un email:**  
+    // Escribe una función que valide si una cadena tiene el formato de un email válido.
+    let correo = document.getElementById('e12_input1').value;
+    console.log(correo);
+    let expresion = /(@|\.com|\s)/gi;
+    // let expresion = /(@|\.com)/gi;
+    let conicidencias = correo.match(expresion);
+    let bandera1=conicidencias.includes(' ');
+    console.log("bandera 1",bandera1);
+    let bandera2=false
+
+
+    if ( (conicidencias.length <3)){
+        let con1=0;
+        let con2=0;
+        
+        for (let conicidencia of conicidencias){
+            if(conicidencia === '@'){
+                con1++;
+            }
+            if(conicidencia === '.com'){
+                con2++;
+            }
+        }
+        if((con1 === 1)&& (con2 === 1)){
+            bandera2= true;
+        }
+        console.log("bandera 2",bandera2);
+    }else{
+        console.log("bandera 2",bandera2);
+    }
+
+
+    if (!bandera1 && bandera2){
+        document.getElementById("Resultado_ejercicio12").innerHTML="Correo Válido";
+    }else{
+        document.getElementById("Resultado_ejercicio12").innerHTML="Correo Inválido";
+    }   
+    
+}
+
+function ejercicio13() {
+    // 13. **Convertir un número en formato moneda:**  
+    // Crea una función que formatee un número como una moneda, por ejemplo, "1,000.00".
+    let strNumero= parseFloat(document.getElementById('e13_input1').value);
+    const monedaSoles = strNumero.toLocaleString('es-PE', {
+        style: 'currency',
+        currency: 'PEN',
+        minimumFractionDigits: 2
+      });
+    
+      document.getElementById("Resultado_ejercicio13").innerHTML  = monedaSoles;
+}
+
+function ejercicio14(){
+    // 14. **Verificar si todos los elementos de un array cumplen una condición:**  
+    // Escribe una función que reciba un array y una condición, y verifique si todos los elementos del array cumplen con dicha condición.
+}
+
+function ejercicio15(){
+    // 15. **Crear un temporizador (countdown):**  
+    // Crea una función que reciba una cantidad de segundos y haga un temporizador que cuente hacia atrás.
+
+}
+function ejercicio16(){
+    // 16. **Sumar matrices de dos dimensiones:**  
+    // Escribe una función que reciba dos matrices de dos dimensiones (matrices de números) y devuelva la suma de ambas.
+}
+function ejercicio17(){
+    // 17. **Comprobar si una cadena contiene otra cadena:**  
+    // Crea una función que determine si una cadena contiene otra cadena, sin usar el método `includes`.
+    let texto = document.getElementById("e17_input1").value;
+    // console.log(texto);
+    let subTexto = document.getElementById("e17_input2").value;
+    // console.log(subTexto);
+    let expresion = new RegExp(subTexto, 'gi');
+    // console.log(expresion);
+    let conicidencias = texto.match(expresion);
+    //  console.log(conicidencias);
+    if(conicidencias.length > 0){
+        document.getElementById("Resultado_ejercicio17").innerHTML  = "Encontrado";
+    }else{
+        document.getElementById("Resultado_ejercicio17").innerHTML  = "No encontrado";
+    }   
+}
+let arrElementos2=[];
+function subproceso_arraglo_18(inputId){
+    
+    let elemento = parseInt(document.getElementById(inputId).value);
+    // console .log(elemento);
+    arrElementos2.push(elemento);
+    document.getElementById(inputId).value = '';
+    console.log(arrElementos2);
+}
+
+function ejercicio18(){
+    // 18. **Buscar el número más grande en un array:**  
+    // Escribe una función que encuentre el número más grande en un array sin usar el método `Math.max`.
+    let mayor=-999;
+    console.log(arrElementos2.length);
+    for (let index = 0; index < arrElementos2.length; index++) {
+        
+        arrElementos[index]= parseInt( arrElementos2[index]);
+        
+        if(arrElementos2[index]>mayor){
+            
+            mayor = arrElementos[index];
+        }
+    }     
+    document.getElementById("Resultado_ejercicio18").innerHTML  = mayor;   
+    arrElementos2=[];
+}
+
+function ejercicio19(){
+    // 19. **Convertir una cadena de snake_case a camelCase:**  
+    // Crea una función que convierta una cadena en formato `snake_case` a `camelCase`.
+
+    
+}
+function ejercicio20(){
+    // 20. **Clonar un objeto sin referencias:**  
+    // Escribe una función que clone un objeto sin referencias a la memoria original (deep copy).
+    
+}
+
