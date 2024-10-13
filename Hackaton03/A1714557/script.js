@@ -588,6 +588,35 @@ function ejercicio30() {
     alert(`La suma de los primeros 100 numeros es: ${suma}`);
 }
 
+function ejercicio31() {
+    let cantpar,cantimp,sumpar,sumimp,medpar,medimp;
+    cantpar=0;
+    cantimp=0;
+    sumpar=0;
+    sumimp=0;
+    for (let cont = 0; cont <= 10; cont++) {
+        const nroing=+prompt("Ingresar el valor numerico.");
+        if (nroing % 2 == 0) {
+            cantpar=cantpar+1;
+            sumpar=sumpar+nroing;
+        }
+        if (nroing % 2 != 0) {
+            cantimp=cantimp+1;
+            sumimp=sumimp+nroing;
+        }
+    }
+    if (cantpar == 0) {
+        console.log("No se han ingresado numeros pares");
+    } else {
+        console.log(`La media de los numeros pares es: ${sumpar}`);
+    }
+    if (cantimp==0) {
+        console.log("No se han ingresado numeros impares.");
+    } else {
+        console.log(`La media de los numeros impares es: ${sumimp}`);
+    }
+}
+
 function ejercicio32() {
     let nombreProvincia, nombreCiudad, ciudadMayorPoblacion;
     let poblacion, mayorPoblacion;
