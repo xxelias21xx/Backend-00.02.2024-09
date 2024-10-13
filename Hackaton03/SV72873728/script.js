@@ -825,8 +825,8 @@ function Ejercicio32(){
 
 
     for (i = 1; i <=14; i++){
-        ciudad = toString(prompt(`Ingrese el nombre de la ciudad/provincia ${i}`));
-        poblacion = toString(prompt(`Ingrese Población de la ciudad/provincia ${i}`));
+        ciudad = (prompt(`Ingrese el nombre de la ciudad/provincia ${i}`));
+        poblacion = parseInt(prompt(`Ingrese Población de la ciudad/provincia ${i}`));
     
 
         if (poblacion > maxpoblacion){
@@ -835,4 +835,92 @@ function Ejercicio32(){
         }
     }
     alert(`La ciudad/Provincia con mayor población es: ${maxciudad}`)
+}
+
+function Ejercicio33(){
+    /*
+    *  33. Hacer un algoritmo en JavaScript que permita al usuario continuar con el programa.
+    */
+    var bandera = 1;
+    do{
+        let respuesta = (prompt(`¿Desea continuar con el programa? Si: S, No: N"`)).toUpperCase();
+       
+        switch (respuesta){
+            case "S":
+                bandera = 1;
+                break;
+            case "N":
+                bandera = 0;
+                break;
+            default:
+                alert("No es una opcion válida");
+        }
+    }
+    while (bandera == 1);
+}
+
+function Ejercicio34(){
+    /*
+    *  34. Hacer un algoritmo en JavaScript que imprima la tabla de multiplicar de los números del uno al nueve.
+    */
+
+    for (let i = 1; i <= 9; i++){
+        alert(`Tabla del ${i}`);
+        for (let j = 1; j <= 9; j++){
+            var mul = i * j;
+            alert(`${i} x ${j} = ${mul}`);
+        }
+    }
+}
+
+function Ejercicio35(){
+    /*
+    *  35. Hacer un algoritmo en JavaScript que nos permita saber cuál es el número mayor y menor, se debe ingresar sólo veinte números.
+    */
+
+    for (let i = 1; i <= 20; i++){
+        var num = parseInt(prompt(`Ingrese número ${i}`));
+        if(i == 1){
+            var menor = num;
+            var mayor = num;
+        }
+        if(num > mayor){
+            mayor = num;
+        }
+        if(num < menor){
+            menor = num;
+        }
+    }
+    alert(`El número mayor es ${mayor}
+El número menor es ${menor}`)
+}
+
+function Ejercicio36(){
+    /*
+    *  36. Hacer un algoritmo en JavaScript para calcular la serie de Fibonacci.
+    */
+    
+    let cantidad = parseInt(prompt(`Ingrese cantidad de números de la serie`));
+
+    var primero = 0;
+    var segundo = 1;
+
+    for (let i = 1; i <= cantidad; i++){
+        if (i == 1){
+            alert(`${primero}`);
+        }
+
+        if (i == 2){
+            alert(`${segundo}`);
+        }
+
+        if (i > 2){
+            var numero = segundo + primero;
+            alert(`${numero}`);
+            primero = segundo;
+            segundo = numero;
+        }
+
+    }
+
 }
