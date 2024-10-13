@@ -13,6 +13,15 @@ body {
     width: 100px;
     height: 50px;
     font-size: 16px;
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.container button:hover {
+    background-color: #fa0f0f; /* Cambio de color al pasar el mouse */
 }
 
 #output {
