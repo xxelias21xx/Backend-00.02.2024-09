@@ -1,30 +1,3 @@
-function calculadora() {
-    // Pedir al usuario que ingrese dos números y un operador
-    const num1 = parseFloat(prompt("Ingresa el primer número:"));
-    const num2 = parseFloat(prompt("Ingresa el segundo número:"));
-    const operador = prompt("Ingresa el operador ('+' para sumar, '-' para restar):");
-
-    let resultado;
-
-    // Realizar la operación según el operador
-    if (operador === '+') {
-        resultado = num1 + num2; // Suma
-    } else if (operador === '-') {
-        resultado = num1 - num2; // Resta
-    } else {
-        resultado = "Operador no válido. Usa '+' para sumar o '-' para restar.";
-    }
-
-    // Mostrar el resultado
-    alert("El resultado es: " + resultado);
-}
-
-// Llamar a la función cuando se haga clic en el botón
-document.addEventListener("DOMContentLoaded", function() {
-    const boton = document.getElementById("calcularBoton");
-    boton.addEventListener("click", calculadora);
-});
-
 function Ejercicio1() {
         //Hacer un algoritmo en Javascript que lea un numero por el teclado y determinar 
         //si tiene tres digitos.
