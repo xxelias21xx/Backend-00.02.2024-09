@@ -446,6 +446,38 @@ function ejercicio19() {
     console.log(`El salario total a pagar al empleado es: $${salarioTotal}`);
 }
 
+function ejercicio20() {
+
+}
+
+function ejercicio21() {
+    let facttotal;
+    const num1=+prompt("Ingrese un numero:");
+    if (num1<0) {
+        alert("El numero no debe ser negativo.");
+    } else {
+        facttotal=1
+        for (let i = 1; i <= num1;i++){ 
+            facttotal=facttotal*i;
+        }
+        console.log(`El factorial de ${num1} es: ${facttotal}`);
+    }
+}
+
+function ejercicio22() {
+    let totsuma;
+    const numsum=+prompt("Ingrese la cantidad de numeros a sumar:");
+    if (numsum<=0) {
+        alert("El numero ingresado debe ser mayor a '0'");
+    } else {
+        totsuma=0;
+        for (let i = 1; i <=numsum; i++) {
+            totsuma=totsuma+i;
+        }
+        console.log(`La suma de los numeros es: ${totsuma}`);
+    }
+}
+
 function ejercicio23() {
     let suma = 0;
   
@@ -460,6 +492,17 @@ function ejercicio23() {
     alert(`la suma de los numeros impares menoes o iguales a ${n} es: ${suma}`);
 }
 
+function ejercicio24() {
+    let suma;
+    suma=0;
+    for (let i = 1; i <= 1000; i++) {
+        if (i % 2 == 0){
+            suma=suma+i;
+        }        
+    }
+    alert(`La suma de todos los numeros pares hasta el 1000 es: ${suma}`);
+}
+
 function ejercicio25() {
     let n, factorial, contador;
     factorial = 1;
@@ -471,6 +514,24 @@ function ejercicio25() {
       contador = contador + 1;
     }
     alert(`El factorial del numero: ${n} es: ${factorial}`);
+}
+
+function ejercicio26() {
+    let nrococien,nroresto;
+    const nrodividendo=+prompt("Ingrese el dividendo (numero a dividir).");
+    const nrodivisor=+prompt("Ingrese el divisor (numero por el que se dividira)");
+    if (nrodivisor==0) {
+        alert("El divisor no puede ser 0.");
+    }else{
+        nrococien=0;
+        nroresto=nrodividendo;
+        while (nroresto>=nrodivisor) {
+            nroresto=nroresto-nrodivisor;
+            nrococien=nrococien+1;
+        }
+        console.log(`El cociente es: ${nrococien}`);
+        console.log(`El resto es: ${nroresto}`);
+    }
 }
 
 function ejercicio27() {
@@ -494,6 +555,37 @@ function ejercicio27() {
     } else {
       console.log("No se ingresaron numeros positivos");
     }
+}
+
+function ejercicio28() {
+    let suma,contador;
+    suma=0;
+    contador=1;
+    do {
+        suma=suma+contador;
+        contador=contador+1;
+    } while (contador<=100);
+    alert(`La suma de los primeros 100 numeros es: ${suma}`);
+}
+
+function ejercicio29() {
+    let sumnum,conta;
+    conta=0;
+    sumnum=0;
+    while (conta<100) {
+        conta=conta+1;
+        sumnum=sumnum+conta;
+    }
+    alert(`La suma de los numeros hasta 100 es: ${sumnum}`);
+}
+
+function ejercicio30() {
+    let suma;
+    suma=0;
+    for (let i = 1; i <= 100; i++) {
+        suma=suma+i;
+    }
+    alert(`La suma de los primeros 100 numeros es: ${suma}`);
 }
 
 function ejercicio32() {
