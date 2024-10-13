@@ -241,6 +241,33 @@ function ejercicio10() {
 
 }  
 
+function ejercicio11() {
+    let nmayor;
+    const num1=+prompt("Ingresar primer numero");
+    const num2=+prompt("Ingresar segundo numero");
+    const num3=+prompt("Ingresar tercer numero");
+    nmayor = num1;
+    if (num2>nmayor) {
+        nmayor=num2;
+    }
+    if (num3>nmayor) {
+        nmayor=num3;
+    }
+    console.log(`El numero mayor es: ${nmayor}`);
+
+}
+
+function ejercicio12() {
+    let nmayor;
+    const num1=+prompt("Ingresar primer numero:");
+    const num2=+prompt("Ingresar segundo numero:");
+    nmayor=num1;
+    if (num2>nmayor) {
+        nmayor=num2
+    }
+    console.log(`El numero mayor es: ${nmayor}`);
+}
+
 function ejercicio13() {
     const letra = prompt("ingrese una letra");
   
@@ -262,6 +289,210 @@ function ejercicio13() {
         break;
       default:
         console.log("La letra no es una vocal");
+    }
+}
+
+function ejercicio14() {
+    let veriprimo;
+    const numing=+prompt("Ingrese un numero entero positivo del 1 al 10:");
+    if (numing>=1 && numing<=10) {
+        veriprimo=true;
+        if (numing==1) {
+            veriprimo==false;
+        } else {
+            for (let cont = 2; cont <= numing-1; cont++) {
+                if ((numing%cont)==0) {
+                    veriprimo=false;
+                }
+                cont=cont+1
+            }
+        }
+        if (veriprimo==true) {
+            console.log(`El numero ${numing}, es primo`);
+        } else {
+            console.log(`El numero ${numing}, no es primo`);
+        }
+    } else {
+        console.log("El numero ingresado debe estar entre 1 y 10");
+    }
+}
+
+function ejercicio15() {
+    let pulg,kilo;
+    const cent=+prompt("Ingrese medida en centimetros");
+    const libras=+prompt("Ingrese peso en libras");
+
+    pulg=cent/2.54;
+    kilo=libras*0.453592;
+
+    console.log(`Los centimetros en pulgadas son: ${pulg}`);
+    console.log(`Las libras en kilogramos son: ${kilo}`);
+}
+
+function ejercicio16(){
+    let diasemana;
+    const ndia=prompt("Ingrese numero del 1 al 7");
+    switch (ndia) {
+        case "1":
+            console.log("Corresponde al dia Lunes");
+            break;
+        case "2":
+            console.log("Corresponde al dia Martes");
+            break;
+        case "3":
+            console.log("Corresponde al dia Miercoles");
+            break;
+        case "4":
+            console.log("Corresponde al dia Jueves");
+            break;
+        case "5":
+            console.log("Corresponde al dia Viernes");
+            break;
+        case "6":
+            console.log("Corresponde al dia Sabado");
+            break;
+        case "7":
+            console.log("Corresponde al dia Domingo");
+            break;
+        default:
+            console.log("Numero ingresado no valido");
+            break;
+    }
+}
+
+function ejercicio17() {
+    let horas,minutos,segundos;
+    let hormar,minumar,segumar;
+    horas=+prompt("Ingrese las horas(0-23)");
+    minutos=+prompt("Ingrese los minutos (0-59)");
+    segundos=+prompt("Ingrese los segundo (0-59)");
+
+    segundos=segundos+1;
+    if (segundos=60) {
+        segundos=0;
+        minutos=minutos+1;
+    }
+    if (minutos=60) {
+        minutos=0;
+        horas=horas+1;
+    }
+    if (horas=24) {
+        horas=0;
+    }
+
+    segumar=segundos.toString();
+    minumar=minutos.toString();
+    hormar=horas.toString();
+
+    if (segundos<10) {
+        segumar='0'+segumar;
+    }
+    if (minutos<10) {
+        minumar='0'+minumar;
+    }
+    if (horas<10) {
+        hormar='0'+hormar;
+    }
+    console.log(`La hora dentro de un segundo sera: ${hormar}: ${minumar}: ${segumar}`);
+}
+
+function ejercicio18() {
+    let precvta,totvta,ganvend;
+    const cantvta=+prompt("Ingrese la cantidad a comprar:");
+    if (cantvta<10) {
+        precvta=10;
+    }
+    if (cantvta>=10 && cantvta<100) {
+        precvta=8;
+    }
+    if (cantvta>=100 && cantvta<500) {
+        precvta=7;
+    }
+    if (cantvta>=500) {
+        precvta=6;
+    }
+    totvta=cantvta*precvta;
+    ganvend=totvta*0.0825;
+    console.log(`El precio de venta es: $${precvta}`);
+    console.log(`El total de la venta es: $${totvta}`);
+    alert(`La ganancia del vendedor es: $${ganvend}`);
+}
+
+function ejercicio19() {
+    let tipoEmpleado,diasTrabajados,salarioDiario,salarioTotal;
+    tipoEmpleado=prompt("Ingrese el ID del tipo de empleado:\n1: Cajero\n2: Servidor\n3: Preparador de mezclas\n4: Mantenimiento");
+    diasTrabajados=prompt("Ingrese la cantidad de dias trabajados (Maximo 6 dias)");
+    if (diasTrabajados<0 || diasTrabajados>6) {
+        alert("Error: El numero de dias trabajado no es valido");
+    }
+    switch (tipoEmpleado) {
+        case '1':
+            salarioDiario=56
+            break;
+        case '2':
+            salarioDiario=64;
+            break;
+        case '3':
+            salarioDiario=80;
+            break;
+        case '4':
+            salarioDiario=48;
+            break;    
+        default:
+            alert("Error: El numero ingresado no corresponde a un ID de empleado valido.");
+            break;
+    }
+    salarioTotal=salarioDiario*diasTrabajados;
+    console.log(`El salario total a pagar al empleado es: $${salarioTotal}`);
+}
+
+function ejercicio23() {
+    let suma = 0;
+  
+    const n = prompt("ingrese un numero entero positivo");
+  
+    for (let i = 1; i <= n; i++) {
+      if (i % 2 != 0) {
+        suma = suma + i;
+      }
+    }
+  
+    alert(`la suma de los numeros impares menoes o iguales a ${n} es: ${suma}`);
+}
+
+function ejercicio25() {
+    let n, factorial, contador;
+    factorial = 1;
+    contador = 1;
+  
+    n = +prompt("Ingrese un numero entero positivo para calcular el factorial");
+    while (contador <= n) {
+      factorial = factorial * contador;
+      contador = contador + 1;
+    }
+    alert(`El factorial del numero: ${n} es: ${factorial}`);
+}
+
+function ejercicio27() {
+    let numero, suma, contador;
+  
+    contador = 0;
+    suma = 0;
+  
+    do {
+      numero = +prompt(
+        "Ingrese un numero positivo(o un numero negativo apra culminar el programa)"
+      );
+      if (numero >= 0) {
+        suma = suma + numero;
+        contador++;
+      }
+    } while (numero > 0);
+  
+    if (contador > 0) {
+      console.log("La media de los numeros ingresados es: ", suma / contador);
+    } else {
+      console.log("No se ingresaron numeros positivos");
     }
 }
 
@@ -290,6 +521,46 @@ function ejercicio32() {
     }
     console.log(
       `la ciudad con mayor poblacion es: ${ciudadMayorPoblacion}con una poblacion de ${mayorPoblacion}`
+    );
+}
+
+function ejercicio39() {
+    let pi, termino, n, signo, iteraciones;
+    pi = 0;
+    n = 1;
+    signo = 1;
+  
+    iteraciones = +prompt("ingrese el numero de iteraciones");
+  
+    for (let i = 1; i <= iteraciones; i++) {
+      termino = 4 / n;
+      pi = pi + signo * termino;
+      signo = signo * -1;
+      n = n + 2;
+    }
+  
+    alert(
+      `La aproximacion de pi despues de ${iteraciones} iteraciones es de: ${pi}`
+    );
+}
+
+function ejercicio40() {
+    let pi, termino, n, signo, iteraciones;
+    pi = 3;
+    n = 2;
+    signo = 1;
+  
+    iteraciones = +prompt("ingrese el numero de iteraciones");
+  
+    for (let i = 1; i <= iteraciones; i++) {
+      termino = 4 / (n * (n + 1) * (n + 2));
+      pi = pi + signo * termino;
+      signo = signo * -1;
+      n = n + 2;
+    }
+  
+    alert(
+      `La aproximacion de pi despues de ${iteraciones} iteraciones es de: ${pi}`
     );
 }
   
