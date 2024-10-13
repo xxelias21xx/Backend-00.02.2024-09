@@ -163,4 +163,122 @@ function ejercicio32() {
   );
 }
 
-ejercicio32();
+// ejercicio32();
+
+/**Hacer un algoritmo en JavaScript para calcular
+ *  la suma de los números impares menores o iguales a n. */
+
+function ejercicio23() {
+  let suma = 0;
+
+  const n = prompt("ingrese un numero entero positivo");
+
+  for (let i = 1; i <= n; i++) {
+    if (i % 2 != 0) {
+      suma = suma + i;
+    }
+  }
+
+  alert(`la suma de los numeros impares menoes o iguales a ${n} es: ${suma}`);
+}
+
+// ejercicio23();
+
+//Hacer un algoritmo en JavaScript para calcular el
+//factorial de un número de una forma distinta.
+
+function ejercicio25() {
+  let n, factorial, contador;
+  factorial = 1;
+  contador = 1;
+
+  n = +prompt("Ingrese un numero entero positivo para calcular el factorial");
+  while (contador <= n) {
+    factorial = factorial * contador;
+    contador = contador + 1;
+  }
+  alert(`El factorial del numero: ${n} es: ${factorial}`);
+}
+
+// ejercicio25();
+
+/**Hacer un algoritmo en JavaScript para determinar la media de una lista indefinida de números positivos, se debe acabar el programa al ingresar un número negativo.
+
+ */
+function ejercicio27() {
+  let numero, suma, contador;
+
+  contador = 0;
+  suma = 0;
+
+  do {
+    numero = +prompt(
+      "Ingrese un numero positivo(o un numero negativo apra culminar el programa)"
+    );
+    if (numero >= 0) {
+      suma = suma + numero;
+      contador++;
+    }
+  } while (numero > 0);
+
+  if (contador > 0) {
+    console.log("La media de los numeros ingresados es: ", suma / contador);
+  } else {
+    console.log("No se ingresaron numeros positivos");
+  }
+}
+
+// ejercicio27();
+
+/*
+Hacer un algoritmo en JavaScript que cumpla con la 
+aproximación del número pi con la serie de Gregory-Leibniz.
+ La formula que se debe aplicar es:
+
+Pi = (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + (4/13) - (4/15) ...
+
+* */
+
+function ejercicio39() {
+  let pi, termino, n, signo, iteraciones;
+  pi = 0;
+  n = 1;
+  signo = 1;
+
+  iteraciones = +prompt("ingrese el numero de iteraciones");
+
+  for (let i = 1; i <= iteraciones; i++) {
+    termino = 4 / n;
+    pi = pi + signo * termino;
+    signo = signo * -1;
+    n = n + 2;
+  }
+
+  alert(
+    `La aproximacion de pi despues de ${iteraciones} iteraciones es de: ${pi}`
+  );
+}
+
+// ejercicio39();
+
+function ejercicio40() {
+  let pi, termino, n, signo, iteraciones;
+  pi = 3;
+  n = 2;
+  signo = 1;
+
+  iteraciones = +prompt("ingrese el numero de iteraciones");
+
+  for (let i = 1; i <= iteraciones; i++) {
+    termino = 4 / (n * (n + 1) * (n + 2));
+    pi = pi + signo * termino;
+    signo = signo * -1;
+    n = n + 2;
+  }
+
+  alert(
+    `La aproximacion de pi despues de ${iteraciones} iteraciones es de: ${pi}`
+  );
+}
+
+ejercicio40();
