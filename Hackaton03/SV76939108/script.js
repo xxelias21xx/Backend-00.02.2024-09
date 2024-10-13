@@ -389,10 +389,10 @@ function ejercicio19(){
     const ID1 = prompt("Ingrese el primer numero que identifica al empleado (Cajero: 1,Servidor: 3, Preparador: 5, Mantenimiento: 7): ");
     const ID2 = prompt("Ingrese el segundo numero que identifica al empleado (Cajero: 2,Servidor: 4, Preparador: 6, Mantenimiento: 8): ");
     const CantD = prompt("Cantidad de dias que trabajo: ");
-	SalarioCaj=56
-	SalarioSer=64
-	SalarioPre=80
-	SalarioMan=48
+	let SalarioCaj=56
+	let SalarioSer=64
+	let SalarioPre=80
+	let SalarioMan=48
     if(CantD>=0 && CantD<7){
         if(ID1==1 && ID2==2 ){
             PagoCaj=SalarioCaj*CantD
@@ -420,8 +420,11 @@ function ejercicio19(){
             }
         }
     }
-    console.log("Cantidad de dias incorrecta")
-}
+    else{
+        console.log("Cantidad de dias incorrecta")
+    }
+    }
+    
 
 //Ejercicio 20
 
