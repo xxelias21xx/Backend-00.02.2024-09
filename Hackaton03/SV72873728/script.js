@@ -922,5 +922,93 @@ function Ejercicio36(){
         }
 
     }
+}
 
+function Ejercicio37(){
+    /*
+    *  37. Hacer un algoritmo en JavaScript para conseguir el M.C.D de un número por medio del algoritmo de Euclides.
+    */
+    var num1 = parseInt(prompt("Ingrese primer número mayor a cero"));
+    while(num1 < 0){
+        alert("Número no válido")
+        num1 = parseInt(prompt("Ingrese primer número mayor a cero"));
+    }
+    
+    var num2 = parseInt(prompt("Ingrese segundo número mayor a cero y menor al primer número"));
+    while(num2 > num1 || num2 < 0){
+        alert("Número no válido")
+        num2 = parseInt(prompt("Ingrese segundo número mayor a cero y menor al primer número"));
+    }
+
+    while(num2 != 0){
+        let residuo = num1 % num2;
+        var num1 = num2;
+        var  num2 = residuo;
+    }
+    
+    alert(`El MCD es ${num1}`)
+}
+
+function Ejercicio38(){
+    /*
+    *  38. Hacer un algoritmo en JavaScript que nos permita saber si un número es un número perfecto.
+    */
+    var num1 = parseInt(prompt("Ingrese número mayor a cero"));
+    while(num1 < 0){
+        alert("Número no válido")
+        num1 = parseInt(prompt("Ingrese número mayor a cero"));
+    }
+
+    var suma = 0;
+
+    for(let i = 0; i <= num1; i++){
+        if(num1 % i == 0){
+            suma = suma + i;   
+        }
+    }
+
+    if (suma - num1 == num1){
+        alert(`El número ${num1} es un número perfecto`)
+    }else{
+        alert(`El número ${num1} no es un número perfecto`)
+    } 
+}
+
+function Ejercicio39(){
+    /*
+    *  39. Hacer un algoritmo en JavaScript que cumpla con la aproximación del número pi con la serie de Gregory-Leibniz. La formula que se debe aplicar es:
+
+    Pi = (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + (4/13) - (4/15) ...
+
+    */
+    var serie = parseInt(prompt("Ingrese la cantidad de numeros de la serie"));
+    var phi = 0.0;
+   
+
+    for(let i = 0; i <= serie - 1; i++){
+        const factor = (4 / (2 * i + 1)) * ((-1)**i);
+        phi = phi + factor;
+    }
+    alert(`El valor de pi es ${phi}`)
+    
+}
+
+function Ejercicio40(){
+    /*
+    *  40. Hacer un algoritmo en JavaScript que cumpla con la aproximación del número pi con la serie de Nilakantha. La formula que se debe aplicar es:
+
+    Pi = 3 + 4/(2*3*4) - 4/(4*5*6) + 4/(6*7*8) - 4/(8*9*10) + 4/(10*11*12) - 4/(12*13*14) ...
+
+    */
+    var serie = parseInt(prompt("Ingrese la cantidad de numeros de la serie"));
+    var phi = 0.0;
+   
+
+    for(let i = 1; i <= serie; i++){
+        var factor = (4 /( (2 * i) * (2 * i + 1) * (2 * i + 2)) ) * ((-1)**(i-1));
+        phi = phi + factor;
+    }
+    phi = phi + 3;
+    alert(`El valor de pi es ${phi}`)
+    
 }
