@@ -232,3 +232,338 @@
 		console.log("El numero " + numero + " es impar")
     }
     }
+
+    function Ejercicio11(){
+        /**
+        *11. Hacer un algoritmo en JavaScript que lea tres números y diga cuál es el mayor.
+        */
+
+        numero1 = prompt("Ingrese el primer numero")
+        numero2 = prompt("Ingrese el segundo numero")
+        numero3 = prompt("Ingrese el tercer numero")
+        
+        if ((numero1 > numero2) && (numero1 > numero3)) {
+            mayor = numero1
+        }
+        if ((numero2 > numero1) && (numero2 > numero3)) {
+            mayor = numero2
+        }
+        if ((numero3 > numero1) && (numero3 > numero2)) {
+            mayor = numero3
+        }
+
+        console.log("El mayor numero es: "+ mayor + "")
+
+    }
+
+    function Ejercicio12(){
+        /**
+        *12. Hacer un algoritmo en JavaScript que lea dos números y diga cuál es el mayor.
+        */
+
+        numero1 = prompt("Ingrese el primer numero")
+        numero2 = prompt("Ingrese el segundo numero")
+
+        if ((numero1 > numero2) && (numero1 > numero3)) {
+            mayor = numero1
+        } else {
+            mayor = numero2
+        }
+
+        console.log("El mayor numero es: "+ mayor + "")
+
+    }
+
+    function Ejercicio13(){
+        /**
+        *13. Hacer un algoritmo en JavaScript que lea una letra y diga si es una vocal.
+        */
+    
+        const letra = prompt("Ingrese una letra").toLowerCase()
+
+        if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
+        console.log("La letra " + letra + " es una vocal");
+        } else {
+        console.log("La letra " + letra + " no es una vocal");
+        }
+    }
+
+    function Ejercicio14(){
+        /**
+        *14. Hacer un algoritmo en JavaScript que lea un entero positivo del 1 al diez y determine si es un número primo.
+        */
+
+        const numero = prompt("Ingresar un numero del 1 al 10 para verificar si es primo o no")
+
+        i = 1
+        contador = 0
+
+        while (i <= numero){
+        if(numero % i == 0){
+        contador += 1
+        }
+        i += 1
+        }
+        if (contador == 2){
+        console.log("El numero " + numero + " es primo")
+        } else {
+        console.log("El numero " + numero + " no es primo")
+        }
+    }
+
+    function Ejercicio15(){
+        /**
+        *15. Hacer un algoritmo en JavaScript que convierta centímetros a pulgadas y libras a kilogramos.
+        */
+
+        const centimetros = parseFloat(prompt("Introduce la longitud en centimetros: "))
+        const pulgadas = centimetros * 0.393701
+
+        const libras = parseFloat(prompt("Introduce el peso en libras: "))
+        const kilogramos = libras * 0.453592
+
+        console.log(centimetros + " centimetros son " + pulgadas + " pulgadas")
+        console.log(libras + " libras son " + kilogramos + " kilogramos")
+    }
+
+    function Ejercicio16(){
+        /**
+        *16.Hacer un algoritmo en JavaScript que lea un número y según ese número, indique el día que corresponde.
+        */
+
+        const num = parseInt(prompt("Introduce un número del 1 al 7: "))
+
+        let dia
+
+        switch (num) {
+        case 1:
+            dia = "Lunes"
+            break
+        case 2:
+            dia = "Martes"
+            break
+        case 3:
+            dia = "Miercoles"
+            break
+        case 4:
+            dia = "Jueves"
+            break
+        case 5:
+            dia = "Viernes"
+            break
+        case 6:
+            dia = "Sabado"
+            break
+        case 7:
+            dia = "Domingo"
+            break
+        default:
+            dia = "El numero ingresado es invalido. Por favor, introduce un numero del 1 al 7"
+        }
+
+        console.log(dia)
+
+    }
+
+    function Ejercicio17(){
+        /**
+        *17.Hacer un algoritmo en JavaScript donde se ingrese una hora y nos calcule la hora dentro de un segundo.
+        */
+
+        let hora = parseInt(prompt("Ingrese la hora: "))
+        let min = parseInt(prompt("Ingrese el minuto: "))
+        let seg = parseInt(prompt("Ingrese los segundos: "))
+
+        seg = seg+1
+        if(seg == 60){
+        seg = 0
+		min = min+1
+        }
+        if(min == 60){
+        min = 0
+		hora = hora+1
+        }
+        if(hora == 24){
+        hora = 0
+        }
+
+        console.log("La hora dentro de un segundo sera: horas: " + hora +", minutos: " + min +", segundos: " + seg + "")
+
+    }
+
+    function Ejercicio18(){
+        /**
+        *18.Hacer un algoritmo en JavaScript para una empresa se encarga de la venta y distribución de CD vírgenes.
+        Los clientes pueden adquirir los artículos (supongamos un único producto de una única marca) por cantidad. Los precios son:
+        $10. Si se compran unidades separadas hasta 9.
+        $8. Si se compran entre 10 unidades hasta 99.
+        $7. Entre 100 y 499 unidades.
+        $6. Para mas de 500 unidades.
+        La ganancia para el vendedor es de 8,25 % de la venta. Realizar un algoritmo en JavaScript que dado un número de
+        CDs a vender calcule el precio total para el cliente y la ganancia para el vendedor.
+        */
+
+        let cantidadCD = prompt("Ingrese la cantidad de Cds que se compraran")
+        cantidadCD = Number(cantidadCD)
+
+        if (cantidadCD <= 9) {
+        precio = 10
+        } else {
+        if (cantidadCD <= 99) {
+        precio = 8
+        } else {
+        if (cantidadCD <= 499) {
+            precio = 7
+        } else {
+            precio = 6
+            }
+          }
+        }
+        ingreso = precio * cantidadCD
+        utilidad = ingreso * 0.0825
+
+        console.log("Por comprar: " + cantidadCD + " CDs, el precio es de " + precio + " y la ganancia es de " + utilidad.toFixed(2) + "")
+
+    }
+
+    function Ejercicio19(){
+        /**
+        *19.Hacer un algoritmo en JavaScript para una heladería se tienen 4 tipos de empleados ordenados de la siguiente
+        forma con sunúmero identificador y salario diario correspondiente:
+        Cajero (56$/día).
+        Servidor (64$/día).
+        Preparador de mezclas (80$/día).
+        Mantenimiento (48$/día).
+        El dueño de la tienda desea tener un programa donde sólo ingrese dos números enteros que representen al número
+        identificador del empleado y la cantidad de días que trabajó en la semana (6 días máximos). Y el programa le mostrará
+        por pantalla la cantidad de dinero que el dueño le debe pagar al empleado que ingresó
+        */
+
+        let id = parseInt(prompt("Identificadores de tipo de Empleado\n  1 CAJEROS\n  2 SERVIDOR\n  3 PREPARADOR DE MEZCLAS\n  4 MANTENIMIENTO\n  * Ingrese un identificador de empleado: "))
+
+        switch (id) {
+        case 1:
+        empleado = "Cajero"
+        salario = 56
+        break
+        case 2:
+        empleado = "Servidor"
+        salario = 64
+        break
+        case 3:
+        empleado = "Preparador de mezclas"
+        salario = 80
+        break; 
+        case 4:
+        empleado = "Mantenimiento"
+        salario = 48
+        break
+        default:
+        console.log("Ingrese un identificador valido")
+        break
+        }
+
+        const cantDias = parseInt(prompt("Ingrese la cantidad de horas trabajadas por el empleado " + empleado + ":"))
+
+        console.log("Para una cantidad trabajada de " + cantDias + " dias, el empleado de " +  empleado + " debe recibir " + cantDias*salario +" en total")
+
+    } 
+
+    function Ejercicio20(){
+        /**
+        *20.Hacer un algoritmo en JavaScript que que lea 4 números enteros positivos y verifique y realice las siguientes operaciones:
+        ¿Cuántos números son Pares?
+        ¿Cuál es el mayor de todos?
+        Si el tercero es par, calcular el cuadrado del segundo.
+        Si el primero es menor que el cuarto, calcular la media de los 4 números.
+        Si el segundo es mayor que el tercero, verificar si el tercero esta comprendido entre los valores 50 y 700.
+        Si cumple se cumple la segunda condición, calcular la suma de los 4 números.
+        */
+
+        let cantPar, numMayor, suma, media, Cuadrado
+        const num1 = prompt("Ingrese el primer numero")
+        const num2 = prompt("Ingrese el segundo numero")
+        const num3 = prompt("Ingrese el tercer numero")
+        const num4 = prompt("Ingrese el cuarto numero")
+        
+        if(num1>=0 && num2>=0 && num3>=0 && num4>=0){
+        cantPar=0
+        if(num1 % 2 == 0){
+            cantPar=cantPar+1
+        }
+        if(num2 % 2 == 0){
+            cantPar=cantPar+1
+        }
+        if(num3 % 2 == 0){
+            cantPar=cantPar+1
+        }
+        if(num4 % 2 == 0){
+            cantPar=cantPar+1
+        }
+        if(num1>num2){
+            if(num1>num2){
+                if(num1>num3){
+                    if(num1>num4){
+                        numMayor=num1
+                    }else{
+                        numMayor=num4
+                    }
+                }else{
+                    if(num3>num4){
+                        numMayor=num3
+                    }else{
+                        numMayor=num4
+                    }
+                }
+            }else{
+                if(num2>num3){
+                    if(num2>num4){
+                        numMayor =num2
+                    }else{
+                        numMayor =num4
+                    }
+                }else{
+                    if(num3>num4){
+                        numMayor =num3
+                    }else{
+                        numMayor =num4 
+                    }
+                }
+            }
+        }else{
+            if(num2>num3){
+                if(num2>num3){
+                    numMayor=num2
+                }else{
+                    numMayor=num2
+                }
+            }else{
+                if(num3>num4){
+                    numMayor = num3
+                }else{
+                    numMayor = num4
+                }
+            }
+        }
+        console.log("La cantidad de numeros pares es ",cantPar)
+        console.log("El numero mayor es ", numMayor)
+        if(num3 % 2 ==0){
+            Cuadrado=num2^2
+            console.log("El cuadrado del segundo es ", Cuadrado)
+        }
+        if(num1<num4){
+            media=(num1+num2+num3+num4)/4
+            console.log("La media de los 4 numeros es ", media)
+        }
+        if(num2>num3){
+            if(num3>=50 && num3<=700){
+                suma=num1+num2+num3+num4
+                console.log("El numero mayor es ", numMayor)
+                console.log("La suma de los 4 digitos es ", suma)
+            }
+
+        }
+    }else{
+        console.log("Los numeros no son positivos")
+    }
+}
