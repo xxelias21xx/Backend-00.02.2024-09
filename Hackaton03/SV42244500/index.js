@@ -567,3 +567,199 @@
         console.log("Los numeros no son positivos")
     }
 }
+
+    function Ejercicio21(){
+    /**
+    *21. Hacer un algoritmo en JavaScript que permita calcular el factorial de un número.
+    */
+
+    let numero = parseInt(prompt("Ingrese un numero para calcular su factorial"))
+    
+    contador = 1
+    factorial = 1
+
+    while (contador <= numero) {
+    factorial *= contador
+    contador += 1
+    }
+
+    console.log("El factorial de " + numero + " es " + factorial + "")
+
+    }
+
+    function Ejercicio22(){
+        /**
+        *22. Hacer un algoritmo en JavaScript para calcular la suma de los n primeros números.
+        */
+
+        let suma = 0
+        const n = prompt("Ingrese la cantidad de primeros numeros a sumar")
+
+        for (let i=1; i<=n; i++){
+        suma = suma+i
+        }
+
+        console.log("La suma de los primeros " + n + " numeros es: " + suma + "")
+
+    }
+
+    function Ejercicio23(){
+        /**
+        *23.Hacer un algoritmo en JavaScript para calcular la suma de los números impares menores o iguales a n.
+        */
+
+        let suma=0
+
+        const n = prompt("Ingrese un numero entero positivo")
+
+        for (let i=1; i<=n; i++){
+         if(i%2 !=0){
+            suma = suma+i
+        }
+      }
+
+        alert(`La suma de los numeros impares menores o iguales a ${n} es: ${suma}`);
+    
+    }
+
+    function Ejercicio24(){
+        /**
+        *24. Hacer un algoritmo en JavaScript para realizar la suma de todos los números pares hasta el 1000.
+        */
+
+        let suma=0
+
+        for (let i=2; i<=1000; i+=2){
+        suma += i
+      }
+
+      console.log("La suma de todos los numeros pares hasta 1000 es: " + suma + "")
+
+    }
+
+    function Ejercicio25(){
+        /**
+        *25. Hacer un algoritmo en JavaScript para calcular el factorial de un número de una forma distinta.
+        */
+
+        let n, factorial, contador
+        
+        factorial = 1
+        contador = 1
+
+        n = +prompt("Ingrese un numero entero positivo para calcular el factorial: ")
+        while (contador <= n){
+        factorial = factorial * contador
+        contador = contador + 1
+        }
+        
+        alert(`El factorial de ${n} es ${factorial}`)
+
+    }
+
+    function Ejercicio26(){
+        /**
+        *26. Hacer un algoritmo en JavaScript para calcular el resto y cociente por medio de restas sucesivas.
+        */
+
+        const dividendo= prompt("Ingrese el dividendo: ")
+        const divisor= prompt("Ingrese el divisor: ")
+
+        cociente=0
+        resto=dividendo
+
+        while(resto>=divisor){
+        resto = resto - divisor
+		cociente = cociente+1
+        }
+        if(divisor==0){
+        console.log("No se puede dividir entre cero")
+        }
+
+        console.log("El cociente es: " + cociente + "")
+        console.log("El residuo es: " + resto + "")
+
+    }
+
+    function Ejercicio27(){
+        /**
+        *27.Hacer un algoritmo en JavaScript para determinar la media de una lista indefinida de números positivos, se debe acabar el programa al ingresar un número negativo.
+        */
+
+        let numero, suma, contador
+
+        contador = 0
+        suma = 0
+
+        do {
+        numero = +prompt("Ingrese un numero positivo ( o un numero negativo para culminar ) : ")
+
+        if(numero >= 0){
+            suma = suma + numero
+            contador++
+         }
+        } while(numero > 0)
+
+        if(contador > 0){
+
+        console.log("La media de los numeros ingresados es: ", suma / contador)
+        
+        } else {
+
+            console.log("No se ingresaron numeros positivos")
+        
+        }
+    }
+
+    function Ejercicio28(){
+        /**
+        *28.Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo repetir.
+        */
+
+        let suma = 0
+        let contador = 1
+
+        do {
+        suma += contador
+        contador++
+        } while (contador <= 100)
+
+        alert(`La suma de todos los numeros pares hasta 100 es: ${suma}`)
+    
+    }
+
+    function Ejercicio29(){
+        /**
+        *29.Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo mientras.
+        */
+
+        let suma = 0
+        let contador = 1
+
+        while (contador <= 100) {
+        suma += contador
+        contador++
+        }
+
+        alert(`La suma de todos los numeros pares hasta 100 es: ${suma}`)
+
+    }
+
+    function Ejercicio30(){
+        /**
+        *30.Hacer un algoritmo en JavaScript para calcular la suma de los primeros cien números con un ciclo para.
+        */
+
+        let suma=0
+        for(let i=1; i<=100; i++) {
+        suma= suma + i
+        }
+
+        alert(`La suma de todos los numeros pares hasta 100 es: ${suma}`)
+    }
+
+    
+
+
+
+
