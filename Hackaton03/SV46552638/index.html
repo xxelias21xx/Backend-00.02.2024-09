@@ -7,10 +7,9 @@
     <title>SV46552638</title>
 </head>
 <body>
-    <script src="script.js"></script>
-    <H1> SV46552638</H1>
-    <H2>HACKATHON 03</H2>
-    <div >
+    <div class="container" >
+        <H1> SV46552638</H1>
+        <H2>HACKATHON 03</H2>
        
         <ul>
             <li>
@@ -112,15 +111,134 @@
             <li>
                 <p>10. Hacer un algoritmo en JavaScript que diga si un número es par o impar.</p>
                 <input type="number" id="e10_input1" placeholder="Numero: "><br>
-                <button onclick="ejercicio10()" >Ejercicioo 10</button><br>
+                <button onclick="ejercicio10()" >Ejercicio 10</button><br>
                 <label for="" id="Resultado_ejercicio10"></label><br>
             </li>
             <br>
 
+            <li>
+                <p>11. Hacer un algoritmo en JavaScript que lea tres números y diga cuál es el mayor.</p>
+                <input type="number" id="e11_input1" placeholder="1° Numero: "><br>
+                <input type="number" id="e11_input2" placeholder="2° Numero: "><br>
+                <input type="number" id="e11_input3" placeholder="3° Numero: "><br>
+                <button onclick="ejercicio11()" >Ejercicio 11</button><br>
+                <label for="" id="Resultado_ejercicio11"></label><br>
+            </li>
+            <br>
 
+            <li>
+                <p>12. Hacer un algoritmo en JavaScript que lea dos números y diga cuál es el mayor.</p>
+                <input type="number" id="e12_input1" placeholder="1° Numero: "><br>
+                <input type="number" id="e12_input2" placeholder="2° Numero: "><br>
+                <button onclick="ejercicio12()" >Ejercicio 12</button><br>
+                <label for="" id="Resultado_ejercicio12"></label><br>
+            </li>
+            <br>
+            
+            <li>
+                <p>13. Hacer un algoritmo en JavaScript que lea una letra y diga si es una vocal.</p>
+                <input type="text" id="e13_input1" placeholder="letra: "><br>
+                <button onclick="ejercicio13()" >Ejercicio 13</button><br>
+                <label for="" id="Resultado_ejercicio13"></label><br>
+            </li>
+            <br>
+
+            <li>
+                <p>14. Hacer un algoritmo en JavaScript que lea un entero positivo del 1 al diez y determine si es un número primo.</p>
+                <input type="number" id="e14_input1" placeholder="Numero: "><br>
+                <button onclick="ejercicio14()" >Ejercicio 14</button><br>
+                <label for="" id="Resultado_ejercicio14"></label><br>
+            </li>
+            <br>
+
+            <li>
+                <p>15. Hacer un algoritmo en JavaScript que convierta centímetros a pulgadas y libras a kilogramos.</p>
+                <h6>Tipo de Conversión</h6>
+                <input type="radio" name="radioE15" id="1" value="1" checked>
+                <label for="1">Convertir centímetros a pulgadas</label><br>
+              
+                <input type="radio" name="radioE15" id="2" value="2">
+                <label for="2">Convierir libras a kilogramos</label><br>
+
+                <input type="number" id="e15_input1" placeholder="ingrese Valor: "><br>
+                <button onclick="ejercicio15()" >Ejercicio 15</button><br>
+                <label for="" id="Resultado_ejercicio15"></label><br>
+            </li>
+            <br>
+            
+            <li>
+                <p>16. Hacer un algoritmo en JavaScript que lea un número y según ese número, indique el día que corresponde.</p>
+                <input type="number" id="e16_input1" placeholder="Numero: "><br>
+                <button onclick="ejercicio16()" >Ejercicio 16</button><br>
+                <label for="" id="Resultado_ejercicio16"></label><br>
+            </li>
+            <br>
+
+            <li>
+                <p>17. Hacer un algoritmo en JavaScript donde se ingrese una hora y nos calcule la hora dentro de un segundo.</p>
+                <!-- <input type="number" id="e17_input1" placeholder="Numero: "><br> -->
+                <span>Horas  : </span> 
+                <span id="e17_valor_range1">0</span><br>
+                <input type="range" name="horas" id="e17_range1"  min="0" max="23" step="1" value="0"><br>
+                <!-- <span id="e17_valor_range1">0</span><br> -->
+
+                <span>Minutos   : </span>
+                <span id="e17_valor_range2">0</span><br>
+                <input type="range" name="minutos" id="e17_range2"  min="0" max="59" step="1" value="0"><br>
+                
+
+                <span>Segundos   : </span>
+                <span id="e17_valor_range3">0</span><br>
+                <input type="range" name="segundos" id="e17_range3"  min="0" max="59" step="1" value="0"><br>
+                
+
+                <button onclick="ejercicio17()" >Ejercicio 17</button><br>
+                <label for="" id="Resultado_ejercicio17"></label><br>
+            </li>
+            <br>
+
+            <li>        
+                <p>18. Hacer un algoritmo en JavaScript para una empresa se encarga de la venta y distribución de CD vírgenes. Los clientes pueden adquirir los artículos (supongamos un único producto de una única marca) por cantidad. Los precios son:</p>
+                <ul>
+                    <li>$10. Si se compran unidades separadas hasta 9.</li>
+
+                    <li>$8. Si se compran entre 10 unidades hasta 99.</li>
+
+                    <li>$7. Entre 100 y 499 unidades.</li>
+
+                    <li>$6. Para mas de 500 unidades.</li><br>
+
+                    <!-- <li></li> -->
+                </ul>
+                <p>La ganancia para el vendedor es de 8,25 % de la venta. Realizar un algoritmo en JavaScript que dado un número de CDs a vender calcule el precio total para el cliente y la ganancia para el vendedor.</p>
+                <input type="number" id="e18_input1" placeholder="Cantidad CD's: "><br>
+                <button onclick="ejercicio18()" >Ejercicio 18</button><br>
+                <label for="" id="Resultado_ejercicio18"></label><br>
+            </li>
+            <br>
+
+            <li>        
+                <p>Hacer un algoritmo en JavaScript para una heladería se tienen 4 tipos de empleados ordenados de la siguiente forma con su número identificador y salario diario correspondiente:</p>
+                <ul>                 
+                    <li>Cajero (56$/día).</li>
+
+                    <li>Servidor (64$/día).</li>
+
+                    <li>Preparador de mezclas (80$/día).</li>
+
+                    <li>Mantenimiento (48$/día).</li><br>
+
+                    <!-- <li></li> -->
+                </ul>
+                <p>El dueño de la tienda desea tener un programa donde sólo ingrese dos números enteros que representen al número identificador del empleado y la cantidad de días que trabajó en la semana (6 días máximos). Y el programa le mostrará por pantalla la cantidad de dinero que el dueño le debe pagar al empleado que ingresó.</p>
+                <input type="number" id="e19_input1" placeholder="Cantidad : "><br>
+                <button onclick="ejercicio19()" >Ejercicio 19</button><br>
+                <label for="" id="Resultado_ejercicio19"></label><br>
+            </li>
+            <br>
 
         </ul>
     </div>
-    
+    <script src="script.js"></script>
 </body>
 </html>

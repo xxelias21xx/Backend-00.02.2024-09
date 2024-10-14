@@ -175,6 +175,7 @@ function ejercicio8() {
     let nota2  =parseFloat( document.getElementById("e8_input2").value);
     let nota3  =parseFloat( document.getElementById("e8_input3").value);
 
+    //REDONDEAR !!!
     let promedio = (nota1+nota2+nota3)/3;
     let redondeadoNumero = parseFloat(promedio.toFixed(2));
 
@@ -212,4 +213,211 @@ function ejercicio10() {
     } else {
         document.getElementById("Resultado_ejercicio10").innerHTML = ` ${num}  es impar`;  
     }
+}
+
+function ejercicio11() {
+    // Hacer un algoritmo en Pseint que lea tres n�meros y diga cu�l es el mayor.
+    let numeros =[];
+    let numeroMayor=-999;
+    let num1 = parseFloat(document.getElementById("e11_input1").value);
+    numeros.push(num1);
+    let num2 = parseFloat(document.getElementById("e11_input2").value);
+    numeros.push(num2);
+    let num3 = parseFloat(document.getElementById("e11_input3").value);
+    numeros.push(num3);
+    
+    for (let index = 0; index < 3; index++) {
+        
+        if ( numeros[index] >= numeroMayor) {
+            numeroMayor = numeros[index];
+        }
+    }
+    document.getElementById("Resultado_ejercicio11").innerHTML = ` ${numeroMayor}  es el mayor`; 
+}
+
+function ejercicio12() {
+    // Hacer un algoritmo en JavaScript que lea dos números y diga cuál es el mayor.
+    let numeroMenor=9999;
+    let num1 = parseFloat(document.getElementById("e12_input1").value);
+    let num2 = parseFloat(document.getElementById("e12_input2").value);
+
+    if (num1 === num2) {
+        document.getElementById("Resultado_ejercicio12").innerHTML = ` Son iguales`; 
+    } else {
+        if (num1 > num2) {
+            document.getElementById("Resultado_ejercicio12").innerHTML = ` ${num1} Es el mayor`; 
+        } else {
+            document.getElementById("Resultado_ejercicio12").innerHTML = ` ${num2} es el mayor`; 
+        }
+    } 
+}
+
+function ejercicio13(){
+    //Hacer un algoritmo en Pseint que lea una letra y diga si es una vocal.
+
+    let char = document.getElementById("e13_input1").value;
+    char = char.toLowerCase();
+	
+	if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u") {
+        document.getElementById("Resultado_ejercicio13").innerHTML = ` "${char}" Es una vocal`; 
+    } else {
+        document.getElementById("Resultado_ejercicio13").innerHTML = ` "${char}" No es una vocal`; 
+    }
+}
+
+
+function ejercicio14() {
+    //14. Hacer un algoritmo en JavaScript que lea un entero positivo del 1 al diez y determine si es un número primo. 
+    let aux=parseInt(document.getElementById("e14_input1").value);
+    let num =-1;
+    let contador =0;
+    // let bandera = false;
+
+    if (!isNaN(aux) && aux >= 1 && aux <= 10) {
+        num =aux;
+    } 
+    
+    if(num === -1){
+        document.getElementById("e14_input1").value = '';
+        document.getElementById("Resultado_ejercicio14").innerHTML = ` "${aux}" "Número inválido. Debe ser un entero entre 1 y 10."`; 
+    }else {
+        for (let index = 1; index < num+1; index++) {
+            if(num % index === 0){
+                contador ++;
+            }
+        }
+        if (contador > 2) {
+            document.getElementById("Resultado_ejercicio14").innerHTML = ` "${num}" No es un munero primo`; 
+        } else {
+            document.getElementById("Resultado_ejercicio14").innerHTML = ` "${num}" Es un munero primo`; 
+        }
+    }
+}
+
+function ejercicio15() {
+    //15. Hacer un algoritmo en JavaScript que convierta centímetros a pulgadas y libras a kilogramos.
+    let unidades =0.0;
+	let resultado=0.0;
+    let arrRadios = document.getElementsByName('radioE15');
+    for (let radio of arrRadios) {
+      if (radio.checked) {
+        // Retorna el valor del radio seleccionado
+        tipo= parseInt(radio.value); 
+      }
+    }
+	unidades =parseFloat(document.getElementById("e15_input1").value)
+    if (arrRadios === 1) {
+        resultado=unidades*(0.393701);
+        resultado = parseFloat(resultado.toFixed(2));
+        document.getElementById("Resultado_ejercicio15").innerHTML = ` "${resultado}" Kilogramos`; 
+    } else {
+        resultado=unidades*(0.453592);
+        resultado = parseFloat(resultado.toFixed(2));
+        document.getElementById("Resultado_ejercicio15").innerHTML = ` "${resultado}" Kilogramos`;         
+    }
+
+}
+
+function ejercicio16() {
+    //16. Hacer un algoritmo en JavaScript que lea un número y según ese número, indique el día que corresponde.
+    let num= parseInt(document.getElementById("e16_input1").value);
+    num = num % 7;
+    // console.log(num);
+    switch (num) {
+    case 1:
+        document.getElementById("Resultado_ejercicio16").innerHTML = `El día es lunes.`;     
+        break;
+    case 2:
+        document.getElementById("Resultado_ejercicio16").innerHTML = `El día es martes.`;
+        break;
+    case 3:
+        document.getElementById("Resultado_ejercicio16").innerHTML = `El día es miércoles.`;
+        break;
+    case 4:
+        document.getElementById("Resultado_ejercicio16").innerHTML = `El día es jueves.`;
+        break;
+    case 5:
+        document.getElementById("Resultado_ejercicio16").innerHTML = `El día es viernes.`;
+        break;
+    case 6:
+        document.getElementById("Resultado_ejercicio16").innerHTML = `El día es sábado.`;
+        break;
+   
+    default:
+        document.getElementById("Resultado_ejercicio16").innerHTML = `El día es domingo.`;
+        break;
+   }
+}
+
+//actualizar los valores de forma activa 
+// me ayude de chat GPT
+// Agregar eventos para actualizar los valores al mover los rangos
+document.getElementById("e17_range1").addEventListener("input", actualizarValores);
+document.getElementById("e17_range2").addEventListener("input", actualizarValores);
+document.getElementById("e17_range3").addEventListener("input", actualizarValores);
+
+function actualizarValores() {
+    document.getElementById("e17_valor_range1").textContent = document.getElementById("e17_range1").value;
+    document.getElementById("e17_valor_range2").textContent = document.getElementById("e17_range2").value;
+    document.getElementById("e17_valor_range3").textContent = document.getElementById("e17_range3").value;
+}
+
+function ejercicio17(){
+    //17. Hacer un algoritmo en JavaScript donde se ingrese una hora y nos calcule la hora dentro de un segundo.
+
+    let hor = parseInt(document.getElementById("e17_range1").value);
+    let min =parseInt(document.getElementById("e17_range2").value);
+    let seg = parseInt(document.getElementById("e17_range3").value);
+    
+    seg =seg +1;
+    if (seg === 60) {
+        seg =0;
+		min = min+1;
+    }
+	
+    if (min === 60 ) {
+        min =0;
+		hor = hor+1;
+    }
+	
+    if (hor === 24) {
+        hor =0;
+    }
+	document.getElementById("Resultado_ejercicio17").innerHTML = `Horas = ${hor} : Minutos =  ${min} : Segundos = ${seg}`;
+}
+actualizarValores();
+
+function ejercicio18() {
+    // 18. Hacer un algoritmo en JavaScript para una empresa se encarga de la venta y distribución de CD vírgenes. Los clientes pueden adquirir los artículos (supongamos un único producto de una única marca) por cantidad. Los precios son:
+
+    // $10. Si se compran unidades separadas hasta 9.
+
+    // $8. Si se compran entre 10 unidades hasta 99.
+
+    // $7. Entre 100 y 499 unidades.
+
+    // $6. Para mas de 500 unidades.
+
+    // La ganancia para el vendedor es de 8,25 % de la venta. Realizar un algoritmo en JavaScript que dado un número de CDs a vender calcule el precio total para el cliente y la ganancia para el vendedor.
+    
+	let cantidad = parseFloat(document.getElementById("e18_input1").value);
+	let total = 0.0;
+
+    if (cantidad >= 500) {
+        total = cantidad *6;
+    } else {
+        if (cantidad >99) {
+            total = cantidad *7;
+        } else {
+            if (cantidad >9) {
+                total = cantidad *8
+            } else {
+                total = cantidad *10
+            }
+        }   
+    }
+
+    const comision = total * 0.0825;
+    document.getElementById("e18_input1").value = '';
+	document.getElementById("Resultado_ejercicio18").innerHTML = `Total: ${total}   Comision:  ${comision} `;
 }
