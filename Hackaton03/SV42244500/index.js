@@ -758,8 +758,223 @@
         alert(`La suma de todos los numeros pares hasta 100 es: ${suma}`)
     }
 
+    function Ejercicio31(){
+        /**
+        *31.Hacer un algoritmo en JavaScript parar calcular la media de los números pares e impares, sólo se ingresará diez números.
+        */
+
+        let  sumaPar = 0, sumaImpar = 0, contadorPar = 0, contadorImpar = 0
+
+        for (let contador = 0; contador < 10; contador++){
+        const num= parseInt(prompt("Ingrese un numero positivo: "))
+        if(num>0){
+            if(num%2==0){
+                sumaPar += num
+                contadorPar++
+            } else {
+                sumaImpar += num
+                contadorImpar++
+            }
+          } 
+        }
+
+        if (contadorPar > 0){
+        let mediaPar = sumaPar / contadorPar
+        console.log("La media de los pares es: " + mediaPar + "")
+        } else {
+        console.log("No hay numeros pares")
+        }
+
+        if (contadorImpar > 0){
+        let mediaImpar = sumaImpar / contadorImpar
+        console.log("La media de los impares es: " + mediaImpar + "")
+            } else {
+            console.log("No hay numeros impares")
+        } 
+    }
+
+    function Ejercicio32(){
+        /**
+        *32.Se quiere saber cuál es la ciudad con la población de más personas, son tres provincias y once ciudades, hacer un algoritmo en JavaScript que nos permita saber eso. 
+        */
+
+        let nombreProvincia, nombreCiudad, ciudadMayorPoblacion
+        let poblacion, mayorPoblacion
+        let i
+
+        mayorPoblacion = 0
+
+        for (i = 1; i <= 3; i++) {
+        nombreProvincia = prompt(`Ingrese el nombre de la provincia ${i}`)
+        for (let j = 1; j <= 3; j++) {
+            nombreCiudad = prompt(`Ingrese el nombre de la ciudad N: ${j} de la provincia ${nombreProvincia}`)
+
+            poblacion = Math.floor(Math.random() * 1000) + 1
+
+            if (poblacion > mayorPoblacion) {
+            mayorPoblacion = poblacion
+            ciudadMayorPoblacion = nombreCiudad
+            }
+         }
+      }
+
+    console.log(`La ciudad con mayor poblacion es: ${ciudadMayorPoblacion} con una poblacion de ${mayorPoblacion}`)
+
+    }
+
+    function Ejercicio33(){
+        /**
+        *33.Hacer un algoritmo en JavaScript que permita al usuario continuar con el programa.
+        */
+
+        const continuar= prompt("¿Desea continuar? (s/n):?")
+        while(continuar !== "s" && continuar!== "n"){
+        continuar=prompt("Respuesta invalida. Por favor ingrese s para si o n para no")
+        }
+        if(continuar=='s'){
+        alert(`Procederemos a continuar`);
+        } else {
+        alert(`Es hora de tomarte un descanso. ¡Adios!`)
+      }
+    }
+
+    function Ejercicio34(){
+        /**
+        *34.Hacer un algoritmo en JavaScript que imprima la tabla de multiplicar de los números del uno al nueve.
+        */
+
+        let i, j, multiplicacion
+        for(i=1; i<=9; i++){
+        console.log("Tabla del " + i + "")
+        for(j=1; j<=10; j++){
+            multiplicacion = i*j
+            console.log(i+ " x " + j + " = " + multiplicacion + "")
+        }
+      }
+    }
+
+    function Ejercicio35(){
+        /**
+        *35.Hacer un algoritmo en JavaScript que nos permita saber cuál es el número mayor y menor, se debe ingresar sólo veinte números.
+        */
+
+        let numeros = []
+
+        for (let i = 1; i <= 20; i++) {
+        let numero = parseFloat(prompt("Ingrese el numero " + i + ":"))
+        numeros.push(numero)
+        }
+
+        let mayor = numeros[0]
+        let menor = numeros[0]
+
+        for (let i = 1; i < numeros.length; i++) {
+        if (numeros[i] > mayor) {
+            mayor = numeros[i]
+        }
+        if (numeros[i] < menor) {
+            menor = numeros[i]
+        }
+      }
+
+        console.log("El número mayor es: " + mayor + "")
+        console.log("El numero menor es: " + menor + "")
+
+    }
+
+    function Ejercicio36(){
+        /**
+        *36.Hacer un algoritmo en JavaScript para calcular la serie de Fibonacci.
+        */
+
+        primero = 0, segundo = 1, nuevo = 0, i = 1
+        let n = prompt("Ingrese la cantidad de terminos de la serie de Fibonacci que desea calcular: ")
+        console.log(primero)
+        console.log(segundo)
+        while (i <= n-2) {
+        nuevo = primero + segundo
+        console.log(nuevo)
+        primero = segundo
+        segundo = nuevo
+        i += 1;
+      }
+    }
+
+    function Ejercicio37(){
+        /**
+        *37.Hacer un algoritmo en JavaScript para conseguir el M.C.D de un número por medio del algoritmo de Euclides.
+        */
+
+        let num1 =prompt("Ingrese el primer numero: ")
+        let num2 =prompt("Ingrese el segundo numero: ")
+
+        while(num2!==0){
+        let cop=num2
+        num2=num1 % num2
+        num1=cop
+        }
+
+        console.log("El M.C.D es: " + num1 + "")
     
+    }
 
+    function Ejercicio38(){
+        /**
+        *38.Hacer un algoritmo en JavaScript que nos permita saber si un número es un número perfecto.
+        */
 
+        let num = 0, sumaDivisor = 0
+        num = prompt("Ingresar un numero para saber si es perfecto")
+        for (let i = 1; i < (num - 1); i++) {
+            if (num % i == 0) {
+            sumaDivisor += i
+          }
+        }
+            if ( sumaDivisor == num ) {
+            console.log("El numero " + num + " es perfecto")
+        } else {
+        console.log("El numero " + num + " no es perfecto")
+      }
+    }
+
+    function Ejercicio39() {
+        let pi, termino, n, signo, iteraciones;
+        pi = 0;
+        n = 1;
+        signo = 1;
+      
+        iteraciones = +prompt("ingrese el numero de iteraciones");
+      
+        for (let i = 1; i <= iteraciones; i++) {
+          termino = 4 / n;
+          pi = pi + signo * termino;
+          signo = signo * -1;
+          n = n + 2;
+        }
+      
+        alert(
+          `La aproximacion de pi despues de ${iteraciones} iteraciones es de: ${pi}`
+        );
+      }
+      
+      function Ejercicio40() {
+        let pi, termino, n, signo, iteraciones;
+        pi = 3;
+        n = 2;
+        signo = 1;
+      
+        iteraciones = +prompt("ingrese el numero de iteraciones");
+      
+        for (let i = 1; i <= iteraciones; i++) {
+          termino = 4 / (n * (n + 1) * (n + 2));
+          pi = pi + signo * termino;
+          signo = signo * -1;
+          n = n + 2;
+        }
+      
+        alert(
+          `La aproximacion de pi despues de ${iteraciones} iteraciones es de: ${pi}`
+        );
+      }
 
 
