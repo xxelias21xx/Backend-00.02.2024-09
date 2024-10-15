@@ -244,3 +244,195 @@ document.getElementById("check-odd-even").addEventListener("click", () => {
     document.getElementById("odd-even").textContent = `${oddOrEven}`
 
 })
+
+//Ejercicio 11
+document.getElementById("check-high").addEventListener("click", () => {
+
+    
+    let arrayNumbers = document.getElementById("highNumber").value
+    let numbers = arrayNumbers.split(',').map(num => parseFloat(num))
+
+    let high = numbers.reduce((last,current) => (last>current) ? last: current)
+
+    document.getElementById("high-number").textContent = `Mayor: ${high}`
+
+})
+
+//Ejercicio 12
+document.getElementById("check-high2").addEventListener("click", () => {
+
+    
+    let arrayNumbers = document.getElementById("highNumber2").value
+    let numbers = arrayNumbers.split(',').map(num => parseFloat(num))
+
+    let high = numbers.reduce((last,current) => (last>current) ? last: current)
+
+    document.getElementById("high-number2").textContent = `Mayor: ${high}`
+
+})
+
+//Ejercicio 13
+document.getElementById("check-letter").addEventListener("click", () => {
+
+    
+    let letter = document.getElementById("letter").value.toLowerCase()
+    let vowels = ["a","e","i","o","u"]
+
+    let letterCheck = (vowels.includes(letter)) ? "Vocal" : "Consonante"
+
+    document.getElementById("vowel-consonant").textContent = `${letterCheck}`
+
+})
+
+//Ejercicio 14
+document.getElementById("check-prime").addEventListener("click", () => {
+
+    
+    let number = parseInt(document.getElementById("prime-number").value.toLowerCase())
+
+    let isPrime = true
+    if(number===1) isPrime = false
+
+    if(number === 2 || number ===3){
+        isPrime = true
+    }else{
+        for(let i = 2;i < number^(1/2); i++){
+            if(number % i ===0){
+                isPrime = false
+            }
+        }
+    }
+
+    let printPrime = isPrime ? "es primo" : "no es primo"
+    document.getElementById("is-prime").textContent = `El número ${number} ${printPrime}`
+
+})
+
+//Ejercicio 15
+document.getElementById("transform-units").addEventListener("click", () => {
+
+    let centimeters = parseFloat(document.getElementById("centimeters").value)
+    let pounds = parseFloat(document.getElementById("pounds").value)
+
+    let inches
+    let kilograms
+
+    if(isNaN(centimeters) && isNaN(pounds)){
+        return
+    }else{
+        inches = centimeters / 2.54
+        kilograms = pounds * 0.453592
+    }
+
+    document.getElementById("inches").textContent = `Pulgadas: ${inches}`
+    document.getElementById("kilograms").textContent = `Kilogramos: ${kilograms}`
+
+})
+
+//Ejercicio 16
+document.getElementById("get-day").addEventListener("click", () => {
+
+    let dayNumber = parseInt(document.getElementById("dayNumber").value)
+    const days = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"]
+
+    let day
+
+    if(isNaN(dayNumber)){
+        return
+    }else{
+
+        
+        dayNumber = (dayNumber % 7 === 0) ? 6 : (dayNumber % 7)-1
+        day = days[dayNumber]
+    }
+
+    document.getElementById("week-day").textContent = `Día: ${day}`
+
+})
+
+//Ejercicio 17
+document.getElementById("get-next-hour").addEventListener("click", () => {
+
+    let currentHour = document.getElementById("current-hour").value
+    let hourMinuteSeconds = currentHour.split(":").map(num => parseInt(num))
+
+    hourMinuteSeconds[2]++
+
+    if(hourMinuteSeconds[2] === 60){
+        hourMinuteSeconds[2] = 0
+        hourMinuteSeconds[1]++
+    }
+
+    if(hourMinuteSeconds[1] === 60){
+        hourMinuteSeconds[1] = 0
+        hourMinuteSeconds[0]++
+    }
+
+    if(hourMinuteSeconds[0] === 24) hourMinuteSeconds[0]=0
+
+    document.getElementById("next-hour").textContent = `${hourMinuteSeconds[0]}:${hourMinuteSeconds[1]}:${hourMinuteSeconds[2]}`
+
+})
+
+//Ejercicio 18
+document.getElementById("calculate-CD").addEventListener("click", () => {
+
+    let cds = parseInt(document.getElementById("numberCDs").value)
+    let price
+
+
+    if(isNaN(cds)){
+        return
+    }else{
+        price = (cds<10) ? 10 : (cds < 100) ? 8 : (cds < 500) ? 7 : 6
+    }
+
+    let totalPrice = cds * price
+    let profit = totalPrice * 0.0825
+
+    document.getElementById("total-sell-CD").textContent = `Precio Total para el cliente: ${totalPrice}`
+    document.getElementById("seller-profit").textContent = `Ganancia para el vendedor: ${profit}`
+
+})
+
+//Ejercicio 19
+document.getElementById("employee-payment-btn").addEventListener("click", () => {
+
+    let employeeID = parseInt(document.getElementById("employee-id").value)
+    let employeeDays = parseInt(document.getElementById("employee-days").value)
+
+    const salary = [56, 64 , 80, 48]
+
+    if(isNaN(employeeID) && isNaN(employeeDays)){
+        return
+    }else{
+        if(employeeDays>6) employeeDays=6
+    }
+
+    let totalPayment = employeeDays * salary[employeeID-1]
+
+    document.getElementById("employee-payment").textContent = `El total a pagar es: ${totalPayment}`
+
+})
+
+//Ejercicio 20
+
+//Ejercicio 21
+document.getElementById("calculate-factorial").addEventListener("click", () => {
+
+    let number = parseInt(document.getElementById("number-for-factorial").value)
+    let factorial = 1
+
+    if(isNaN(number)){
+        return
+    }else{
+        if(number !== 0){
+            for(let i = 1; i <= number; i++){
+                factorial *= i
+            }
+        }
+    }
+
+    document.getElementById("factorial").textContent = `El factorial de ${number} es ${factorial}`
+
+})
