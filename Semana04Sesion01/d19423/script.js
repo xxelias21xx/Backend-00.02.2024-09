@@ -43,6 +43,7 @@ function recibirPedido() {
                 case 3:
                     objCliente.cafe = { tipo: "Late" }
                     objCliente = preguntarAzucar(objCliente)
+                    objCliente = preguntarLeche(objCliente)
                     break;
 
                 default:
@@ -104,11 +105,155 @@ function preguntarAzucar(objCliente) {
 }
 
 
+function preguntarLeche(objCliente) {
+    respuesta = prompt("Que tipo de leche quieres: 0=Sin Leche 1=Normal, 2=Leche de Soya o 3=Leche de Almendras")
+    switch (respuesta) {
+        case "1":
+            objCliente.cafe.leche = true;
+            objCliente.cafe.lecheTipo = "Normal";
+            break;
+        case "2":
+            objCliente.cafe.leche = true;
+            objCliente.cafe.lecheTipo = "Leche de Soya";
+            break;
+        case "3":
+            objCliente.cafe.leche = true;
+            objCliente.cafe.lecheTipo = "Leche de Almendras";
+            break;
+        default:
+            break;
+    }
+    return objCliente;
+}
 
-document.getElementById("btnPedir").addEventListener('click',(e)=>{
+let arrExtras = [{
+    id: "leche",
+    opciones: [
+        "Normal", "Leche de Almendra", "Leche de Soya"
+    ]
+},
+{
+    id: "azucar",
+    opciones: [
+        "Azucar Morena", "Azucar Blanca", "Stevia"
+    ]
+},
+{
+    id: "toppins",
+    opciones:
+        [
+            "Crema", "Chocolate", "Vainilla"
+        ]
+}]
+
+let arrProductos = [
+    {
+        id: "cafe",
+        opciones: [
+            "Americano", "Expresso", "Late"
+        ]
+    },
+    {
+        id: "postres",
+        opciones: [
+            "Torta de Chocolate", "Croissant", "Triple"
+        ]
+    }
+]
+
+function addProducto(objCliente) {
+    let strListaProductos = "escoje tu producto\n";
+
+    for (let index = 0; index < arrProductos.length; index++) {
+        const element = arrProductos[index].id;
+        strListaProductos += `${index} = ${element}\n`
+
+    }
+    console.log(strListaProductos)
+    opcion = prompt(strListaProductos)
+    console.log(opcion)
+    strListaProductos = ""
+    let tipoProducto;
+    let strProducto;
+    for (let index = 0; index < arrProductos.length; index++) {
+
+        if (index == parseInt(opcion)) {
+            strProducto = arrProductos[index].id;
+            tipoProducto = arrProductos[index].opciones
+            break;
+        }
+    }
+    console.log(tipoProducto)
+    for (let index = 0; index < tipoProducto.length; index++) {
+        const element = tipoProducto[index];
+        strListaProductos += `${index} = ${element}\n`
+
+    }
+    console.log(strListaProductos)
+    opcion = prompt(strListaProductos)
+    console.log(opcion)
+    for (let index = 0; index < tipoProducto.length; index++) {
+        if (index == opcion) {
+            const element = tipoProducto[index];
+            objCliente[strProducto] = element;
+            break
+        }
+    }
+
+    console.log(objCliente)
+    return objCliente;
+}
+
+function addExtra(extra, objCliente) {
+    respuesta = prompt(`Deseas agregar ${extra} SI=1 NO=2`)
+    if (respuesta == "1") {
+        let lista = findNameById(arrExtras, extra);
+        let strOpciones = "Escoje tu opcion:\n";
+        let indice = 0;
+        lista.forEach(element => {
+            console.log(element)
+            indice++;
+            strOpciones += `${indice} = ${element} \n`
+        });
+        console.log(strOpciones)
+        opcion = prompt(strOpciones)
+        console.log(opcion)
+        for (let index = 0; index < lista.length; index++) {
+            if (index == parseInt(opcion) - 1) {
+                console.log(lista[index])
+                objCliente[extra] = lista[index]
+            }
+        }
+    }
+    return objCliente;
+}
+
+function recibirPedido2() {
+    let cliente = prompt("Dime tu nombre");
+    let objCliente = {
+        nombre: cliente
+    }
+    objCliente = addProducto(objCliente)
+    objCliente = addExtra("azucar", objCliente)
+    objCliente = addExtra("leche", objCliente)
+    objCliente = addProducto(objCliente)
+    console.log(objCliente)
+}
+
+
+function findNameById(list, id) {
+    return list.find((obj) => obj.id === id).opciones;
+}
+
+
+
+
+
+document.getElementById("btnPedir").addEventListener('click', (e) => {
     e.preventDefault();
-    if (recibirPedido()) {
+    if (recibirPedido2()) {
         console.log("Pedido Recibido")
         console.log(arrCliente)
     }
 })
+
