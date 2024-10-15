@@ -36,3 +36,20 @@ li {
     background-color: #e0e0e0b4; /* Color de fondo para cada ejercicio */
     border-radius: 4px; /* Bordes redondeados */
 }
+table {
+    margin: auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 8px;
+    text-align: center;
+}

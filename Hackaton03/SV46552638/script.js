@@ -752,36 +752,160 @@ function ejercicio32(){
 
 function ejercicio33(){
     //33. Hacer un algoritmo en JavaScript que permita al usuario continuar con el programa.
+    let continuar = document.getElementById("e33_input1").value;
+    continuar = continuar.toLowerCase();
+    document.getElementById("e33_input1").value = '';
+    switch (continuar) {
+        case "si":
+            document.getElementById("Resultado_ejercicio33").innerHTML=`Gracias por continuar`;  
+            break;
+        case "no":
+            document.getElementById("Resultado_ejercicio33").innerHTML=`Hasta Luego`;  
+            break;
+    
+        default:
+            document.getElementById("Resultado_ejercicio33").innerHTML=`Opcion Incorrecta`;  
+            break;
+    }
 }
 
 function ejercicio34(){
     //34. Hacer un algoritmo en JavaScript que imprima la tabla de multiplicar de los números del uno al nueve.
+    for (let i = 1; i <= 9; i++) {
+        document.getElementById("Resultado_ejercicio34").innerHTML+= `<h6>Tabla del ${i}</h3>`; // Título de cada tabla
+        
+        // Generar los multiplicadores del 1 al 10 para cada número
+        for (let j = 1; j <= 10; j++) {
+            const producto = i * j; // Calcular el producto
+            document.getElementById("Resultado_ejercicio34").innerHTML+= `<p>${i} x ${j} = ${producto}</p>`; // Mostrar resultado
+        }
+    }
 }
-
+let mayorE35=-9999;
+let menorE35=9999;
+let contadorE35=0;
 function ejercicio35(){
     //35. Hacer un algoritmo en JavaScript que nos permita saber cuál es el número mayor y menor, se debe ingresar sólo veinte números.
+    
+    contadorE35++;
+    let num = parseInt(document.getElementById("e35_input1").value);
+    
+    console.log(contadorE35);
+    if (num > mayorE35) {
+        mayorE35 =num;   
+    }
+        
+    if (num < menorE35) {
+        menorE35 =num
+    }
+    document.getElementById("e35_input1").value = '';
+    if (contadorE35 === 20){
+        document.getElementById("Resultado_ejercicio35").innerHTML=`El numero mayor es: ${mayorE35} /El numero menor es: ${menorE35}`;    
+    }
+
 }
 
 function ejercicio36(){
     //36. Hacer un algoritmo en JavaScript para calcular la serie de Fibonacci.
+    let num = parseInt(document.getElementById("e36_input1").value);
+    let a=0.0;
+	let b=1.0;
+	let c=0.0;
+	let x=1;
+
+    while (x<=num) {
+        document.getElementById("Resultado_ejercicio36").innerHTML+=`  '${a}'  `;  
+		c=a+b
+		a=b
+		b=c
+		x=x+1
+    }
 }
 
 function ejercicio37(){
     //37. Hacer un algoritmo en JavaScript para conseguir el M.C.D de un número por medio del algoritmo de Euclides.
+    let dividendo=-1;
+	let divisor=-1;
+	let cociente=-1;
+	let residuo=-1;
+	// let mcd=-1;
+    let num1 = parseFloat(document.getElementById("e37_input1").value);
+    let num2 = parseFloat(document.getElementById("e37_input2").value);
+
+    if (num1 > num2) {
+        dividendo = num1;
+		divisor = num2;
+    } else {
+        dividendo = num2;
+		divisor = num1;
+    }
+
+    while (residuo !== 0) {
+
+        cociente = dividendo/divisor;
+		cociente = Math.trunc(cociente);
+		residuo = dividendo % divisor;
+		dividendo = divisor;
+		divisor = residuo;
+        if (divisor === 0) {
+            divisor =dividendo  
+        }
+    }
+
+    document.getElementById("e37_input1").value = '';
+    document.getElementById("e37_input2").value = '';
+    document.getElementById("Resultado_ejercicio37").innerHTML=`MCD de : ${divisor} `;    
 }
 
 function ejercicio38(){
     //38. Hacer un algoritmo en JavaScript que nos permita saber si un número es un número perfecto.    
+    let num1 = parseFloat(document.getElementById("e38_input1").value);
+    let sumaDivisores = 0;
+
+    // Encontrar los divisores propios (excluyendo al mismo número)
+    for (let i = 1; i < num1; i++) {
+        if (num1 % i === 0) { // Si 'i' es divisor de 'num'
+            sumaDivisores += i;
+        }
+    }
+
+    document.getElementById("e38_input1").value = '';
+    // Verificar si la suma de los divisores es igual al número
+    if (sumaDivisores === num1) {
+        document.getElementById("Resultado_ejercicio38").innerHTML=`${num1} es un número perfecto.`;    
+    } else {
+        document.getElementById("Resultado_ejercicio38").innerHTML=`${num1} no es un número perfecto.`;    
+    }
+
 }
 
 function ejercicio39(){
     /**39. Hacer un algoritmo en JavaScript que cumpla con la aproximación del número pi con la serie de Gregory-Leibniz. La formula que se debe aplicar es:
-        Pi = (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + (4/13) - (4/15) .*/
-    
+    Pi = (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) + (4/13) - (4/15) .*/
+    let num1 = parseFloat(document.getElementById("e39_input1").value);
+    let aprox= 0.0;
+
+    for (let i=1; i < num1+1 ; i++) {
+        letiteracion = ((-1)^i)/(2*i+1);
+        aprox += iteracion;
+    }
+    const phi = 4*aprox;
+    document.getElementById("e39_input1").value = '';
+    document.getElementById("Resultado_ejercicio39").innerHTML=`Valor de Pi: ${phi}`;
 }
 
 function ejercicio40(){
     //40. Hacer un algoritmo en JavaScript que cumpla con la aproximación del número pi con la serie de Nilakantha. La formula que se debe aplicar es:
     //Pi = 3 + 4/(2*3*4) - 4/(4*5*6) + 4/(6*7*8) - 4/(8*9*10) + 4/(10*11*12) - 4/(12*13*14) ...
+    let num1 = parseFloat(document.getElementById("e40_input1").value);
+    let aprox= 3;
+
+    for (let i=1; i < num1+1 ; i++) {
+        let iteracion = (4 * ((-1)**(i+1))) / ((2*i)*(2*i+1)*(2*i+2));
+        aprox += iteracion;
+    }
+    document.getElementById("e40_input1").value = '';
+    document.getElementById("Resultado_ejercicio40").innerHTML=`Valor de Pi: ${aprox}`;
+    
     
 }
