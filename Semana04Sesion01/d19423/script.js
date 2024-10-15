@@ -58,10 +58,10 @@ function recibirPedido() {
                     objCliente.postre = { tipo: "Torta de Chocolate" }
                     break;
                 case 2:
-                    objCliente.cafe = { tipo: "Croissant" }
+                    objCliente.postre = { tipo: "Croissant" }
                     break;
                 case 3:
-                    objCliente.cafe = { tipo: "Triple" }
+                    objCliente.postre = { tipo: "Triple" }
                     break;
 
                 default:
