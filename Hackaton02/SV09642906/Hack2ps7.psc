@@ -1,7 +1,7 @@
 Proceso E7
 	//Hacer un algoritmo en Pseint para una tienda de helado que da un descuento
-    //por compra a sus clientes con membresía dependiendo de su tipo, sólo existen
-    //tres tipos de membresía, tipo A, tipo B y tipo C. Los descuentos son los siguientes:
+    //por compra a sus clientes con membresï¿½a dependiendo de su tipo, sï¿½lo existen
+    //tres tipos de membresï¿½a, tipo A, tipo B y tipo C. Los descuentos son los siguientes:
 	//Tipo A 10% de descuento Tipo B 15% de descuento Tipo C 20% de descuento
 	
 		Definir tipoMembresia Como Caracter
@@ -13,7 +13,7 @@ Proceso E7
 		Escribir "Ingrese el total de la compra:"
 		Leer totalCompra
 		
-		Escribir "Ingrese el tipo de membresía (A, B, C):"
+		Escribir "Ingrese el tipo de membresï¿½a (A, B, C):"
 		Leer tipoMembresia
 				
 		Segun tipoMembresia Hacer
@@ -24,7 +24,7 @@ Proceso E7
 			"C":
 				descuento <- totalCompra * 0.10 
 			De Otro Modo:
-				Escribir "Tipo de membresía no válido."
+				Escribir "Tipo de membresï¿½a no vï¿½lido."
 				descuento <- 0
 		Fin Segun
 		
@@ -34,3 +34,4 @@ Proceso E7
 		Escribir "Descuento aplicado: $", descuento
 		Escribir "El precio final a pagar es: $", precioFinal
 FinProceso	
+
