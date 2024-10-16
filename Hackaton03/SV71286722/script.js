@@ -436,3 +436,155 @@ document.getElementById("calculate-factorial").addEventListener("click", () => {
     document.getElementById("factorial").textContent = `El factorial de ${number} es ${factorial}`
 
 })
+
+//Ejercicio 22
+document.getElementById("calculate-n-sum").addEventListener("click", () => {
+
+    let nNumber = parseInt(document.getElementById("n-first").value)
+    let sum = 0
+
+    if(isNaN(nNumber)){
+        return
+    }else{
+        for(let i = 1; i <= nNumber; i++){
+            sum += i
+        }
+    }
+
+    document.getElementById("n-sum").textContent = `La suma de los ${nNumber} primeros números es ${sum}`
+
+})
+
+//Ejercicio 23
+document.getElementById("calculate-n-odd-sum").addEventListener("click", () => {
+
+    let nNumber = parseInt(document.getElementById("n-first-odd").value)
+    let sum = 0
+
+    if(isNaN(nNumber)){
+        return
+    }else{
+        for(let i = 0; i <= nNumber; i++){
+            if(i % 2 !== 0) sum+=i
+        }
+    }
+
+    document.getElementById("n-odd-sum").textContent = `La suma de impares es ${sum}`
+
+})
+
+//Ejercicio 24
+document.getElementById("calculate-even-sum").addEventListener("click", () => {
+
+    let nNumber = 1000
+    let sum = 0
+
+    if(isNaN(nNumber)){
+        return
+    }else{
+        for(let i = 0; i <= nNumber; i++){
+            if(i % 2 === 0) sum+=i
+        }
+    }
+
+    document.getElementById("1000-even-sum").textContent = `La suma de pares es ${sum}`
+
+})
+
+//Ejercicio 25
+document.getElementById("calculate-factorial2").addEventListener("click", () => {
+
+    let factorial = n => (n===0) ? 1 : n*factorial(n-1)
+
+    let number = parseInt(document.getElementById("number-for-factorial2").value)
+    let fac
+
+    if(isNaN(number)){
+        return
+    }else{
+        fac = factorial(number)
+    }
+
+    document.getElementById("factorial2").textContent = `El factorial de ${number} es ${fac}`
+
+})
+
+//Ejercicio 26
+document.getElementById("calculate-division").addEventListener("click", () => {
+
+    let dividend = parseInt(document.getElementById("dividend").value)
+    let divider = parseInt(document.getElementById("divider").value)
+
+    let quotient = 0
+    let remainder = dividend
+
+    if(divider === 0){
+        return
+    }else{
+        while(remainder >= divider){
+            remainder = remainder-divider
+            quotient++
+        }
+    }
+
+    document.getElementById("quotient").textContent = `Cociente: ${quotient}`
+    document.getElementById("remainder").textContent = `Resto: ${remainder}`
+
+})
+
+//Ejercicio 27
+document.getElementById("calculate-average-27").addEventListener("click", () => {
+
+    let nArray = [], number = 0
+
+    while(number >= 0){
+        nArray.push(number)
+        number = parseInt(prompt("Ingresar un número"))
+    }
+
+    let sum = nArray.reduce((last,current) => last+current)
+    let average = sum/(nArray.length-1)
+    document.getElementById("average-27").textContent = `Media: ${average}`
+
+})
+
+//Ejercicio 28
+document.getElementById("calculate-sum-do").addEventListener("click", () => {
+
+    let sum = 0
+    let i = 0
+
+    do{
+        sum += i
+        i++
+    }while(i <= 100)
+
+    document.getElementById("do-100").textContent = `Suma: ${sum}`
+
+})
+
+//Ejercicio 29
+document.getElementById("calculate-sum-while").addEventListener("click", () => {
+
+    let sum = 0
+    let i = 0
+
+    while(i <= 100){
+        sum += i
+        i++
+    }
+
+    document.getElementById("while-100").textContent = `Suma: ${sum}`
+
+})
+
+//Ejercicio 30
+document.getElementById("calculate-sum-for").addEventListener("click", () => {
+
+    let sum = 0
+    
+    for(let i = 0; i <= 100; i++) sum+=i
+
+    document.getElementById("for-100").textContent = `Suma: ${sum}`
+
+})
