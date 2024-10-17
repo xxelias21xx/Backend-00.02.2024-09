@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Alinea las filas en columna */
+    align-items: flex-start; /* Alinea los botones a la izquierda */
+    gap: 10px; /* Espacio entre filas */
+    margin: 20px;
+}
+
+.row {
+    display: flex; /* Alinea los botones en fila */
+    gap: 10px; /* Espacio entre botones */
+}
