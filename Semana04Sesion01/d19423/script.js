@@ -53,9 +53,22 @@ function recibirPedido() {
             arrCliente.push(objCliente);
             break;
         case "2":
-            addExtra("azucar", objCliente);
-            addExtra("leche", objCliente);
-            addExtra("toppins", objCliente);
+            let tipoPostre = parseInt(prompt("Dime tu postre: 1=Torta de Chocolate, 2=Croissant, 3=Triple"))
+            switch (tipoPostre) {
+                case 1:
+                    objCliente.postre = { tipo: "Torta de Chocolate" }
+                    break;
+                case 2:
+                    objCliente.postre = { tipo: "Croissant" }
+                    break;
+                case 3:
+                    objCliente.postre = { tipo: "Triple" }
+                    break;
+
+                default:
+                    return false
+                    break;
+            }
             arrCliente.push(objCliente);
             break;
         default:
