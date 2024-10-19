@@ -54,3 +54,4 @@ const calculator =(valor1,operacion,valor2)=>{
 const resultado = calculator(2, "+",null);
 
 console.log(resultado);
+
