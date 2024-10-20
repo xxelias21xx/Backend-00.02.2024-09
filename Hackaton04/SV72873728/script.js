@@ -361,3 +361,55 @@ const filterList = (matriz = []) =>{
 }
 
 console.log(filterList([1, 2, 3, "x", "y", 10]))
+
+/* 19) Cree una función que tome dos argumentos (elemento, tiempos). El primer argumento (elemento) es el elemento que necesita repetirse,
+     mientras que el segundo argumento (veces) es la cantidad de veces que se debe repetir el elemento. Devuelve el resultado en una matriz.
+    repeat(13, 5) ➞ [13, 13, 13, 13, 13]
+*/ 
+
+const repeat = (elemento, tiempos) =>{
+    const matriz = [];
+    for (i = 0; i < tiempos; i++){
+        matriz.push(elemento);
+    }
+    return matriz
+}
+
+console.log(repeat(13, 5));
+
+/* 20) Escriba una función, .vreplace () que extienda el prototipo 
+    de cadena reemplazando todas las vocales en una cadena con una vocal especificada.
+    "apples and bananas".vreplace("u") ➞ "upplus und bununus"
+*/ 
+
+String.prototype.vreplace = function (vocal){
+    let cadena = "";
+
+    for (i=0; i< this.length; i++){
+        let letra = this[i];
+
+        switch (letra.toLowerCase()){
+            case "a":
+                cadena = cadena + vocal;
+                break;
+            case "e":
+                cadena = cadena + vocal;
+                break;
+            case "i":
+                cadena = cadena + vocal;
+                break;
+            case "o":
+                cadena = cadena + vocal;
+                break;
+            case "u":
+                cadena = cadena + vocal;
+                break;
+            default:
+                cadena = cadena + letra;
+        }
+    }
+
+    return cadena
+}
+
+console.log("apples and bananas".vreplace("u"));
