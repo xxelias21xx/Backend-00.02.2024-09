@@ -413,3 +413,36 @@ String.prototype.vreplace = function (vocal){
 }
 
 console.log("apples and bananas".vreplace("u"));
+
+/* 21) Te dan una cadena de palabras. Debe encontrar la palabra "Nemo" y devolver una cadena como esta:
+ "¡Encontré a Nemo en [el orden de la palabra que encuentra nemo]!".
+    findNemo("I am finding Nemo !") ➞ "I found Nemo at 4!"
+*/ 
+
+const findNemo = (cadena) =>{
+    const arr = cadena.split(" ");
+
+    const nemo = arr.indexOf("Nemo");
+
+    if (nemo == -1){
+        return ("No hay la palabra Nemo");
+    }else {
+        return (`I found Nemo at ${nemo+1}!`);
+    }
+}
+console.log(findNemo("I am finding Nemo !"));
+
+/* 22) Cree una función que capitalice la última letra de cada palabra.
+    capLast("hello") ➞ "hellO"
+*/ 
+
+const capLast = (palabra) =>{
+    const arr = palabra.split("");
+    const ultimo = arr.at(-1).toUpperCase();
+    arr.pop();
+    arr.push(ultimo);
+    return arr;
+}
+
+console.log(capLast("hello"));
+
