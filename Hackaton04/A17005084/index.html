@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackaton 04</title>
+    <script src="https://kit.fontawesome.com/e59191e4cc.js" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.4/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container mt-3">
+        <h2 class="text-center">Hackaton 04</h2>
+        <div class="form-group">
+            <label>1. Crea una función que retorne la suma de dos números.</label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtNro01" placeholder="Primer número">
+                </div>
+                <label>+</label>
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtNro02" placeholder="Segundo número">
+                </div>
+                <label>=</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtResultado" disabled>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnSumar01">Sumar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>2. Crea una función que retorne la potencia de un número dado, esta función deberá recibir la potencia y el número a potenciar.</label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtPotencia01" placeholder="Numero Potencia">
+                </div>
+                <label>^</label>
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtPotenciador02" placeholder="Potenciador">
+                </div>
+                <label>=</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtResultPot" disabled>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnPotencia01">Potencia</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>3. Crea una función que tome números y devuelva la suma de sus cubos. sumOfCubes(1, 5, 9) ➞ 855
+                // Since 1^3 + 5^3 + 9^3 = 1 + 125 + 729 = 855</label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtCantNumero" placeholder="Cantidad de números">
+                </div>
+                <label id="LblResul03"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega03">Ejecutar</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label>4. Escribe una función que tome la base y la altura de un triángulo y devuelva su área.
+                triArea(3, 2) ➞ 3</label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtBase" placeholder="Base del triangulo">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtAltura" placeholder="Altura del triangulo">
+                </div>
+                <label> El area del triangulo es: </label>
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtArea" disabled>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnArea04">Area</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>5. Crea una función llamada calculator que recibe 3 parámetros, dos números y una operación matemática 
+                (+,-,/,x,%), y si la operación no es correcta que envié un mensaje “El parámetro no es reconocido” calculator(2,"+", 2) ➞ 4
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtPrimNro05" placeholder="Primer número">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtOpera05" placeholder="Ingrese operador">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtSegunNro05" placeholder="Segundo número">
+                </div>
+                <label id="LblResul05"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnCalcular05">Calcular</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>6.Utilizando función arrow, crear una función que reciba como parámetros un nombre, apellido y edad y los retorne en un string concatenado “Hola mi nombre es sebastián yabiku y mi edad 33”
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtNombre06" placeholder="Ingrese Nombre">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtApellido06" placeholder="Ingrese Apellido">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtEdad06" placeholder="Ingrese edad">
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnConcatenar06">Concatenar</button>
+                </div>
+            </div>
+            <div class="form-row">
+                <label id="LblResul06">-</label>   
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>7.Cree una función que tome números y devuelva la suma de sus cubos.
+                sumOfCubes(1, 5, 9) ➞ 855
+                // Since 1^3 + 5^3 + 9^3 = 1 + 125 + 729 = 855
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="number" class="form-control" id="TxtCantNumero07" placeholder="Cantidad de números">
+                </div>
+                <label id="LblResul07"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega07">Ejecutar</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>8.Crear una funcion que me retorne el tipo de valor entregado, invocar la función para los distintos tipos de js
+                </label>
+            <div class="form-row">    
+
+                <label id="LblResul08"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega8">Ejecutar</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>9.Crear una función que reciba n cantidad de argumentos y los sume ( utilizar parametros rest)
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrNumero09" placeholder="Ingrese numeros, separelos con ,">
+                </div>
+                <label id="LblResul09"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega9">Sumar Numeros</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>10.Crear una función que reciba un array de valores y filtre los valores que no son string
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena10" placeholder="Ingrese cadena, separelos con coma(,)">
+                </div>
+                <label id="LblResul10"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega10">ExtraerCadena</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>11.Cree una función que tome una matriz de números y devuelva los números mínimos y máximos, en ese orden.
+                minMax([1, 2, 3, 4, 5]) ➞ [1, 5]                
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena11" placeholder="Ingrese cadena de numeros, separelos con coma(,)">
+                </div>
+                <label id="LblResul11"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega11">ExtraerNumeros</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>12.Escriba una función que tome una matriz de 10 enteros (entre 0 y 9) y devuelva una cadena en forma de un número de teléfono.
+                formatPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) ➞ "(123) 456-7890"                     
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena12" value="1,2,3,4,5,6,7,8,9,0" disabled>
+                </div>
+                <label id="LblResul12"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega12">DarFormato</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>13.Cree una función que tome una matriz de matrices con números. Devuelve una nueva matriz (única) con el mayor número de cada uno.
+                findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]]) ➞ [7, 90, 2]                                   
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena13" placeholder="Separe matrices con punto y coma (;)">
+                </div>
+                <label id="LblResul13"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega13">ExtraerNumeros</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>14.Dada una palabra, escriba una función que devuelva el primer índice y el último índice de un carácter.
+                charIndex("hello", "l") ➞ [2, 3]
+                // The first "l" has index 2, the last "l" has index 3.
+                
+                charIndex("circumlocution", "c") ➞ [0, 8]
+                // The first "c" has index 0, the last "c" has index 8.
+                                             
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena14" placeholder="Ingrese cadena">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCaracter14" placeholder="Ingrese caracter">
+                </div>
+                <label id="LblResul14"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega14">Buscar Caracteres</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>15.Escriba una función que convierta un objeto en una matriz, donde cada elemento representa un par clave-valor.
+                toArray({ a: 1, b: 2 }) ➞ [["a", 1], ["b", 2]]                                      
+                </label>
+            <div class="form-row">    
+                <label id="LblResul15"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega15">Convertir</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>16.Cree la función que toma una matriz con objetos y devuelve la suma de los presupuestos de las personas.
+                getBudgets([
+                  { name: "John", age: 21, budget: 23000 },
+                  { name: "Steve",  age: 32, budget: 40000 },
+                  { name: "Martin",  age: 16, budget: 2700 }
+                ]) ➞ 65700    
+            </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtNombre16" placeholder="Ingrese nombre">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtEdad16" placeholder="Ingrese edad">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtPresu16" placeholder="Ingrese presupuesto">
+                </div>
+                <label id="LblResul16"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega16">Agregar Presup.</button>                 
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnCalcPresu16">Calc.Presupuesto</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>17.Cree una función que tome una matriz de estudiantes y devuelva una matriz de nombres de estudiantes.
+                getStudentNames([
+                  { name: "Steve" },
+                  { name: "Mike" },
+                  { name: "John" }
+                ]) ➞ ["Becky", "John", "Steve"]                                        
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena17" placeholder="Ingrese Nombre">
+                </div>
+                <label id="LblResul17"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnAgrega17">Add Name</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label>18.Escriba una función que convierta un objeto en una matriz de claves y valores.
+                objectToArray({
+                  likes: 2,
+                  dislikes: 3,
+                  followers: 10
+                }) ➞ [["likes", 2], ["dislikes", 3], ["followers", 10]]                                                  
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena18" disabled>
+                </div>
+                <label id="LblResul18"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnConvert18">Convertir Objeto</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>19.Cree una función donde, dado el número n, devuelva la suma de todos los números cuadrados  incluyendo n.
+                squaresSum(3) ➞ 14
+                // 1² + 2² + 3² =
+                // 1 + 4 + 9 =
+                // 14                                                               
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtIngrCadena19" placeholder="Ingrese número final que se sumara la potencia de cuadrados">
+                </div>
+                <label id="LblResul19"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnCalcular19">Sumar Cuadrados</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label>20.Cree una función para multiplicar todos los valores en una matriz por la cantidad de valores en la matriz dada
+                multiplyByLength([2, 3, 1, 0]) ➞ [8, 12, 4, 0]                                                                              
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtNroObj20" placeholder="Ingrese numeros separados por coma(,)">
+                </div>
+                <label id="LblResul20"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnCalcular20">Multiplicar Obj</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>21.Cree una función que tome un número como argumento y devuelva una matriz de números contando desde este número a cero.
+                countdown(5) ➞ [5, 4, 3, 2, 1, 0]                                                                                             
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtNumeDesc21" placeholder="Ingrese numero de inicio">
+                </div>
+                <label id="LblResul21"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnCalcular21">Descendente</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>22.Cree una función que tome una matriz y devuelva la diferencia entre los números más grandes y más pequeños.
+                diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21]) ➞ 82
+                // Smallest number is -50, biggest is 32.                                                                                            
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtNroObj22" placeholder="Ingrese numeros separados por coma(,)">
+                </div>
+                <label id="LblResul22"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnCalcular22">Diferenc.Matriz</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>23.Cree una función que filtre las cadenas de una matriz y devuelva una nueva matriz que solo contenga enteros.
+                filterList([1, 2, 3, "x", "y", 10]) ➞ [1, 2, 3, 10]                                                                                                           
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtNroObj23" placeholder="Ingrese separados por coma(,)">
+                </div>
+                <label id="LblResul23"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnCalcular23">Extraer Numeros</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label>24.Cree una función que tome dos argumentos (elemento, tiempos). El primer argumento (elemento) es el elemento que necesita repetirse, mientras que el segundo argumento (veces) es la cantidad de veces que se debe repetir el elemento. Devuelve el resultado en una matriz.
+                repeat(13, 5) ➞ [13, 13, 13, 13, 13]                                                                                                                          
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtElementoj24" placeholder="Ingrese Elemento">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtTiempo24" placeholder="Ingrese tiempo">
+                </div>
+                <label id="LblResul24"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnRepeti24">Repetir</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label>25.Escriba una función, .vreplace () que extienda el prototipo de cadena reemplazando todas las vocales en una cadena con una vocal especificada.
+                "apples and bananas".vreplace("u") ➞ "upplus und bununus"                                                                                                                                       
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtCadena25" placeholder="Ingrese Cadena">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtCaracter25" placeholder="Ingrese Caracter">
+                </div>
+                <label id="LblResul25"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnRepeti25">Reemplazar</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label>26.Te dan una cadena de palabras. Debe encontrar la palabra "Nemo" y devolver una cadena como esta: "¡Encontré a Nemo en [el orden de la palabra que encuentra nemo]!".
+                findNemo("I am finding Nemo !") ➞ "I found Nemo at 4!"                                                                                                                                                      
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtCadena26" placeholder="Ingrese Cadena">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtCaracter26" placeholder="Ingrese cadena a buscar">
+                </div>
+                <label id="LblResul26"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnRepeti26">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label>27.Cree una función que capitalice la última letra de cada palabra.
+                capLast("hello") ➞ "hellO"                                                                                                                                                                     
+                </label>
+            <div class="form-row">    
+                <div class="col">
+                    <input type="text" class="form-control" id="TxtCadena27" placeholder="Ingrese Cadena">
+                </div>
+                <label id="LblResul27"></label>
+                <div class="col">
+                    <button class="btn btn-primary" id="BtnRepeti27">Cambiar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.4/dist/bootstrap-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
