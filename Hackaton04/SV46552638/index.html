@@ -118,18 +118,314 @@
             Ingresa al siguiente documento:
             </li>
             <br>
-            <li>
-                <a href="https://docs.google.com/document/d/1aJlprbfiKADx-IazY9MMaeB84gsUR-0engVPEkWipNc/edit">https://docs.google.com/document/d/1aJlprbfiKADx-IazY9MMaeB84gsUR-0engVPEkWipNc/edit</a>
-            </li><br>
+            
+            <a href="https://docs.google.com/document/d/1aJlprbfiKADx-IazY9MMaeB84gsUR-0engVPEkWipNc/edit">https://docs.google.com/document/d/1aJlprbfiKADx-IazY9MMaeB84gsUR-0engVPEkWipNc/edit</a>
+            <br>
             <li>
             Define los algoritmos por cada ejercicio
             </li>
             <br>
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="reto2.pdf" allowfullscreen></iframe>
+            <div class="embed-responsive embed-responsive-16by9"> 
+                <iframe class="embed-responsive-item" src="reto2.pdf" allowfullscreen ></iframe><br>
+            </div>
+
+            <div class="container text-center mt-5">
+                <h2>Reto 2</h2><br>
+
+                <p>1.- Utilizando función arrow, crear una función que reciba como parámetros un nombre, apellido y edad y los retorne en un string concatenado.</p>
+                <span> “Hola mi nombre es sebastián yabiku y mi edad 33”</span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="r2_e1_input1" type="text" placeholder="Nombre" size="10">             
+                            <input id="r2_e1_input2" type="text" placeholder="Apellido" size="10">
+                            <input id="r2_e1_input3" type="number" placeholder="Edad" size="10" min="0" max="90" ><br>
+                            <br>                    
+                            <button id="r2_e1_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e1_resultado" > </span><br>
+                            <!-- <span id="r2_e1_resultado" type="text"  placeholder="Resultado" readonly ><br> -->
+                        </div>
+                    </div>
+                </form><br>
+                <p>2. Cree una función que tome números y devuelva la suma de sus cubos.</p>
+                <span>sumOfCubes(1, 5, 9) ➞ 855</span><br>
+                <span>// Since 1^3 + 5^3 + 9^3 = 1 + 125 + 729 = 855</span><br>
+                <form>
+                    <!-- ejercicio 2 -->
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="r2_e2_input1" type="number" placeholder="Numero: " size="10" ><br>
+                            <!-- <button>Agregar</button><br> -->
+                            <!-- <span id="r2_e2_span1">Agregados</span><br> -->
+                            <span>Ingrese el valor: 0 o nulo/vacio para reiniciar </span>
+                            <br><button id="r2_e2_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <input id="r2_e2_resultado" type="number" class="visible" placeholder="Resultado" size="10" readonly><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 3 -->
+                <p>3.Crear una funcion que me retorne el tipo de valor entregado, invocar la función para los
+                    distintos tipos de js</p>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <span> Valor aleatorio: </span><br>
+                            <span id = "r2_e3_span1"></span><br>
+                            <!-- <input id="r2_e3_input1" type="text" placeholder="Valor" size="10"><br>                                          -->                 
+                            <button id="r2_e3_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e3_resultado">Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 4 -->
+                <p>4.Crear una función que reciba n cantidad de argumentos y los sume ( utilizar parametros rest)</p>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <span> parametros aleatorios: </span><br>
+                            <span id = "r2_e4_span1"></span><br>
+                            <span id="r2_e2_span1">Agregados</span><br>
+                            <br><button id="r2_e4_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e4_resultado"> Resultado</span><br>
+                        </div>
+                    </div>
+                </form>
+                <!-- ejercicio 5 -->
+                <p>5. Crear una función que reciba un array de valores y filtre los valores que no son string.</p>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <span>Arreglo aleatorio!</span><br>
+                            <!-- <button>Generar</button><br> -->
+                            <span id="r2_e5_span1">Mostrar</span><br>
+                            <br><button id="r2_e5_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e5_resultado" >Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 6 -->
+                <p>6. Cree una función que tome una matriz de números y devuelva los números mínimos y máximos, en ese orden.</p>
+                <span>minMax([1, 2, 3, 4, 5]) ➞ [1, 5]</span><br><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <span>Arreglo aleatorio!</span><br>
+                            <span id="r2_e6_span1">Mostrar</span><br>
+                            <br><button id="r2_e6_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e6_resultado" >Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+
+                <!-- ejercicio 7 -->
+                <p>7.  Escriba una función que tome una matriz de 10 enteros (entre 0 y 9) y devuelva una cadena en forma de un número de teléfono.</p>
+                <span>formatPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) ➞ "(123) 456-7890"</span>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <span>Arreglo</span><br>
+                            <span id="r2_e7_span1">Mostrar</span><br>
+                            <br><button id="r2_e7_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e7_resultado" >Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 8 -->
+                <p>8. Cree una función que tome una matriz de matrices con números. Devuelve una nueva matriz (única) con el mayor número de cada uno.</p>
+                <span>findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]]) ➞ [7, 90, 2]</span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <span>Arreglo Matriz!</span>
+                            <!-- <button>Generar</button><br> -->
+                            <span id="r2_e8_span1">Mostrar</span><br>
+                            <br><button id="r2_e8_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e8_resultado" >Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+
+                <!-- ejercicio 9        -->
+                <p>9. Dada una palabra, escriba una función que devuelva el primer índice y el último índice de un carácter.</p>
+                <span>charIndex("hello", "l") ➞ [2, 3]</span><br>
+                <span>// The first "l" has index 2, the last "l" has index 3.</span><br>
+                <span>charIndex("circumlocution", "c") ➞ [0, 8]</span><br>
+                <span>// The first "c" has index 0, the last "c" has index 8.</span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="r2_e9_input1" type="text" placeholder="Palabra" size="10" ><br>             
+                            <input id="r2_e9_input2" type="text" placeholder="Letra" size="10" ><br>
+                            <br>                    
+                            <button id="r2_e9_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e9_resultado" >Resultado</span><br><br>
+                        </div>
+                    </div>
+                </form>
+                <!-- ejercicio 10 -->
+                <p>10. Escriba una función que convierta un objeto en una matriz, donde cada elemento representa un par clave-valor. </p>
+                <span>toArray({ a: 1, b: 2 }) ➞ [["a", 1], ["b", 2]]</span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <!-- <span>Objeto aleatorio!</span>
+                            <button>Generar</button><br> -->
+                            <!-- <span id="r2_10_span1">Mostrar</span><br> -->
+                            <br><button id="r2_e10_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e10_resultado" >Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 11 -->
+                <p>11. Cree la función que toma una matriz con objetos y devuelve la suma de los 
+                    presupuestos de las personas.</p>
+                <span>getBudgets([ </span><br>
+                <span>{ name: "John", age: 21, budget: 23000 },</span><br>
+                <span>{ name: "Steve",  age: 32, budget: 40000 },</span><br>
+                <span> { name: "Martin",  age: 16, budget: 2700 } </span><br>
+                <span>]) ➞ 65700 </span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <!-- <input id="e1_input1" type="number" placeholder="1° Número" size="10"><br>             
+                            <input id="e1_input2" type="number" placeholder="2° Número" size="10"><br> -->
+                            <br>                    
+                            <button id="r2_e11_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e11_resultado">Resultado</span>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 12 -->
+                <p>12. Cree una función que tome una matriz de estudiantes y devuelva una matriz de nombres de estudiantes</p>
+                <span>getStudentNames([ </span><br>
+                <span>{ name: "Steve" },</span><br>
+                <span>{ name: "Mike" }, </span><br>
+                <span>{ name: "John" }]) </span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">     
+                            <br>                    
+                            <button id="r2_e12_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br>
+                            <span id="r2_e12_resultado">Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 13 -->
+                <p>13. Escriba una función que convierta un objeto en una matriz de claves y valores.</p>
+                <span>objectToArray({ </span><br>
+                <span> likes: 2, </span><br>
+                <span> followers: 10</span><br>
+                <span>}) ➞ [["likes", 2], ["dislikes", 3], ["followers", 10]]</span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <br>                    
+                            <button id="r2_e13_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <span id="r2_e13_resultado">Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 14 -->
+                <p>14.  Cree una función donde, dado el número n, devuelva la suma de todos los números cuadrados  incluyendo n. </p>
+                <span>squaresSum(3) ➞ 14  </span><br>
+                <span> // 1² + 2² + 3² = </span><br>
+                <span> // 1 + 4 + 9 =</span><br>
+                <span> // 14 </span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="r2_e14_input1" type="number" placeholder="Numero" size="10" min="0"><br>  <br>                   
+                            <button id="r2_e14_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <span id="r2_e14_resultado">Resultado</span><br><br>
+                        </div>
+                    </div>
+                </form>
+                <!-- ejercicio 15 -->
+                <p>15.  Cree una función para multiplicar todos los valores en una matriz por la cantidad de valores en la matriz dada</p>
+                <span>multiplyByLength([2, 3, 1, 0]) ➞ [8, 12, 4, 0] </span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <br>                    
+                            <button id="r2_e15_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <span id="r2_e15_resultado">Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <!-- ejercicio 16 -->
+                <p>16. Cree una función que tome un número como argumento y devuelva una matriz de números contando desde este número a cero</p>
+                <span>countdown(5) ➞ [5, 4, 3, 2, 1, 0]</span><br><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="r2_e16_input1" type="number" placeholder="Número" size="10"><br><br>              
+                            <button id="r2_e16_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <span id="r2_e16_resultado">Resultado</span><br>
+                        </div>
+                    </div>
+                </form><br>
+                <p>2. Crea una función que retorne la potencia de un número dado, esta función deberá recibir la base y el exponente.</p>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="e2_input1" type="number" placeholder="Base" size="10" ><br>             
+                            <input id="e2_input2" type="number" placeholder="Exponente" size="10"><br>
+                            <br>                    
+                            <button id="e2_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <input id="e2_resultado" type="number" class="visible" placeholder="Resultado" size="10" readonly><br>
+                        </div>
+                    </div>
+                </form><br>
+                <p>3. Crea una función que tome números y devuelva la suma de sus cubos. sumOfCubes(1, 5, 9) ➞ 855</p>
+                <span>Since 1^3 + 5^3 + 9^3 = 1 + 125 + 729 = 855</span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="e3_input1" type="number" placeholder="1° Número" size="10"><br>             
+                            <input id="e3_input2" type="number" placeholder="2° Número" size="10"><br>
+                            <input id="e3_input3" type="number" placeholder="3° Número" size="10"><br>
+                            <br>                    
+                            <button id="e3_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <input id="e3_resultado" type="number" class="visible" placeholder="Resultado" size="10" readonly><br>
+                        </div>
+                    </div>
+                </form><br>
+                <p>4. Escribe una función que tome la base y la altura de un triángulo y devuelva su área.</p>
+                <span>triArea(3, 2) ➞ 3</span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="e4_input1" type="number" placeholder="BASE" size="10" min="0"><br>             
+                            <input id="e4_input2" type="number" placeholder="ALTURA" size="10" min="0"><br>
+                            <br>                    
+                            <button id="e4_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <input id="e4_resultado" type="number" class="visible" placeholder="Resultado" size="10" readonly><br><br>
+                        </div>
+                    </div>
+                </form>
+                <p>5. Crea una función llamada calculator que recibe 3 parámetros, dos números y una operación matemática 
+                    (+,-,/,x,%), y si la operación no es correcta que envié un mensaje </p>
+                    <span>“El parámetro no es reconocido” calculator(2,"+", 2) ➞ 4 </span><br>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input id="e5_input1" type="number" placeholder="1° Número" size="10"><br>             
+                            <input id="e5_input2" type="number" placeholder="2° Número" size="10"><br>
+                            <span>Operaciones:</span><br>
+                            <span>Suma          : +</span><br>
+                            <span>Resta         : -</span><br>
+                            <span>Multiplicacin : *</span><br>
+                            <span>´División     : /</span><br>
+                            <span>Módulo        : %</span><br>
+                            <input id="e5_input3" type="text" placeholder="Operación" ><br>
+                            <br>                    
+                            <button id="e5_btn1" type="button" class="btn btn-outline-primary"  > Resolver </button><br><br>
+                            <input id="e5_resultado" type="number" class="visible" placeholder="Resultado" size="10" readonly><br>
+                        </div>
+                    </div>
+                </form><br>
             </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -137,7 +433,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
     <script src="script2.js"></script>
-
 </body>
+
 
 </html>
