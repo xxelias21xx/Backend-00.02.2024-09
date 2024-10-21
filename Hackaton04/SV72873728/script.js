@@ -80,6 +80,12 @@ const calculadora = (num1, operador, num2) =>{
 const respuesta = calculadora(5, 5, "+");
 console.log(respuesta);
 
+/*-  ¿Cómo defines una función?
+    R: Para definir una función en JavaScript, puedes utilizar la palabra clave function
+-  ¿Hasta cuantos argumentos puedes declarar en una función?   
+    R: No hay un límite en la cantidad de argumentos que se pueda declarar en la función.
+*/
+
 //RETO 2
 
 /* 1) Utilizando función arrow, crear una función que reciba como parámetros un nombre, apellido y edad y 
