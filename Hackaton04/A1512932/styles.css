@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container button {
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.container button:hover {
+    background-color: #fa0f0f; /* Cambio de color al pasar el mouse */
+}
+
+#output-reto02 {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    min-height: 50px;
+    width: 100%;
+}
+
+#output-reto01 {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    min-height: 50px;
+    width: 100%;
+}

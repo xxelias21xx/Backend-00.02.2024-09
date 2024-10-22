@@ -1,0 +1,4 @@
+¿Cómo defines una función? Para definir una función en JavaScript, puedes utilizar la palabra clave function
+En si para definir una función hay varias maneras entre ellas las arrow functions, function declaration entre otras, ellas nos ayudan a darle vida a la web.
+¿Hasta cuantos argumentos puedes declarar en una función?
+Tengo entendido que no hay un limite pero es una buena practica no superar los 10000 argumentos ya que puede consumir mucha memoria en el navegador.
