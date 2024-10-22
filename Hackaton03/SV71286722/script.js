@@ -588,3 +588,145 @@ document.getElementById("calculate-sum-for").addEventListener("click", () => {
     document.getElementById("for-100").textContent = `Suma: ${sum}`
 
 })
+
+//Ejercicio 31
+document.getElementById("calculate-sum-odd-even").addEventListener("click", () => {
+
+    let evenArray = [], oddArray = []
+    var evenSum, oddSum
+
+    while(evenArray.length + oddArray.length < 10){
+        number = parseInt(prompt("Ingresar un número"))
+        if(number%2==0){
+            evenArray.push(number)
+        }else{
+            oddArray.push(number)
+        }
+    }
+
+    evenSum = evenArray.reduce((last,current) => last+current)
+    oddSum = oddArray.reduce((last,current) => last+current)
+    document.getElementById("even-sum").textContent = `Media Pares: ${evenSum/evenArray.length}`
+    document.getElementById("odd-sum").textContent = `Media Impares: ${oddSum/oddArray.length}`
+
+})
+
+//Ejercicio 32
+
+//Ejercicio 33
+document.getElementById("start-app").addEventListener("click", () => {
+    
+    let continue_app = "S"
+    while(continue_app === "S"){
+        console.log("Ejecutando el programa")
+        continue_app = prompt("¿Desea continuar con el programa? (S/N):").toUpperCase()
+    }
+
+})
+
+//Ejercicio 34
+document.getElementById("mul-table1-9").addEventListener("click", () => {
+    
+    for(let i = 1; i<10; i++){
+        console.log(`Tabla del ${i}`)
+        for(let j = 1; j<10; j++){
+            console.log(`${i} X ${j} = ${i*j}`)
+        }
+    }
+
+})
+
+//Ejercicio 35
+document.getElementById("higher-and-lower").addEventListener("click", () => {
+
+    let numbers =[], high = 0, low
+    for(let i = 0; i < 20; i++){
+
+        let number = parseFloat(prompt("Ingrese un número"))
+        numbers.push(number)
+        
+        high = (high > numbers[i]) ? high : numbers[i]
+
+        low = (low < numbers[i]) ? low : numbers[i]
+        
+    }
+
+    document.getElementById("higher").textContent = `Mayor: ${high}`
+    document.getElementById("lower").textContent = `Menor: ${low}`
+})
+
+//Ejercicio 36
+document.getElementById("calculate-fibonacci").addEventListener("click", () => {
+
+    let number = parseInt(document.getElementById("n-fibonacci").value)
+    
+    let fibonacci = (n) => (n < 2) ? n : fibonacci(n-2) + fibonacci(n-1)
+
+    console.log(fibonacci(number))
+
+})
+
+//Ejercicio 37
+document.getElementById("calculate-MCD").addEventListener("click", () => {
+
+    let number1 = parseInt(document.getElementById("first-number").value)
+    let number2 = parseInt(document.getElementById("second-number").value)
+    
+    while(number2 !== 0){
+        let temp = number2
+        number2 = number1 % number2
+        number1 = temp
+    }
+
+    document.getElementById("MCD").textContent = `M.C.D: ${number1}`
+
+})
+
+//Ejercicio 38
+document.getElementById("check-perfect").addEventListener("click", () => {
+
+    let perfect = parseInt(document.getElementById("perfect-number").value)
+    let sum = 0
+
+    for(let i = 1; i<perfect-1; i ++){
+        sum = (perfect % i == 0) ? sum+i : sum
+    }
+    
+    let isPerfect = (sum === perfect) ? "Es perfecto" : "No es perfecto"
+
+    document.getElementById("is-perfect").textContent = `${isPerfect}`
+
+})
+
+//Ejercicio 39
+document.getElementById("calc-pi").addEventListener("click", () => {
+
+    let n = parseInt(document.getElementById("n-aprox").value)
+    let numpi = 0
+    let sign = 1
+
+    for(let i = 0; i<=n-1; i++){
+        numpi += sign * (4/(2*i+1))
+        sign = -sign
+    }
+
+    document.getElementById("pi-aprox").textContent = `${numpi}`
+
+})
+
+//Ejercicio 40
+document.getElementById("calc-pi2").addEventListener("click", () => {
+
+    let n = parseInt(document.getElementById("n-aprox2").value)
+    let numpi = 3
+    let sign = 1
+
+    for(let i = 1; i<=n; i++){
+        let den = (2*i)*(2*i+1)*(2*i+2)
+        numpi += sign * (4/den)
+        sign = -sign
+    }
+
+    document.getElementById("pi-aprox2").textContent = `${numpi}`
+
+})
