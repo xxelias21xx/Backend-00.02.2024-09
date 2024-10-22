@@ -243,3 +243,188 @@ document.getElementById("r2_e11_btn1").addEventListener("click", (ejercicio11) =
     // document.getElementById("r2_10_span1").innerText = `${objObejto.a} ${objObejto.b}`;
     document.getElementById("r2_e11_resultado").innerText = `${sumarPresupuestos(getBudgets)}`;
 })
+
+// ejercicio 12
+
+const devolverNombres =(individuos ={})=>{
+    let nombres=[];
+    individuos.forEach(individuo => { nombres.push(individuo.name);});
+    return nombres;
+}
+document.getElementById("r2_e12_btn1").addEventListener("click", (ejercicio12) => {
+    ejercicio12.preventDefault();
+
+    const getStudentNames= ([
+        { name: "Steve" },
+        { name: "Mike" },
+        { name: "John" }]);
+    // document.getElementById("r2_10_span1").innerText = `${objObejto.a} ${objObejto.b}`;
+    document.getElementById("r2_e12_resultado").innerText = `${devolverNombres(getStudentNames)}`;
+})
+
+// ejercicio 13
+
+const objectToArrayKeyValue =(reacciones ={})=>{
+    let reaccionesCV=[];
+    // console.log(reacciones);
+    // reacciones.forEach(reaccion => { 
+    //     // nombres.push(individuo.name);
+    //     const arr = [reaccion.key,reaccion.value];
+    //     reaccionesCV.push(arr);
+    // });
+    // reacciones=Object.entries(reacciones).
+    // reacciones.forEach(reaccion => { 
+    //         const arr = [reaccion.key,reaccion.value];
+    //         reaccionesCV.push(arr);
+    // })
+    
+    Object.entries(reacciones).forEach(([clave, valor]) => {
+        const arr = [clave,valor];
+        reaccionesCV.push(arr);
+    });
+
+    return reaccionesCV;
+}
+document.getElementById("r2_e13_btn1").addEventListener("click", (ejercicio13) => {
+    ejercicio13.preventDefault();
+    const getReacciones={
+        likes: 2,
+        dislikes: 3,
+        followers: 10};
+    // document.getElementById("r2_10_span1").innerText = `${objObejto.a} ${objObejto.b}`;
+    console.log(objectToArrayKeyValue(getReacciones));
+    document.getElementById("r2_e13_resultado").innerText = `${objectToArrayKeyValue(getReacciones)}`;
+})
+// ejercicio 14
+const squaresSum =(numero)=>{
+    let sqrs=0;
+    for (let i = 1; i <= numero; i++) {
+        sqrs += i**2;
+    }
+    return sqrs;
+}
+document.getElementById("r2_e14_btn1").addEventListener("click",(ejercicio14)=>{
+    ejercicio14.preventDefault();
+    const n = parseInt(document.getElementById("r2_e14_input1").value);
+    if (!(n === "")){
+        
+        document.getElementById("r2_e14_resultado").innerText = `${squaresSum(n)}`;
+        document.getElementById("r2_e14_input1").value = ``;
+    }else{
+        alert("Ejercicio 14, valor vacio o inválido ");
+    }
+})
+
+// ejercicio 15
+const productoTamaño =(arreglo =[])=>{
+    for (let i = 0; i < arreglo.length; i++) {
+        arreglo[i]= arreglo[i]*(arreglo.length);
+    }
+    return arreglo;
+}
+document.getElementById("r2_e15_btn1").addEventListener("click",(ejercicio15)=>{
+    ejercicio15.preventDefault();
+    let arreglo = [2, 3, 1, 0];
+    // const n = parseInt(document.getElementById("r2_e14_input1").value);
+    document.getElementById("r2_e15_resultado").innerText = `${productoTamaño(arreglo)}`;
+    // document.getElementById("r2_e15_input1").value = ``;
+})
+
+// ejercicio 16
+
+const countdown =(tamano)=>{
+    let arreglo =[];
+    for (let i = 0; i < tamano; i++) {
+        arreglo[i]= tamano - i;
+    }
+    return arreglo;
+}
+document.getElementById("r2_e16_btn1").addEventListener("click",(ejercicio16)=>{
+    ejercicio16.preventDefault();
+    // let arreglo = [2, 3, 1, 0];
+    const tamano = parseInt(document.getElementById("r2_e16_input1").value);
+    document.getElementById("r2_e16_resultado").innerText = `${countdown(tamano)}`;
+    document.getElementById("r2_e16_input1").value = ``;
+})
+// ejercicio 17
+
+document.getElementById("r2_e17_btn1").addEventListener("click",(ejercicio17)=>{
+    ejercicio17.preventDefault();
+    const arreglo = [10, 4, 1, 4, -10, -50, 32, 21];
+    document.getElementById("r2_e17_resultado").innerText = `Diferencia: ${minMaxSimple(arreglo)[0] - minMaxSimple(arreglo)[1]}`;
+    
+})
+
+//ejericio 18
+
+const filterList =(arreglo =[]) =>{
+    let arr =arreglo.filter(num =>  !isNaN(num));
+    return arr;
+}
+document.getElementById("r2_e18_btn1").addEventListener("click",(ejercicio18)=>{
+    ejercicio18.preventDefault();
+    const arreglo = [1, 2, 3, "x", "y", 10];
+    document.getElementById("r2_e18_resultado").innerText = ` ${filterList(arreglo)}`;
+    
+})
+
+//ejercicio 19
+const repeat = (elemento,veces) =>{
+    let  arr =[];
+    for (let i = 0; i < veces; i++) {
+        arr.push(elemento);
+    }
+    console.log(arr);
+    return arr;
+    
+}
+document.getElementById("r2_e19_btn1").addEventListener("click",(ejercicio19)=>{
+    ejercicio19.preventDefault();
+    const elemento = document.getElementById("r2_e19_input1").value;
+
+    const veces = parseInt(document.getElementById("r2_e19_input2").value);
+    document.getElementById("r2_e19_input1").value="";
+    document.getElementById("r2_e19_input2").value="";
+    document.getElementById("r2_e19_resultado").innerText = ` ${repeat(elemento,veces)}`;
+    
+})
+// ejercicio 20
+const vreplace  = (palabra,vocal) =>{
+    const nuevapalabra = palabra.replaceAll(/[aeiou]/g, vocal);
+    return nuevapalabra;
+}
+document.getElementById("r2_e20_btn1").addEventListener("click",(ejercicio20)=>{
+    ejercicio20.preventDefault();
+    const palabra = document.getElementById("r2_e20_input1").value;
+    const vocal = document.getElementById("r2_e20_input2").value;
+
+    document.getElementById("r2_e20_input1").value="";
+    document.getElementById("r2_e20_input2").value="";
+    document.getElementById("r2_e20_resultado").innerText = ` ${vreplace (palabra,vocal)}`;
+    
+})
+// ejercicio 21
+const findNemo = (texto,palabra) =>{
+    const  indice = texto.indexOf(palabra);
+    return `¡Encontré a Nemo en ${indice}!`;
+}
+document.getElementById("r2_e21_btn1").addEventListener("click",(ejercicio21)=>{
+    ejercicio21.preventDefault();
+    const palabra='Nemo';
+    const frase = document.getElementById("r2_e21_input1").value;
+    document.getElementById("r2_e21_input1").value="";
+    document.getElementById("r2_e21_resultado").innerText = ` ${findNemo(frase,palabra)}`;
+    
+})
+// ejercicio 22
+const capLast = (palabra) =>{
+    // const nuevapalabra = palabra.replac(/[aeiou]/g, "O");
+    const nuevapalabra = palabra.replace("o", "O");
+    return nuevapalabra;
+}
+document.getElementById("r2_e22_btn1").addEventListener("click",(ejercicio19)=>{
+    ejercicio19.preventDefault();
+    const palabra = "Hello";
+    document.getElementById("r2_e22_resultado").innerText = ` ${capLast(palabra)}`;
+    
+})
