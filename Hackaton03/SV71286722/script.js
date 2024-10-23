@@ -2,7 +2,7 @@
 document.getElementById("check-digits").addEventListener("click", () => {
 
     
-    let checkNumber = parseInt(document.getElementById("number2Check").value)
+    let checkNumber = parseInt(document.getElementById("numberCheckDigits").value)
 
     if (isNaN(checkNumber)){
         return
