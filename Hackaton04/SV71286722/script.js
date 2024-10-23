@@ -150,3 +150,161 @@ console.log(findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]]))
 console.log(`---------------`)
 
 //Ejercicio 9
+const charIndex = (word, char) => {
+    let firstIndex = word.indexOf(char)
+    let lastIndex = word.lastIndexOf(char)
+
+    return [firstIndex, lastIndex]
+}
+
+console.log(`--Ejercicio 9--`)
+console.log(charIndex("hello","l"))
+console.log(charIndex("circumlocution","c"))
+console.log(`---------------`)
+
+//Ejercicio 10
+const toArray = (object) => {return Object.entries(object)}
+
+console.log(`--Ejercicio 10--`)
+console.log(toArray({a: 1, b: 2}))
+console.log(`----------------`)
+
+//Ejercicio 11
+const getBudgets = (object) => {
+    /* let totalBudget = 0
+    for (let person of object){
+        totalBudget += person.budget
+    } */
+
+    return object.reduce((accum,current) => {return accum + current.budget}, 0)
+    
+    /* return totalBudget */
+}
+
+console.log(`--Ejercicio 11--`)
+console.log(getBudgets([
+    { name: "John", age: 21, budget: 23000 },
+    { name: "Steve",  age: 32, budget: 40000 },
+    { name: "Martin",  age: 16, budget: 2700 }
+  ]))
+console.log(`----------------`)
+
+//Ejercicio 12
+const getStudentNames = (students) => {
+    return students.map(student => student.name)
+}
+
+console.log(`--Ejercicio 12--`)
+console.log(getStudentNames([
+    { name: "Steve" },
+    { name: "Mike" },
+    { name: "John" }
+  ]))
+console.log(`----------------`)
+
+//Ejercicio 13
+const objectToArray = (object) => {return Object.entries(object)}
+
+console.log(`--Ejercicio 13--`)
+console.log(objectToArray({
+    likes: 2,
+    dislikes: 3,
+    followers: 10
+  }))
+console.log(`----------------`)
+
+//Ejercicio 14
+const squaresSum = (n) => {
+    /* let sum = 0
+    for(let i = 1; i <= n; i++){
+        sum += i**2
+    }
+    return sum */
+
+    return Array(n).fill(1).map((x,y)=>x+y).reduce((accum,current)=>{ return accum + current**2},0)
+}
+
+console.log(`--Ejercicio 14--`)
+console.log(squaresSum(4))
+console.log(`----------------`)
+
+//Ejercicio 15
+const multiplyByLength = (matrix) => {
+    return matrix.map(n => n*matrix.length)
+}
+
+console.log(`--Ejercicio 15--`)
+console.log(multiplyByLength([2, 3, 1, 0]))
+console.log(`----------------`)
+
+//Ejercicio 16
+const countdown = (n) => {
+    return Array(n).fill(5).map((x,y)=>x-y)
+}
+
+console.log(`--Ejercicio 16--`)
+console.log(countdown(5))
+console.log(`----------------`)
+
+//Ejercicio 17
+const diffMaxMin = (matrix) => {
+    let minMax = returnMinMax(...matrix)
+    return minMax[1]-minMax[0]
+}
+
+console.log(`--Ejercicio 17--`)
+console.log(diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21]))
+console.log(`----------------`)
+
+//Ejercicio 18
+const filterListInt = (matrix) => {
+    return matrix.filter(element => !isNaN(element))
+}
+
+console.log(`--Ejercicio 18--`)
+console.log(filterListInt([1, 2, 3, "x", "y", 10]))
+console.log(`----------------`)
+
+//Ejercicio 19
+const repeat = (element, times) => {
+    return Array(times).fill(element)
+}
+
+console.log(`--Ejercicio 19--`)
+console.log(repeat(13,5))
+console.log(`----------------`)
+
+//Ejercicio 20
+String.prototype.vreplace = function(char) {
+    return this.replaceAll(/[aeiou]/gi, char)
+}
+
+console.log(`--Ejercicio 20--`)
+console.log("apples and bananas".vreplace("u"))
+console.log(`----------------`)
+
+//Ejercicio 21
+const findNemo = (sentence) => {
+    let words = sentence.split(" ")
+    return `I found Nemo at ${words.indexOf("Nemo")+1}!`
+}
+
+console.log(`--Ejercicio 21--`)
+console.log(findNemo("I am finding Nemo !"))
+console.log(`----------------`)
+
+//Ejercicio 22
+const capLast = (sentence) => {
+    let newSentence = []
+    for(let word of sentence.split(" ")){
+        let arr = word.split('')
+        let length = arr.length
+        arr.splice(length-1, 1, arr[length-1].toUpperCase())
+        newSentence.push(arr.join(''))
+    }
+    return newSentence.join(" ")
+}
+
+console.log(`--Ejercicio 22--`)
+console.log(capLast("hello world"))
+console.log(`----------------`)
