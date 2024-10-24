@@ -243,7 +243,7 @@ console.log(`----------------`)
 
 //Ejercicio 16
 const countdown = (n) => {
-    return Array(n).fill(5).map((x,y)=>x-y)
+    return Array(n+1).fill(5).map((x,y)=>x-y)
 }
 
 console.log(`--Ejercicio 16--`)
@@ -364,7 +364,80 @@ $(document).ready(() => {
     })
 
     //Ejercicio 10
+    $("#btn-10").click(() => {
+        $("#lbl-10").text(toArray({ a: 1, b: 2 }))
+    })
     
     //Ejercicio 11
+    $("#btn-11").click(() => {
+        $("#lbl-11").text(getBudgets([
+            { name: "John", age: 21, budget: 23000 },
+            { name: "Steve",  age: 32, budget: 40000 },
+            { name: "Martin",  age: 16, budget: 2700 }
+          ]))
+    })
+
+    //Ejercicio 12
+    $("#btn-12").click(() => {
+        $("#lbl-12").text(getStudentNames([
+            { name: "Steve" },
+            { name: "Mike" },
+            { name: "John" }
+          ]))
+    })
+
+    //Ejercicio 13
+    $("#btn-13").click(() => {
+        $("#lbl-13").text(objectToArray({
+            likes: 2,
+            dislikes: 3,
+            followers: 10
+          }))
+    })
+
+    //Ejercicio 14
+    $("#btn-14").click(() => {
+        $("#lbl-14").text(squaresSum(3))
+    })
+
+    //Ejercicio 15
+    $("#btn-15").click(() => {
+        $("#lbl-15").text(multiplyByLength([2, 3, 1, 0]))
+    })
+
+    //Ejercicio 16
+    $("#btn-16").click(() => {
+        $("#lbl-16").text(countdown(5))
+    })
+
+    //Ejercicio 17
+    $("#btn-17").click(() => {
+        $("#lbl-17").text(diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21]))
+    })
+
+    //Ejercicio 18
+    $("#btn-18").click(() => {
+        $("#lbl-18").text(filterListInt([1, 2, 3, "x", "y", 10]))
+    })
+
+    //Ejercicio 19
+    $("#btn-19").click(() => {
+        $("#lbl-19").text(repeat(13, 5))
+    })
+
+    //Ejercicio 20
+    $("#btn-20").click(() => {
+        $("#lbl-20").text("apples and bananas".vreplace("u"))
+    })
+
+    //Ejercicio 21
+    $("#btn-21").click(() => {
+        $("#lbl-21").text(findNemo("I am finding Nemo !"))
+    })
+
+    //Ejercicio 22
+    $("#btn-22").click(() => {
+        $("#lbl-22").text(capLast("hello"))
+    })
 
 })
