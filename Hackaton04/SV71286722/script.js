@@ -1,9 +1,13 @@
 //Ejercicio IV.1
-let sum = (a,b) => {return a+b}
+let sum1 = (a,b) => {
+    m = parseFloat(a)
+    n = parseFloat(b)
+    return m+n
+}
 
 console.log(`---------------`)
 console.log(`--Ejercicio 1--`)
-console.log(sum(1,2))
+console.log(sum1(1,2))
 console.log(`---------------`)
 
 //Ejercicio IV.2
@@ -89,7 +93,7 @@ console.log(type(true))
 console.log(`---------------`)
 
 //Ejercicio 4
-sum = (...args) => {
+let sum = (...args) => {
     return args.reduce((accum,current) => {return accum+current})
 }
 
@@ -308,3 +312,59 @@ const capLast = (sentence) => {
 console.log(`--Ejercicio 22--`)
 console.log(capLast("hello world"))
 console.log(`----------------`)
+
+$(document).ready(() => {
+
+    //Ejercicicio 1
+    $("#salute").click(() => {
+        $("#greeting").text(intro($("#name").val(),$("#last-name").val(),$("#age").val()))
+    })
+
+    //Ejercicio 2
+    $("#sum-of-cubes").click(() => {
+        let numbers = $("#number-ex2").val().split(",").map(num => parseFloat(num))
+        $("#result-sum-3").text(sumOfCubes(...numbers))
+    })
+
+    //Ejercicio 3
+
+    //Ejercicio 4
+    $("#sum-ex4").click(() => {
+        let numbers = $("#number-ex4").val().split(",").map(num => parseFloat(num))
+        $("#result-sum-4").text(sum(...numbers))
+    })
+
+    //Ejercicio 5
+    $("#filter-no-string").click(() => {
+        let numbers = $("#arr-ex5").val().split(",").map(element => {return (!isNaN(parseFloat(element)) ? parseFloat(element) : element)
+            /* if(!isNaN(parseFloat(element))){
+                return parseFloat(element)
+            }else{return element} */
+        })
+        $("#filtered").text(filterString(...numbers))
+    })
+
+    //Ejercicio 6
+    $("#get-min-max").click(() => {
+        let numbers = $("#number-ex6").val().split(",").map(num => parseFloat(num))
+        $("#min-max").text(returnMinMax(...numbers))
+    })
+
+    //Ejercicio 7
+    $("#get-format").click(() => {
+        let numbers = $("#number-ex7").val().split(",").map(num => parseFloat(num))
+        $("#format-phone").text(formatPhoneNumber(...numbers))
+    })
+
+    //Ejercicio 8
+
+    //Ejercicio 9
+    $("#search-char").click(() => {
+        $("#char-index").text(charIndex($("#word-9").val(), $("#char-9").val()))
+    })
+
+    //Ejercicio 10
+    
+    //Ejercicio 11
+
+})
