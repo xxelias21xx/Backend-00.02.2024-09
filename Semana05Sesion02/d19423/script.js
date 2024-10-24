@@ -1,4 +1,9 @@
 console.log("Inicio de la aplicacion")
+const stripe = Stripe('pk_test_51NcxTJAkNYfeym1I2nddmvG02uLV9OcwrG3HJIOq59ebzgXjXQ78wTOUd6WIpmdykJCJiXNbbq0yg2tp3ZwN2Fxc00a67VDtbf'); // Reemplaza con tu clave pública
+const elements = stripe.elements();
+const cardElement = elements.create('card');
+cardElement.mount('#card-element');
+
 const Reserva = function () //a
 {
     let Nombre = "";
@@ -13,10 +18,36 @@ const Reserva = function () //a
         arrAviones.push(objAvion1);
         let objAvion2 = new Aviones("HBC343","AIRBUS 321 MAX",200,100,32000);
         arrAviones.push(objAvion2);
+
+       
     }
     function eventos(){
         console.log("Inicio de eventos")
         $("#reservar").on("click", reservar);
+        const form = document.getElementById('payment-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const {error, paymentMethod} = await stripe.createPaymentMethod({
+                type: 'card',
+                card: cardElement,
+            });
+
+            if (error) {
+                // Mostrar error
+                document.getElementById('payment-result').innerText = error.message;
+            } else {
+                // Enviar paymentMethod.id a tu servidor
+                fetch("http://localhost:3000/create-payment-intent", {
+                    method: "POST",
+                    headers: {'Content-Type': 'application/json'}, 
+                    body: JSON.stringify({amount:200})
+                  }).then(res => {
+                    console.log("Request complete! response:", res);
+                  });
+                document.getElementById('payment-result').innerText = 'Pago exitoso: ' + paymentMethod.id;
+            }
+        });
     }
 
     async function reservar(){
@@ -55,13 +86,31 @@ const Reserva = function () //a
                  reserva.asignarAvionVuelta(arrAviones[1]);
                  reserva.avionIda.agregarPasajeros(data);
                  reserva.avionVuelta.agregarPasajeros(data);
-               // dibujarReserva(reserva);
+                 dibujarReserva(reserva);
            });
             console.log(reserva)
             
         }
        
     }
+
+    function dibujarReserva(reserva){
+        $('#idaNombre').val(reserva.avionIda.arrPasajeros[0].nombre);
+        $('#idaApellido').val(reserva.avionIda.arrPasajeros[0].apellido);
+        $('#idaFecha').val(reserva.fechaIda);
+        $('#idaVuelo').val(reserva.avionIda.matricula);
+        $('#idaOrigen').val(reserva.origen);
+
+        $('#retNombre').val(reserva.avionVuelta.arrPasajeros[0].nombre);
+        $('#retApellido').val(reserva.avionVuelta.arrPasajeros[0].apellido);
+        $('#retFecha').val(reserva.fechaVuelta);
+        $('#retVuelo').val(reserva.avionVuelta.matricula);
+        $('#retDestino').val(reserva.destino);
+
+
+        $("#divReserva").show();
+    }
+
     async function incluirPasajeros() {
         console.log("Agregar Pasajeros");
 
@@ -137,10 +186,12 @@ class Aviones {
         this.modelo = modelo;
         this.nroAsientos = nroAsientos;
         this.capacidadMinima = capacidadMinima;
+        this.costoVuelo = costoVuelo;
+        
         this.arrPasajeros = [];
         this.habilitado = false;
         this.reservado = 0;
-        this.costoVuelo = costoVuelo;
+
     }
     agregarPasajeros(pasajero) {
         if (this.reservado >= this.capacidadMinima) {
