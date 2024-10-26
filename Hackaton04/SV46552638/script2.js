@@ -416,12 +416,15 @@ document.getElementById("r2_e21_btn1").addEventListener("click",(ejercicio21)=>{
     document.getElementById("r2_e21_resultado").innerText = ` ${findNemo(frase,palabra)}`;
     
 })
+
 // ejercicio 22
 const capLast = (palabra) =>{
     // const nuevapalabra = palabra.replac(/[aeiou]/g, "O");
     const nuevapalabra = palabra.replace("o", "O");
     return nuevapalabra;
 }
+
+
 document.getElementById("r2_e22_btn1").addEventListener("click",(ejercicio19)=>{
     ejercicio19.preventDefault();
     const palabra = "Hello";
