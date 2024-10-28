@@ -13,7 +13,7 @@ class Sucursal {
 class Tecnico {
     constructor(nombre, especialidades, sucursal) {
         this.nombre = nombre;
-        this.especialidades = especialidades; // Array de marcas
+        this.especialidades = especialidades; //Se agregan las marcas en lo que son especialistas los tecnicos
         this.sucursal = sucursal;
     }
 }
@@ -21,7 +21,7 @@ class Tecnico {
 class SistemaReparaciones {
     constructor() {
         this.sucursales = [];
-        this.telefonosRobados = new Set(); // Almacena IMEIs robados
+        this.telefonosRobados = new Set(); // Se guardan los IMEI que estan declarados como robados
     }
 
     agregarSucursal(nombre, ubicacion) {
@@ -65,6 +65,12 @@ class SistemaReparaciones {
             return;
         }
 
+         // Verificar la autorización
+        if (autorizacion.toLowerCase()=="no") {
+            console.log(`No hay autorización firmada`);
+            return;
+        }
+
         // Asignar servicio a un técnico especializado
         const tecnico = sucursal.tecnicos.find(t => t.especialidades.includes(marca));
         if (!tecnico) {
@@ -95,7 +101,7 @@ class SistemaReparaciones {
 // Crear una instancia del sistema
 const sistema = new SistemaReparaciones();
 
-// Manejo de eventos para formularios
+
 document.getElementById('sucursalForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const nombre = this[0].value;
