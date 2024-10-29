@@ -15,6 +15,8 @@ class Orden {
         this.status = "Emitida"; // "Emitida", "Aceptada", "Parcial", "Finalizada"
         this.costo = 0;
         this.abono = 0;
+        this.diagnostico = "";
+        this.repuestos = [];
     }
 }
 
@@ -23,14 +25,61 @@ class Tecnico {
         this.nombre = nombre;
         this.edad = edad;
         this.sucursal = sucursal;
-        this.habilidades = habilidades;
+        this.habilidades = habilidades; // Array de marcas que el técnico puede reparar
         this.atencionesEnProceso = 0;
     }
 }
 
-let clientes = [];
-let ordenes = [];
-let tecnicos = [];
+class Sucursal {
+    constructor(nombre) {
+        this.nombre = nombre;
+        this.tecnicos = [];
+        this.ordenes = [];
+    }
+
+    agregarTecnico(tecnico) {
+        this.tecnicos.push(tecnico);
+    }
+
+    recibirOrden(orden) {
+        this.ordenes.push(orden);
+    }
+
+    obtenerTecnicoDisponible(marca) {
+        const disponibles = this.tecnicos
+            .filter(t => t.habilidades.includes(marca))
+            .sort((a, b) => {
+                if (a.atencionesEnProceso === b.atencionesEnProceso) {
+                    return a.edad - b.edad; // Menor edad si tienen la misma atención
+                }
+                return a.atencionesEnProceso - b.atencionesEnProceso;
+            });
+        return disponibles[0]; // Retorna el técnico más adecuado
+    }
+
+    reporteOrdenes() {
+        console.log(`\nReporte de órdenes de servicio en la sucursal: ${this.nombre}`);
+        this.ordenes.forEach(orden => {
+            console.log(`Cliente: ${orden.cliente.nombre}, Status: ${orden.status}, Monto: S/${orden.costo}, Abono: S/${orden.abono}, Diagnóstico: ${orden.diagnostico}`);
+            console.log(`Repuestos: ${orden.repuestos.join(', ')}`);
+        });
+    }
+}
+
+class OficinaPrincipal {
+    constructor() {
+        this.sucursales = [];
+    }
+
+    agregarSucursal(sucursal) {
+        this.sucursales.push(sucursal);
+    }
+
+    reporteGeneral() {
+        console.log("=== Reporte General de Todas las Sucursales ===");
+        this.sucursales.forEach(sucursal => sucursal.reporteOrdenes());
+    }
+}
 
 // Lista de IMEIs robados
 const imeisRobados = [
@@ -41,84 +90,90 @@ const imeisRobados = [
     "123456789012353", "987654321012353", "123456789012354", "987654321012354"
 ];
 
-// Simulación de verificación de IMEI robado
+// Funciones del sistema
 function verificarIMEI(imei) {
-    return !imeisRobados.includes(imei); // Retorna true si no está en la lista de robados
+    return !imeisRobados.includes(imei);
 }
 
-function recepcionCliente(nombre, dni, telefono, imei, marca, modelo) {
+function recepcionCliente(sucursal, nombre, dni, telefono, imei, marca, modelo) {
     if (verificarIMEI(imei)) {
         const nuevoCliente = new Cliente(nombre, dni, telefono, imei, marca, modelo);
-        clientes.push(nuevoCliente);
         const nuevaOrden = new Orden(nuevoCliente);
-        ordenes.push(nuevaOrden);
-        console.log(`Orden creada para el cliente: ${nombre}`);
+        sucursal.recibirOrden(nuevaOrden);
+        console.log(`Orden creada para el cliente: ${nombre} en la sucursal ${sucursal.nombre}`);
+        return nuevaOrden;
     } else {
         console.log("El IMEI está reportado como robado.");
+        return null;
     }
 }
 
-function asignarTecnico(orden) {
-    const marca = orden.cliente.marca;
-    const sucursalTecnicos = tecnicos.filter(t => t.sucursal === "SucursalPrincipal" && t.habilidades.includes(marca));
-    
-    // Filtrar por atenciones en proceso
-    sucursalTecnicos.sort((a, b) => {
-        if (a.atencionesEnProceso === b.atencionesEnProceso) {
-            return a.edad - b.edad; // Menor edad si tienen la misma atención
-        }
-        return a.atencionesEnProceso - b.atencionesEnProceso;
-    });
-
-    if (sucursalTecnicos.length > 0) {
-        const tecnicoSeleccionado = sucursalTecnicos[0];
-        tecnicoSeleccionado.atencionesEnProceso++;
-        console.log(`Técnico asignado: ${tecnicoSeleccionado.nombre}`);
-        return tecnicoSeleccionado;
+function asignarTecnico(orden, sucursal) {
+    const tecnico = sucursal.obtenerTecnicoDisponible(orden.cliente.marca);
+    if (tecnico) {
+        tecnico.atencionesEnProceso++;
+        console.log(`Técnico asignado: ${tecnico.nombre}`);
+        return tecnico;
     } else {
         console.log("No hay técnicos disponibles para esta marca.");
         return null;
     }
 }
 
-function emitirOrdenServicio(orden, costo) {
+function emitirOrdenServicio(orden, costo, diagnostico) {
     orden.costo = costo;
+    orden.diagnostico = diagnostico;
     console.log(`Orden de servicio emitida con costo: S/${costo}`);
 }
 
 function aceptarOrden(orden, abono) {
-    orden.abono = abono;
-    orden.status = abono >= orden.costo ? "Finalizada" : "Parcial";
-    console.log(`Orden de servicio ${orden.status} para el cliente: ${orden.cliente.nombre}`);
+    if (abono >= orden.costo * 0.5) {
+        orden.abono = abono;
+        orden.status = abono >= orden.costo ? "Finalizada" : "Parcial";
+        console.log(`Orden de servicio ${orden.status} para el cliente: ${orden.cliente.nombre}`);
+    } else {
+        console.log("El abono debe ser al menos el 50% del costo.");
+    }
 }
 
-function reporteOrdenes() {
-    console.log("Reporte de órdenes de servicio:");
-    ordenes.forEach(orden => {
-        console.log(`Cliente: ${orden.cliente.nombre}, Status: ${orden.status}, Monto: S/${orden.costo}, Abono: S/${orden.abono}`);
-    });
+function agregarRepuesto(orden, repuesto) {
+    orden.repuestos.push(repuesto);
+    console.log(`Repuesto ${repuesto} agregado a la orden para el cliente: ${orden.cliente.nombre}`);
 }
 
-// Agregar técnicos
-tecnicos.push(new Tecnico("Juan", 30, "SucursalPrincipal", ["Samsung", "Xiaomi"]));
-tecnicos.push(new Tecnico("Maria", 25, "SucursalPrincipal", ["Apple", "Xiaomi"]));
-tecnicos.push(new Tecnico("Pedro", 28, "SucursalPrincipal", ["Samsung", "Apple"]));
+// Crear la oficina principal
+const oficinaPrincipal = new OficinaPrincipal();
+
+// Crear sucursales
+const sucursalPrincipal = new Sucursal("Principal");
+oficinaPrincipal.agregarSucursal(sucursalPrincipal);
+
+// Agregar técnicos a la sucursal principal
+sucursalPrincipal.agregarTecnico(new Tecnico("Juan", 30, "Principal", ["Samsung", "Xiaomi"]));
+sucursalPrincipal.agregarTecnico(new Tecnico("Maria", 25, "Principal", ["Apple", "Xiaomi"]));
+sucursalPrincipal.agregarTecnico(new Tecnico("Pedro", 28, "Principal", ["Samsung", "Apple"]));
 
 // Ejemplo de uso
 console.log("=== Recepción del Cliente ===");
-recepcionCliente("Carlos", "12345678", "987654321", "123456789012345", "Samsung", "Galaxy S21"); // Este IMEI está robado
+const ordenActual = recepcionCliente(sucursalPrincipal, "Carlos", "12345678", "987654321", "123456789012346", "Samsung", "Galaxy S21"); // IMEI válido
 
-console.log("\n=== Asignación de Técnico ===");
-const ordenActual = ordenes[0]; // Supongamos que esta es la última orden
-const tecnicoAsignado = asignarTecnico(ordenActual);
+if (ordenActual) {
+    console.log("\n=== Asignación de Técnico ===");
+    const tecnicoAsignado = asignarTecnico(ordenActual, sucursalPrincipal);
 
-console.log("\n=== Emisión de Orden de Servicio ===");
-if (tecnicoAsignado) {
-    emitirOrdenServicio(ordenActual, 200); // Costo de reparación
+    console.log("\n=== Emisión de Orden de Servicio ===");
+    if (tecnicoAsignado) {
+        emitirOrdenServicio(ordenActual, 200, "Pantalla rota"); // Costo de reparación y diagnóstico
+    }
+
+    console.log("\n=== Aceptación de Orden ===");
+    aceptarOrden(ordenActual, 100); // El cliente hace un abono de 100
+
+    console.log("\n=== Agregar Repuesto ===");
+    agregarRepuesto(ordenActual, "Pantalla nueva");
+
+    console.log("\n=== Reporte de Órdenes ===");
+    sucursalPrincipal.reporteOrdenes();
 }
 
-console.log("\n=== Aceptación de Orden ===");
-aceptarOrden(ordenActual, 100); // El cliente hace un abono de 100
-
-console.log("\n=== Reporte de Órdenes ===");
-reporteOrdenes();
+oficinaPrincipal.reporteGeneral();
