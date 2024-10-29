@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reparación de Celulares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            min-height: 100px;
+            white-space: pre-wrap;
+        }
+
+        /* Loader CSS */
+        .loader {
+            display: none;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Reparación de Celulares</h1>
+    <div class="container">
+        <button onclick="probarSistema()">Probar Sistema</button>
+        <div class="loader" id="loader"></div>
+        <div class="loading-text" id="loadingText" style="display: none;">Procesando...</div>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        class Telefono {
+            constructor(numeroSerie, IMEI) {
+                this.numeroSerie = numeroSerie;
+                this.IMEI = IMEI;
+                this.estado = "Recibido";
+                this.diagnostico = null;
+                this.repuestos = [];
+            }
+
+            agregarDiagnostico(diagnostico) {
+                this.diagnostico = diagnostico;
+                this.cambiarEstado("Diagnóstico realizado");
+            }
+
+            agregarRepuesto(repuesto) {
+                this.repuestos.push(repuesto);
+            }
+
+            cambiarEstado(nuevoEstado) {
+                this.estado = nuevoEstado;
+            }
+
+            mostrarEstado() {
+                return `Estado del equipo: ${this.estado}`;
+            }
+        }
+
+        class Tecnico {
+            constructor(nombre, skills) {
+                this.nombre = nombre;
+                this.skills = skills;
+            }
+
+            verificarCompatibilidad(marca) {
+                return this.skills.includes(marca);
+            }
+        }
+
+        class Reparacion {
+            constructor(telefono, tecnico, marcaTelefono) {
+                if (!tecnico.verificarCompatibilidad(marcaTelefono)) {
+                    throw new Error("El técnico no tiene habilidades para reparar esta marca.");
+                }
+                this.telefono = telefono;
+                this.tecnico = tecnico;
+                this.autorizado = false;
+                this.pagado = false;
+            }
+
+            autorizarReparacion(autorizacionUsuario) {
+                if (autorizacionUsuario) {
+                    this.autorizado = true;
+                    return "Reparación autorizada.";
+                } else {
+                    return "Falta autorización del usuario.";
+                }
+            }
+
+            registrarPago(monto, costoReparacion) {
+                if (monto >= costoReparacion * 0.5) {
+                    this.pagado = true;
+                    return "Pago registrado correctamente.";
+                } else {
+                    return "El pago no es suficiente para continuar.";
+                }
+            }
+
+            iniciarReparacion() {
+                if (this.autorizado && this.pagado) {
+                    this.telefono.cambiarEstado("En reparación");
+                    return "Reparación en proceso.";
+                } else {
+                    return "Falta autorización o pago para continuar.";
+                }
+            }
+
+            finalizarReparacion() {
+                this.telefono.cambiarEstado("Reparado");
+                return "Reparación completada.";
+            }
+        }
+
+        function probarSistema() {
+            const output = document.getElementById("output");
+            const loader = document.getElementById("loader");
+            const loadingText = document.getElementById("loadingText");
+
+            loader.style.display = "block";
+            loadingText.style.display = "block";
+            output.textContent = "";
+
+           
+            setTimeout(() => {
+                let log = "";
+
+                const telefono1 = new Telefono("12345", "54321");
+                const tecnico1 = new Tecnico("Juan", ["Samsung", "Apple"]);
+
+                log += "Diagnóstico: Pantalla rota\n";
+                telefono1.agregarDiagnostico("Pantalla rota");
+
+                const reparacion1 = new Reparacion(telefono1, tecnico1, "Samsung");
+
+                log += reparacion1.autorizarReparacion(true) + "\n";
+                log += reparacion1.registrarPago(100, 200) + "\n";
+                log += reparacion1.iniciarReparacion() + "\n";
+                log += telefono1.mostrarEstado() + "\n";
+                log += reparacion1.finalizarReparacion() + "\n";
+                log += telefono1.mostrarEstado() + "\n";
+
+                
+                loader.style.display = "none";
+                loadingText.style.display = "none";
+                output.textContent = log;
+            }, 3000); 
+        }
+    </script>
+</body>
+</html>

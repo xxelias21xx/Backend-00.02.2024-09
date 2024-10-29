@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reparaciones de Celulares</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Reparaciones de Celulares</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#sucursales">Sucursales</a></li>
+                <li><a href="#tecnicos">Técnicos</a></li>
+                <li><a href="#reportar">Reportar Teléfonos Robados</a></li>
+                <li><a href="#tickets">Ingresar Ticket</a></li>
+            </ul>
+        </nav>
+
+        <section id="sucursales">
+            <h2>Crear Sucursal</h2>
+            <form id="sucursalForm">
+                <input type="text" placeholder="Nombre de la Sucursal" required>
+                <input type="text" placeholder="Ubicación" required>
+                <button type="submit">Agregar Sucursal</button>
+            </form>
+        </section>
+
+        <section id="tecnicos">
+            <h2>Agregar Técnico</h2>
+            <form id="tecnicoForm">
+                <input type="text" placeholder="Nombre del Técnico" required>
+                <input type="text" placeholder="Especialidades (separadas por comas)" required>
+                <input type="text" placeholder="Sucursal Asignada" required>
+                <button type="submit">Agregar Técnico</button>
+            </form>
+        </section>
+
+        <section id="reportar">
+            <h2>Reportar Teléfono Robado</h2>
+            <form id="telefonoRobadoForm">
+                <input type="text" placeholder="IMEI del Teléfono" required>
+                <button type="submit">Reportar Teléfono</button>
+            </form>
+        </section>
+
+        <section id="tickets">
+            <h2>Ingresar Ticket de Atención</h2>
+            <form id="ticketForm">
+                <input type="text" placeholder="Nombre del Cliente" required>
+                <input type="text" placeholder="Marca del Celular" required>
+                <input type="text" placeholder="Modelo del Celular" required>
+                <input type="text" placeholder="IMEI del Celular" required>
+                <input type="text" placeholder="Autorización" required>
+                <input type="number" placeholder="Costo del Servicio" required>
+                <input type="number" placeholder="Monto Pagado" required>
+                <input type="text" placeholder="Diagnóstico" required>
+                <input type="text" placeholder="Repuestos" required>
+                <input type="text" placeholder="Sucursal" required>
+                <button type="submit">Ingresar Ticket</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Sistema de Reparaciones de Celulares</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
