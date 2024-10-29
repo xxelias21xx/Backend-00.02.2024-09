@@ -7,23 +7,11 @@ class Branch{
         this.district = district
         this.contact = contact
     }
-
-    open(){
-        this.workTime = true
-    }
-
-    close(){
-        this.workTime = false
-    }
-
-
-
 }
 
 
 class Cellphone {
 
-    #admission = { "reported":"rechazar", "free":"recibir"}
     replacements = []
 
     constructor(serialNumber, IMEI, brand, model){
@@ -53,6 +41,10 @@ class Cellphone {
 
     getIMEI(){
         return this.IMEI
+    }
+
+    getInfo(){
+        return `${this.brand}, ${this.model}, ${this.serialNumber}`
     }
 
 }
@@ -93,16 +85,6 @@ class TechnicalService{
     newTechnician(name,brand,skills){
         let tech = new Technician(name, brand, skills)
         this.technicians.push(tech)
-    }
-
-    qualifiedTechnician(cellphone){
-        let qualifiedTechnicians = this.technicians.filter(technician => (technician.brands.includes(cellphone.brand)))
-        let names = qualifiedTechnicians.map(technician => technician.name)
-        return names
-    }
-
-    assignTechnician(cellphone, technician){
-        this.technicians[technician].addCellphone(cellphone)
     }
 
 }
@@ -188,9 +170,13 @@ const Page = function(){
                     }
                 })
                 if(formValues){
-                    let cellphone = new Cellphone(formValues.serialNumber,formValues.imei,formValues.brand,formValues.model)
-                    cellphone.state = "registered"
-                    arrCellphones.push(cellphone)
+                    if(!arrCellphones.find(cellphone => cellphone.IMEI == IMEI)){
+                        let cellphone = new Cellphone(formValues.serialNumber,formValues.imei,formValues.brand,formValues.model)
+                        cellphone.state = "registered"
+                        arrCellphones.push(cellphone)
+                        updateSelect()
+                        updateTable()
+                    }
                 }
             }else{
                 let cellphone = new Cellphone(undefined,IMEI,undefined,undefined)
@@ -203,19 +189,24 @@ const Page = function(){
                   });
             }
 
-        })
+        })}
+    const btnFn = () => {
         $("#btn-1").click(async () => {
-            
-            
+            let info = $("#selectCellPhone").val()
+            arrCellphones = arrCellphones.filter(cellphone => cellphone.serialNumber !== info)
+            updateSelect()
+            updateTable()
         })
 
         $("#btn-2").click(async () => {
-            let cellphone = arrCellphones.find(cellphone => cellphone.IMEI === $("#IMEI-number").val())
-            console.log(cellphone.state)
+            let info = $("#selectCellPhone").val()
+            let cellphone = arrCellphones.find(cellphone => cellphone.serialNumber == info)
+            $("#state").text(cellphone.state)
         })
 
         $("#btn-3").click(async () => {
-            let cellphone = arrCellphones.find(cellphone => cellphone.IMEI === $("#IMEI-number").val())
+            let info = $("#selectCellPhone").val()
+            let cellphone = arrCellphones.find(cellphone => cellphone.serialNumber == info)
             if(!["rejected","delivered"].includes(cellphone.state)){
                 const { value } = await Swal.fire({
                     title: "",
@@ -255,9 +246,44 @@ const Page = function(){
         })
 
         $("#btn-4").click(async () => {
-            let cellphone = arrCellphones.find(cellphone => cellphone.IMEI === $("#IMEI-number").val())
+            let info = $("#selectCellPhone").val()
+            let cellphone = arrCellphones.find(cellphone => cellphone.serialNumber == info)
             console.log(cellphone.state = "delivered")
+            updateTable()
         })
+    }
+
+    const updateSelect = () => {
+        $("#selectCellPhone").empty()
+        $("#state").text("")
+        let select = document.getElementById("selectCellPhone")
+        for(let cellphone of arrCellphones){
+            if(cellphone.state !== "rejected"){
+                let option = document.createElement("option")
+                option.setAttribute("value",cellphone.serialNumber)
+                option.setAttribute("id",cellphone.serialNumber)
+                let SN = document.createTextNode(cellphone.getInfo())
+                option.appendChild(SN)
+                select.appendChild(option)
+            }
+        }
+    }
+    const updateTable = () => {
+        $("#cellphoneTable").empty()
+        let table = document.getElementById("cellphoneTable") 
+        for(let cellphone of arrCellphones){
+            if(cellphone.state !== "rejected"){
+                let row = document.createElement("tr")
+                row.innerHTML = `
+                    <td>${cellphone.IMEI}</td>
+                    <td>${cellphone.serialNumber}</td>
+                    <td>${cellphone.brand}</td>
+                    <td>${cellphone.model}</td>
+                    <td>${cellphone.state}</td>
+                `
+                table.appendChild(row);
+            }
+        }
     }
 
     return {
@@ -268,6 +294,7 @@ const Page = function(){
             Contact = parameters.contact;
             setup()
             register()
+            btnFn()
         }
     
     }
