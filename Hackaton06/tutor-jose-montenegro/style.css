@@ -1,0 +1,125 @@
+* {
+  border: 0;
+  margin: 0;
+}
+
+.container-head-principal {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.container-head-img {
+  width: 400px;
+  height: 400px;
+  width: 33%;
+  /* background-color: yellow; */
+  height: 100%;
+}
+.container-head-img > img {
+  width: 200px;
+  height: 200px;
+}
+.container-head-title {
+  margin-top: 10px;
+  width: 33%;
+  /* background-color: green; */
+
+  height: 100%;
+}
+
+.container-head-options {
+  padding-top: 20px;
+  /* background-color: red; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.container-add-sucursal{
+  /* background-color: yellow; */
+  width:90%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.container-add-sucursal > div>input{
+  margin-top: 10px;
+  border-radius:10px;
+  border: 1px solid rgb(8, 8, 8);
+  height: 10px;
+  padding: 10px;
+}
+
+.container-add-sucursal > div>button{
+  border: 1px solid rgb(8, 8, 8);
+  padding: 10px;
+  border-radius:10px;
+
+}
+.container-head-options > div {
+  /* background-color: red; */
+  height: 100px;
+  bottom: 0px;
+}
+
+
+.container-options {
+  width: 250px;
+  margin: 20px auto;
+}
+
+#sucursal {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #007BFF;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#sucursal:hover {
+  border-color: #0056b3;
+}
+
+#sucursal:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#sucursal option {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+
+
+.container-head-title > div {
+  margin: 20px 0px;
+}
+.container-head-title > h2 {
+  margin-top: 10px;
+}
+.container-head-options {
+  width: 33%;
+  /* background-color: gray; */
+  height: 100%;
+}
+header {
+  height: 25vh;
+  /* background-color: red; */
+}
+main {
+  height: 50vh;
+  background-color: blue;
+}
+
+footer {
+  height: 25vh;
+  background-color: red;
+}
