@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hackaton 5</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://js.stripe.com/v3/"></script>
@@ -65,78 +65,58 @@
                     </div>
                 </nav>
                 <div class="jumbotron">
-                    <h1 id="aerolinea"></h1>
+                    <h1 id="local"></h1>
                     <h2 id="ciudad"></h2>
                     <p>
-                        Sistema de reserva de vuelos </p>
+                        Sistema de gestión de reparaciones de celulares</p>
                     <p>
-                        <a class="btn btn-primary btn-large" id="reservar" href="#">Reservar</a>
+                        <a class="btn btn-primary btn-large" id="Registrar" href="#">Registrar telefono</a>
+                        <a class="btn btn-primary btn-large" id="Cotizar" href="#">Cotizar</a>
+                        <a class="btn btn-primary btn-large" id="Reparar" href="#">Reparar</a>
+
                     </p>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="divReserva" style="display: none;">
+                        <div id="Reparacion" style="display: none;">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <h2>Vuelo de Ida</h2>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2>Vuelo de Regreso</h2>
+                                <div class="col-md-6" id="Ingreso">
+                                    <h2>Ficha de Ingreso</h2>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6" id="Ingreso">
                                     <table class="table">
 
                                         <tr>
                                             <td> <label for="">Nombre</label></td>
-                                            <td><input type="text" name="" id="idaNombre" value="Nombre" disabled></td>
+                                            <td><input type="text" name="" id="ingnombre" value="Nombre" disabled></td>
                                         </tr>
                                         <tr>
                                             <td> <label for="">Apellido</label></td>
-                                            <td><input type="text" name="" id="idaApellido" value="Nombre" disabled>
+                                            <td><input type="text" name="" id="ingapellido" value="Apellidos" disabled>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> <label for="">Fecha de Ida</label></td>
-                                            <td><input type="text" name="" id="idaFecha" value="Nombre" disabled></td>
+                                            <td> <label for="">DNI</label></td>
+                                            <td><input type="text" name="" id="ingdni" value="dni" disabled></td>
                                         </tr>
                                         <tr>
-                                            <td> <label for="">Vuelo</label></td>
-                                            <td><input type="text" name="" id="idaVuelo" value="Nombre" disabled></td>
+                                            <td> <label for="">Modelo</label></td>
+                                            <td><input type="text" name="" id="ingmodelo" value="Modelo" disabled></td>
                                         </tr>
                                         <tr>
-                                            <td> <label for="">Origen</label></td>
-                                            <td><input type="text" name="" id="idaOrigen" value="Nombre" disabled></td>
-                                        </tr>
-
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <table class="table">
-
-                                        <tr>
-                                            <td> <label for="">Nombre</label></td>
-                                            <td><input type="text" name="" id="retNombre" value="Nombre" disabled></td>
+                                            <td> <label for="">Serie</label></td>
+                                            <td><input type="text" name="" id="ingserie" value="Serie" disabled></td>
                                         </tr>
                                         <tr>
-                                            <td> <label for="">Apellido</label></td>
-                                            <td><input type="text" name="" id="retApellido" value="Nombre" disabled>
-                                            </td>
+                                            <td> <label for="">IMEI</label></td>
+                                            <td><input type="text" name="" id="ingimei" value="IMEI" disabled></td>
                                         </tr>
                                         <tr>
-                                            <td> <label for="">Fecha de Regreso</label></td>
-                                            <td><input type="text" name="" id="retFecha" value="Nombre" disabled></td>
+                                            <td> <label for="">Problema reportado</label></td>
+                                            <td><input type="text" name="" id="ingproblema" value="Problema" disabled></td>
                                         </tr>
-                                        <tr>
-                                            <td> <label for="">Vuelo</label></td>
-                                            <td><input type="text" name="" id="retVuelo" value="Nombre" disabled></td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="">Destino</label></td>
-                                            <td><input type="text" name="" id="retDestino" value="Nombre" disabled></td>
-                                        </tr>
-
                                     </table>
                                 </div>
                             </div>
@@ -157,6 +137,51 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="cotizacion" style="display: none;">
+                            <div class="col-md-6">
+                                <table class="table">
+    
+                                    <tr>
+                                        <td> <label for="">Modelo</label></td>
+                                        <td><input type="text" name="" id="cotmodelo" value="Modelo" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Serie</label></td>
+                                        <td><input type="text" name="" id="cotserie" value="Serie" disabled>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Imei</label></td>
+                                        <td><input type="text" name="" id="cotimei" value="IMEI" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Nombre usuario</label></td>
+                                        <td><input type="text" name="" id="cotnombreusuario" value="nombreUsuario" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Apellido Usuario</label></td>
+                                        <td><input type="text" name="" id="cotapellidousuario" value="Usuario" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Tecnico</label></td>
+                                        <td><input type="text" name="" id="cottecnico" value="Tecnico" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Observaciones de diagnostico</label></td>
+                                        <td><input type="text" name="" id="cotobservaciones" value="Observaciones" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Precio reparación</label></td>
+                                        <td><input type="text" name="" id="cotprecio" value="Precio" disabled></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label for="">Plazo de entrega</label></td>
+                                        <td><input type="text" name="" id="cotplazo" value="Plazo" disabled></td>
+                                    </tr>
+    
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -174,10 +199,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let objDatos = {
-            nombre: "Latam",
-            ciudad: "Lima"
+            ubicacion: "San Isidro",
         }
-        const objReserva = Reserva.init(objDatos);
+        const objReparacion = Reparacion.init(objDatos);
     </script>
 </body>
 
