@@ -23,7 +23,6 @@ const Reparacion = function() {
 
         $("#Registrar").on("click", registrar);
         $("#Cotizar").on("click", cotizar);
-        $("#Reparar").on("click", reparar);
 
         // Configurar metodo de pago
         const form = document.getElementById('payment-form');
@@ -198,12 +197,6 @@ const Reparacion = function() {
         // $("#Ingreso").hide();
         $("#cotizacion").show();
     }
-
-    // Funcion para evento de registrar
-    async function reparar() {
-        console.log("Inicio de reparar");
-    }
-
 
 
     return {
