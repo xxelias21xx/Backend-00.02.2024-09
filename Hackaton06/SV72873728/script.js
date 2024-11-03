@@ -22,10 +22,8 @@ class SistemaReparaciones {
     constructor() {
         //  this.sucursales = [];
         //  this.telefonosRobados = new Set(); // Se guardan los IMEI que estan declarados como robados
-        //  this.sucursales = JSON.parse(localStorage.getItem('sucursales')) || [];
         const sucursalesGuardadas = JSON.parse(localStorage.getItem('sucursales')) || [];
         
-        // Recupera los datos de sucursales, asegurándose de eliminar cualquier referencia circular
         this.sucursales = sucursalesGuardadas.map(s => {
             const sucursal = new Sucursal(s.nombre, s.ubicacion);
             s.tecnicos.forEach(tecnicoData => {
@@ -34,6 +32,7 @@ class SistemaReparaciones {
             });
             return sucursal;
         });
+
         this.telefonosRobados = new Set(JSON.parse(localStorage.getItem('telefonosRobados')) || []); // Se guardan los IMEI que estan declarados como robados
     }
 
@@ -44,7 +43,6 @@ class SistemaReparaciones {
             tecnicos: sucursal.tecnicos.map(tecnico => ({
                 nombre: tecnico.nombre,
                 especialidades: tecnico.especialidades
-                // Nota: no incluimos la referencia de sucursal en técnico
             }))
         }));
         localStorage.setItem('sucursales', JSON.stringify(sucursalesPlanas));
@@ -70,10 +68,47 @@ class SistemaReparaciones {
         }
     }
 
+    eliminarTecnico(nombre, sucursalNombre) {
+        const sucursal = this.sucursales.find(s => s.nombre === sucursalNombre);
+        if (sucursal) {
+            const tecnicoIndex = sucursal.tecnicos.findIndex(t => t.nombre === nombre);
+            if (tecnicoIndex !== -1) {
+                sucursal.tecnicos.splice(tecnicoIndex, 1);
+                console.log(`Técnico ${nombre} eliminado de la sucursal ${sucursalNombre}.`);
+                this.guardarEnLocalStorage();
+            } else {
+                console.log(`Técnico ${nombre} no encontrado en la sucursal ${sucursalNombre}.`);
+            }
+        } else {
+            console.log(`Sucursal ${sucursalNombre} no encontrada.`);
+        }
+    }
+
+    eliminarSucursal(nombre) {
+        const sucursalIndex = this.sucursales.findIndex(s => s.nombre === nombre);
+        if (sucursalIndex !== -1) {
+            this.sucursales.splice(sucursalIndex, 1);
+            console.log(`Sucursal ${nombre} eliminada.`);
+            this.guardarEnLocalStorage();
+        } else {
+            console.log(`Sucursal ${nombre} no encontrada.`);
+        }
+    }
+
     reportarTelefonoRobado(imei) {
         this.telefonosRobados.add(imei);
         console.log(`Teléfono robado reportado: IMEI ${imei}`);
         this.guardarEnLocalStorage();
+    }
+
+    eliminarTelefonoRobado(imei) {
+        if (this.telefonosRobados.has(imei)) {
+            this.telefonosRobados.delete(imei);
+            console.log(`IMEI ${imei} eliminado de la lista de teléfonos robados.`);
+            this.guardarEnLocalStorage();
+        } else {
+            console.log(`El IMEI ${imei} no está en la lista de teléfonos robados.`);
+        }
     }
 
     ingresarTicket(cliente, marca, modelo, imei, autorizacion, costo, montoPagado, diagnostico, repuestos, sucursalNombre) {
@@ -171,5 +206,27 @@ document.getElementById('ticketForm').addEventListener('submit', function(event)
     const repuestos = this[8].value;
     const sucursalNombre = this[9].value;
     sistema.ingresarTicket(cliente, marca, modelo, imei, autorizacion, costo, montoPagado, diagnostico, repuestos, sucursalNombre);
+    this.reset();
+});
+
+document.getElementById('eliminarTecnicoForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const nombre = this[0].value;
+    const sucursalNombre = this[1].value;
+    sistema.eliminarTecnico(nombre, sucursalNombre);
+    this.reset();
+});
+
+document.getElementById('eliminarSucursalForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const nombre = this[0].value;
+    sistema.eliminarSucursal(nombre);
+    this.reset();
+});
+
+document.getElementById('eliminarTelefonoRobadoForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const imei = this[0].value;
+    sistema.eliminarTelefonoRobado(imei);
     this.reset();
 });

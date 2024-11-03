@@ -83,3 +83,15 @@ footer {
     margin-top: 20px;
     font-size: 0.8em;
 }
+
+section {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

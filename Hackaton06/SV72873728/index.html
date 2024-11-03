@@ -18,6 +18,7 @@
                 <li><a href="#tecnicos">Técnicos</a></li>
                 <li><a href="#reportar">Reportar Teléfonos Robados</a></li>
                 <li><a href="#tickets">Ingresar Ticket</a></li>
+                <li><a href="#eliminar">Eliminar Elementos</a></li>
             </ul>
         </nav>
 
@@ -62,6 +63,28 @@
                 <input type="text" placeholder="Repuestos" required>
                 <input type="text" placeholder="Sucursal" required>
                 <button type="submit">Ingresar Ticket</button>
+            </form>
+        </section>
+
+        <section id="eliminar">
+            <h2>Eliminar Elementos</h2>
+            <form id="eliminarTecnicoForm">
+                <h3>Eliminar Técnico</h3>
+                <input type="text" placeholder="Nombre del Técnico" required>
+                <input type="text" placeholder="Sucursal del Técnico" required>
+                <button type="submit">Eliminar Técnico</button>
+            </form>
+
+            <form id="eliminarSucursalForm">
+                <h3>Eliminar Sucursal</h3>
+                <input type="text" placeholder="Nombre de la Sucursal" required>
+                <button type="submit">Eliminar Sucursal</button>
+            </form>
+
+            <form id="eliminarTelefonoRobadoForm">
+                <h3>Eliminar Teléfono Robado</h3>
+                <input type="text" placeholder="IMEI del Teléfono" required>
+                <button type="submit">Eliminar Teléfono</button>
             </form>
         </section>
 
