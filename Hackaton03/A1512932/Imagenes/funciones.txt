@@ -1,0 +1,4 @@
+parseInt
+!isNaN
+Math.max
+forEach(ejecuta cada codigo del array)
