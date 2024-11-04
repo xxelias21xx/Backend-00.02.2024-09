@@ -12,81 +12,85 @@
             <h1>Sistema de Reparaciones de Celulares</h1>
         </header>
 
-        <nav>
-            <ul>
-                <li><a href="#sucursales">Sucursales</a></li>
-                <li><a href="#tecnicos">Técnicos</a></li>
-                <li><a href="#reportar">Reportar Teléfonos Robados</a></li>
-                <li><a href="#tickets">Ingresar Ticket</a></li>
-                <li><a href="#eliminar">Eliminar Elementos</a></li>
-            </ul>
-        </nav>
-
-        <section id="sucursales">
-            <h2>Crear Sucursal</h2>
-            <form id="sucursalForm">
-                <input type="text" placeholder="Nombre de la Sucursal" required>
-                <input type="text" placeholder="Ubicación" required>
-                <button type="submit">Agregar Sucursal</button>
+        <div id="login" style="display:block;">
+            <h2>Inicio de Sesión</h2>
+            <form id="loginForm">
+                <input type="text" placeholder="ID de Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
             </form>
-        </section>
+        </div>
 
-        <section id="tecnicos">
-            <h2>Agregar Técnico</h2>
-            <form id="tecnicoForm">
-                <input type="text" placeholder="Nombre del Técnico" required>
-                <input type="text" placeholder="Especialidades (separadas por comas)" required>
-                <input type="text" placeholder="Sucursal Asignada" required>
-                <button type="submit">Agregar Técnico</button>
-            </form>
-        </section>
+        <div id="contenido" style="display:none;">
+            <nav>
+                <ul>
+                    <li><a href="#sucursales">Sucursales</a></li>
+                    <li><a href="#tecnicos">Técnicos</a></li>
+                    <li><a href="#reportar">Reportar Teléfonos Robados</a></li>
+                    <li><a href="#tickets">Ingresar Ticket</a></li>
+                    <li><a href="#usuarios">Gestionar Usuarios</a></li>
+                </ul>
+            </nav>
 
-        <section id="reportar">
-            <h2>Reportar Teléfono Robado</h2>
-            <form id="telefonoRobadoForm">
-                <input type="text" placeholder="IMEI del Teléfono" required>
-                <button type="submit">Reportar Teléfono</button>
-            </form>
-        </section>
+            <section id="sucursales">
+                <h2>Crear Sucursal</h2>
+                <form id="sucursalForm">
+                    <input type="text" placeholder="Nombre de la Sucursal" required>
+                    <input type="text" placeholder="Ubicación" required>
+                    <button type="submit">Agregar Sucursal</button>
+                </form>
+            </section>
 
-        <section id="tickets">
-            <h2>Ingresar Ticket de Atención</h2>
-            <form id="ticketForm">
-                <input type="text" placeholder="Nombre del Cliente" required>
-                <input type="text" placeholder="Marca del Celular" required>
-                <input type="text" placeholder="Modelo del Celular" required>
-                <input type="text" placeholder="IMEI del Celular" required>
-                <input type="text" placeholder="Autorización" required>
-                <input type="number" placeholder="Costo del Servicio" required>
-                <input type="number" placeholder="Monto Pagado" required>
-                <input type="text" placeholder="Diagnóstico" required>
-                <input type="text" placeholder="Repuestos" required>
-                <input type="text" placeholder="Sucursal" required>
-                <button type="submit">Ingresar Ticket</button>
-            </form>
-        </section>
+            <section id="tecnicos">
+                <h2>Agregar Técnico</h2>
+                <form id="tecnicoForm">
+                    <input type="text" placeholder="Nombre del Técnico" required>
+                    <input type="text" placeholder="Especialidades (separadas por comas)" required>
+                    <input type="text" placeholder="Sucursal Asignada" required>
+                    <button type="submit">Agregar Técnico</button>
+                </form>
+            </section>
 
-        <section id="eliminar">
-            <h2>Eliminar Elementos</h2>
-            <form id="eliminarTecnicoForm">
-                <h3>Eliminar Técnico</h3>
-                <input type="text" placeholder="Nombre del Técnico" required>
-                <input type="text" placeholder="Sucursal del Técnico" required>
-                <button type="submit">Eliminar Técnico</button>
-            </form>
+            <section id="reportar">
+                <h2>Reportar Teléfono Robado</h2>
+                <form id="telefonoRobadoForm">
+                    <input type="text" placeholder="IMEI del Teléfono" required>
+                    <button type="submit">Reportar Teléfono</button>
+                </form>
+            </section>
 
-            <form id="eliminarSucursalForm">
-                <h3>Eliminar Sucursal</h3>
-                <input type="text" placeholder="Nombre de la Sucursal" required>
-                <button type="submit">Eliminar Sucursal</button>
-            </form>
+            <section id="tickets">
+                <h2>Ingresar Ticket de Atención</h2>
+                <form id="ticketForm">
+                    <input type="text" placeholder="Nombre del Cliente" required>
+                    <input type="text" placeholder="Marca del Celular" required>
+                    <input type="text" placeholder="Modelo del Celular" required>
+                    <input type="text" placeholder="IMEI del Celular" required>
+                    <input type="text" placeholder="Autorización" required>
+                    <input type="number" placeholder="Costo del Servicio" required>
+                    <input type="number" placeholder="Monto Pagado" required>
+                    <input type="text" placeholder="Diagnóstico" required>
+                    <input type="text" placeholder="Repuestos" required>
+                    <input type="text" placeholder="Sucursal" required>
+                    <button type="submit">Ingresar Ticket</button>
+                </form>
+            </section>
 
-            <form id="eliminarTelefonoRobadoForm">
-                <h3>Eliminar Teléfono Robado</h3>
-                <input type="text" placeholder="IMEI del Teléfono" required>
-                <button type="submit">Eliminar Teléfono</button>
-            </form>
-        </section>
+            <section id="usuarios">
+                <h2>Gestionar Usuarios</h2>
+                <form id="usuarioForm">
+                    <input type="text" placeholder="Nombre de Usuario" required>
+                    <input type="text" placeholder="ID de Usuario" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <button type="submit">Agregar Usuario</button>
+                </form>
+                
+                <form id="eliminarUsuarioForm">
+                    <input type="text" placeholder="ID de Usuario a Eliminar" required>
+                    <button type="submit">Eliminar Usuario</button>
+                </form>
+            </section>
+        </div>
 
         <footer>
             <p>&copy; 2024 Sistema de Reparaciones de Celulares</p>

@@ -18,6 +18,14 @@ class Tecnico {
     }
 }
 
+class Usuario {
+    constructor(nombre, id, password) {
+        this.nombre = nombre;
+        this.id = id;
+        this.password = password;
+    }
+}
+
 class SistemaReparaciones {
     constructor() {
         //  this.sucursales = [];
@@ -34,6 +42,11 @@ class SistemaReparaciones {
         });
 
         this.telefonosRobados = new Set(JSON.parse(localStorage.getItem('telefonosRobados')) || []); // Se guardan los IMEI que estan declarados como robados
+        this.usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        if (this.usuarios.length === 0) {
+            this.agregarUsuario('admin', 'admin', 'admin');
+        }
     }
 
     guardarEnLocalStorage() {
@@ -47,6 +60,7 @@ class SistemaReparaciones {
         }));
         localStorage.setItem('sucursales', JSON.stringify(sucursalesPlanas));
         localStorage.setItem('telefonosRobados', JSON.stringify([...this.telefonosRobados]));
+        localStorage.setItem('usuarios', JSON.stringify(this.usuarios)); // Guardar usuarios
     }
 
     agregarSucursal(nombre, ubicacion) {
@@ -111,6 +125,24 @@ class SistemaReparaciones {
         }
     }
 
+    agregarUsuario(nombre, id, password) {
+        const nuevoUsuario = new Usuario(nombre, id, password);
+        this.usuarios.push(nuevoUsuario);
+        this.guardarEnLocalStorage();
+        console.log(`Usuario agregado: ${nombre}`);
+    }
+
+    eliminarUsuario(id) {
+        this.usuarios = this.usuarios.filter(usuario => usuario.id !== id);
+        this.guardarEnLocalStorage();
+        console.log(`Usuario con ID ${id} eliminado.`);
+    }
+
+    verificarUsuario(id, password) {
+        return this.usuarios.some(usuario => usuario.id === id && usuario.password === password);
+    }
+
+
     ingresarTicket(cliente, marca, modelo, imei, autorizacion, costo, montoPagado, diagnostico, repuestos, sucursalNombre) {
         const sucursal = this.sucursales.find(s => s.nombre === sucursalNombre);
         if (!sucursal) {
@@ -158,7 +190,7 @@ class SistemaReparaciones {
             tecnico: tecnico.nombre
         };
 
-        sessionStorage.setItem('ultimoTicket', JSON.stringify(nuevoTicket));
+        localStorage.setItem('ultimoTicket', JSON.stringify(nuevoTicket));
         // Actualizar el estado del servicio
         console.log(`Reparación en proceso para el cliente ${cliente}. Técnico asignado: ${tecnico.nombre}. Estado: ${nuevoTicket.estado}`);
         
@@ -167,6 +199,42 @@ class SistemaReparaciones {
 
 // Crear una instancia del sistema
 const sistema = new SistemaReparaciones();
+
+// Función para mostrar el formulario de inicio de sesión
+function mostrarLogin() {
+    const loginForm = document.getElementById('loginForm');
+    loginForm.onsubmit = function(event) {
+        event.preventDefault();
+        const id = this[0].value;
+        const password = this[1].value;
+
+        if (sistema.verificarUsuario(id, password)) {
+            sessionStorage.setItem('usuarioActivo', id);  // Guardar el ID del usuario en sessionStorage
+            alert("Inicio de sesión exitoso");
+            document.getElementById('login').style.display = 'none';  // Ocultar el formulario de inicio
+            document.getElementById('contenido').style.display = 'block';  // Mostrar contenido principal
+        } else {
+            alert("Usuario o contraseña incorrectos");
+        }
+    };
+}
+
+// Función para verificar si hay un usuario activo al cargar la página
+function verificarUsuarioActivo() {
+    const usuarioActivo = sessionStorage.getItem('usuarioActivo');
+    if (!usuarioActivo) {
+        document.getElementById('login').style.display = 'block';  // Mostrar el formulario de inicio de sesión
+    } else {
+        alert(`Bienvenido, ${usuarioActivo}`);  // Puedes hacer otra cosa al iniciar sesión
+        document.getElementById('contenido').style.display = 'block';  // Mostrar contenido principal
+    }
+}
+
+// Ejecutar función de inicio de sesión al cargar la página
+window.onload = function() {
+    verificarUsuarioActivo();
+    mostrarLogin();
+};
 
 
 document.getElementById('sucursalForm').addEventListener('submit', function(event) {
@@ -229,4 +297,24 @@ document.getElementById('eliminarTelefonoRobadoForm').addEventListener('submit',
     const imei = this[0].value;
     sistema.eliminarTelefonoRobado(imei);
     this.reset();
+});
+
+// Manejar el formulario de agregar usuario
+document.getElementById('usuarioForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const nombre = this[0].value;
+    const id = this[1].value;
+    const password = this[2].value;
+    sistema.agregarUsuario(nombre, id, password);
+    this.reset();
+    alert(`Usuario agregado: ${nombre}`);
+});
+
+// Manejar el formulario de eliminar usuario
+document.getElementById('eliminarUsuarioForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const id = this[0].value;
+    sistema.eliminarUsuario(id);
+    this.reset();
+    alert(`Usuario con ID ${id} eliminado.`);
 });
