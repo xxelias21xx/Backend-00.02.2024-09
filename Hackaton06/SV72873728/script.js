@@ -30,12 +30,12 @@ class SistemaReparaciones {
     constructor() {
         //  this.sucursales = [];
         //  this.telefonosRobados = new Set(); // Se guardan los IMEI que estan declarados como robados
-        const sucursalesGuardadas = JSON.parse(localStorage.getItem('sucursales')) || [];
+        const sucursalesGuardadas = JSON.parse(localStorage.getItem('sucursales')) || []; // se crea una nueva lista de sucursales para que no haya problemas al convertir a JSON
         
         this.sucursales = sucursalesGuardadas.map(s => {
             const sucursal = new Sucursal(s.nombre, s.ubicacion);
             s.tecnicos.forEach(tecnicoData => {
-                const tecnico = new Tecnico(tecnicoData.nombre, tecnicoData.especialidades, sucursal.nombre); // No agregamos el objeto completo
+                const tecnico = new Tecnico(tecnicoData.nombre, tecnicoData.especialidades, sucursal.nombre); // solo se agrega el nombre de sucursal
                 sucursal.agregarTecnico(tecnico);
             });
             return sucursal;
@@ -60,7 +60,7 @@ class SistemaReparaciones {
         }));
         localStorage.setItem('sucursales', JSON.stringify(sucursalesPlanas));
         localStorage.setItem('telefonosRobados', JSON.stringify([...this.telefonosRobados]));
-        localStorage.setItem('usuarios', JSON.stringify(this.usuarios)); // Guardar usuarios
+        localStorage.setItem('usuarios', JSON.stringify(this.usuarios)); 
     }
 
     agregarSucursal(nombre, ubicacion) {
@@ -209,10 +209,10 @@ function mostrarLogin() {
         const password = this[1].value;
 
         if (sistema.verificarUsuario(id, password)) {
-            sessionStorage.setItem('usuarioActivo', id);  // Guardar el ID del usuario en sessionStorage
+            sessionStorage.setItem('usuarioActivo', id); 
             alert("Inicio de sesión exitoso");
-            document.getElementById('login').style.display = 'none';  // Ocultar el formulario de inicio
-            document.getElementById('contenido').style.display = 'block';  // Mostrar contenido principal
+            document.getElementById('login').style.display = 'none';  
+            document.getElementById('contenido').style.display = 'block'; 
         } else {
             alert("Usuario o contraseña incorrectos");
         }
@@ -223,14 +223,14 @@ function mostrarLogin() {
 function verificarUsuarioActivo() {
     const usuarioActivo = sessionStorage.getItem('usuarioActivo');
     if (!usuarioActivo) {
-        document.getElementById('login').style.display = 'block';  // Mostrar el formulario de inicio de sesión
+        document.getElementById('login').style.display = 'block';  
     } else {
-        alert(`Bienvenido, ${usuarioActivo}`);  // Puedes hacer otra cosa al iniciar sesión
-        document.getElementById('contenido').style.display = 'block';  // Mostrar contenido principal
+        alert(`Bienvenido, ${usuarioActivo}`);
+        document.getElementById('contenido').style.display = 'block'; 
     }
 }
 
-// Ejecutar función de inicio de sesión al cargar la página
+
 window.onload = function() {
     verificarUsuarioActivo();
     mostrarLogin();
@@ -299,7 +299,7 @@ document.getElementById('eliminarTelefonoRobadoForm').addEventListener('submit',
     this.reset();
 });
 
-// Manejar el formulario de agregar usuario
+// Agregar usuario
 document.getElementById('usuarioForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const nombre = this[0].value;
