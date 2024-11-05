@@ -141,7 +141,13 @@ service.newTechnician("Carlos",["Iphone","Samsung"],["Veloz","Hábil"])
 service.newTechnician("Jaime",["Iphone","Huawei"],["Perspicaz"])
 service.newTechnician("Armando",["Xiaomi","Samsung"],["Paciente"])
 
+if(localStorage.getItem("tickets")){
+    loadLocalStorage()
+    console.log(branch.arrTickets)
+}
+
 updateSelect()
+updateTable()
 
 function newTicket(){
     
@@ -160,6 +166,7 @@ function newTicket(){
     if(!checatuIMEI.checkIMEI(IMEI) && (IMEI+SN+model+clientName+clientContact)) {
         branch.addTicket(new Ticket(cellphone,client,tech))
         console.log(branch.arrTickets)
+        saveLocalStorage(branch.arrTickets)
     }
 }
 
@@ -173,6 +180,45 @@ function updateSelect(){
         optionValue = `${tech.name}`
         let option = new Option(optionText,optionValue)
         select.append(option)
+    })
+}
+
+function updateTable(){
+    let table = $("#table")
+    table.empty()
+    branch.arrTickets.forEach(ticket => {
+        dataSN = ticket.cellphone.serialNumber
+        dataModel = ticket.cellphone.brand +" "+ ticket.cellphone.model
+        dataClient = ticket.client.name
+        table.append(`<tr><td>${dataSN}</td><td>${dataModel}</td><td>${dataClient}</tr></td>`)
+    })
+
+}
+
+function saveLocalStorage(tickets){
+    localStorage.setItem("tickets",JSON.stringify(tickets))
+}
+
+function loadLocalStorage(){
+    let tickets = JSON.parse(localStorage.getItem("tickets"))
+    
+    tickets.forEach(ticket => {
+        let cellphone = new Cellphone(
+            ticket.cellphone.serialNumber,
+            ticket.cellphone.IMEI,
+            ticket.cellphone.brand,
+            ticket.cellphone.model
+        )
+        let client = new Client(
+            ticket.client.name,
+            ticket.client.contact
+        )
+        let technician = new Technician(
+            ticket.technician.name,
+            ticket.technician.brands,
+            ticket.technician.skills
+        )
+        branch.arrTickets.push(new Ticket(cellphone,client,technician))
     })
 }
 
