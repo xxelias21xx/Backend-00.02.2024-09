@@ -1,7 +1,9 @@
 class Client{
     constructor(name, contact){
+        if(name!=""&&contact!=""){
         this.name = name
         this.contact = contact
+        }
     }
 
 }
@@ -29,13 +31,14 @@ class Branch{
 
 class Cellphone {
 
-    replacements = []
-
     constructor(serialNumber, IMEI, brand, model){
+        if(serialNumber!=""&&IMEI!=""&&brand!=""&&model!=""){
         this.serialNumber = serialNumber
         this.IMEI = IMEI
         this.brand = brand
         this.model = model
+        this.replacements = []
+        }
     }
 
     addReplacement(replacement){
@@ -68,8 +71,8 @@ class Cellphone {
 
 class Technician{
 
-    brands = ["General"]
-    skills = ["Revisión"]
+    brands = []
+    skills = []
 
     constructor(name, brands, skills){
         this.name = name
@@ -142,12 +145,14 @@ service.newTechnician("Jaime",["Iphone","Huawei"],["Perspicaz"])
 service.newTechnician("Armando",["Xiaomi","Samsung"],["Paciente"])
 
 if(localStorage.getItem("tickets")){
-    loadLocalStorage()
-    console.log(branch.arrTickets)
+    loadTickets()
 }
 
-updateSelect()
 updateTable()
+
+$("#selectBrand").click(() => {
+    updateSelect()
+})
 
 function newTicket(){
     
@@ -163,11 +168,16 @@ function newTicket(){
     let tech = service.technicians.find(t => {
         return t.name == technician
     })
-    if(!checatuIMEI.checkIMEI(IMEI) && (IMEI+SN+model+clientName+clientContact)) {
+
+    if(!checatuIMEI.checkIMEI(IMEI) && Object.keys(client).length && Object.keys(cellphone).length && technician !== null ) {
         branch.addTicket(new Ticket(cellphone,client,tech))
         console.log(branch.arrTickets)
-        saveLocalStorage(branch.arrTickets)
+        saveTickets(branch.arrTickets)
+    }else{
+        if(checatuIMEI.checkIMEI(IMEI)) alert("Celular inválido")
+            else alert("Ingrese Datos")
     }
+    updateTable()
 }
 
 function updateSelect(){
@@ -195,11 +205,11 @@ function updateTable(){
 
 }
 
-function saveLocalStorage(tickets){
+function saveTickets(tickets){
     localStorage.setItem("tickets",JSON.stringify(tickets))
 }
 
-function loadLocalStorage(){
+function loadTickets(){
     let tickets = JSON.parse(localStorage.getItem("tickets"))
     
     tickets.forEach(ticket => {
