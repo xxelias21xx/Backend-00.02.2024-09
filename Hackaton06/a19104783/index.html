@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area de Soporte Técnico</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center">Soporte Técnico</h2>
+    
+    <!-- Formulario para ingresar un teléfono -->
+    <div class="card mt-4">
+        <div class="card-header">
+            Ingresar Teléfono
+        </div>
+        <div class="card-body">
+            <form id="formTelefono">
+                <div class="form-group">
+                    <label for="marca">Marca:</label>
+                    <input type="text" class="form-control" id="marca" required>
+                </div>
+                <div class="form-group">
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" class="form-control" id="modelo" required>
+                </div>
+                <div class="form-group">
+                    <label for="numeroSerie">Número de Serie:</label>
+                    <input type="text" class="form-control" id="numeroSerie" required>
+                </div>
+                <div class="form-group">
+                    <label for="imei">IMEI:</label>
+                    <input type="text" class="form-control" id="imei" required>
+                </div>
+                <div class="form-group">
+                    <label for="so">S.O.:</label>
+                    <input type="text" class="form-control" id="so" required>
+                </div>
+                <button id="Revisar" type="submit" class="btn btn-primary">Revisar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tabla para mostrar el estado de los teléfonos -->
+    <div class="card mt-4">
+        <div>
+
+        </div>
+        <div class="card-header">
+            Teléfonos en Revisión
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>S.O.</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Diagnóstico</th>
+                        <th>Estado</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody id="listaRevisados">
+                    <!-- Aquí se mostrarán los teléfonos revisados -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Tabla para mostrar los atendidos -->
+    <div class="card mt-4">
+        <div>
+
+        </div>
+        <div class="card-header">
+            Teléfonos en Revisión
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Diagnóstico</th>
+                        <th>Estado</th>
+                        <th>Técnico</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody id="listAtendidos">
+                    <!-- Aquí se mostrarán los teléfonos revisados -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Modal para ingresar cliente y diagnóstico -->
+<div class="modal fade" id="modalDiagnostico" tabindex="-1" role="dialog" aria-labelledby="modalDiagnosticoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDiagnosticoLabel">Ingresar Cliente y Diagnóstico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="cliente">Cliente:</label>
+                    <input type="text" class="form-control" id="cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="diagnostico">Diagnóstico:</label>
+                    <input type="text" class="form-control" id="diagnostico" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="guardarDiagnostico">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal para ingresar autorización e importe -->
+<div class="modal fade" id="modalAtenciones" tabindex="-1" role="dialog" aria-labelledby="modalAtencionesLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAtencionesLabel">Atenciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- <div class="form-group">
+                    <label for="cliente">Asignar Técnico:</label>
+                    <input type="text" class="form-control" id="tecnico" required>
+                </div> -->
+                <div class="form-group">
+                    <label for="autorizacion">Autorización:</label><br>
+                    <input type="radio" id="autorizacionTrue" name="autorizacion" value=1 />
+                    <label for="autorizacionTrue" checked>Válida</label><br>
+                    <input type="radio" id="autorizacionFalse" name="autorizacion" value=0 />
+                    <label for="autorizacionFalse">No válida</label><br>
+
+                    <!-- <input type="text" class="form-control" id="diagnostico" required> -->
+                </div>
+                <div class="form-group">
+                    <span id="lebelMontoRevision"> Monto de la Revisión: S/.10.00 </span>
+                    <!-- <label for="autorizacion" id="lebelMontoRevision">Importe :</label> -->
+                    <input id="pagoRevision" type="number" class="form-control" required>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="diagnostico">Diagnóstico:</label>
+                    <input type="text" class="form-control" id="diagnostico" required>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="guardarAutorizacion">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script-JQuery-LS.js"></script>
+</body>
+</html>
