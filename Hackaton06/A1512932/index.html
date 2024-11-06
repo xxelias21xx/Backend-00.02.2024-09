@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio técnico de celulares</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.4/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="col-md-12">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Messages</a>
+                    </li>
+                    <li class="nav-item dropdown ml-md-auto">
+                        <div class="nav-content">
+                            <button id="btnAccesoTecnico" class="btn-tecnico">
+                                Acceso Técnico
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="jumbotron">
+                    <h2>Servicio técnico de celulares</h2>
+                    <p>
+                        En Duck Tech, revisamos el IMEI de tu celular para asegurarnos de que no esté reportado como
+                        robado, promoviendo un uso seguro y responsable de la tecnología. Gracias por tu comprensión y
+                        apoyo.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                    </p>
+                </div>
+
+                <!-- Indicadores de pasos -->
+                <div class="step-indicator">
+                    <div class="step active" id="step1-indicator">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Búsqueda</div>
+                    </div>
+                    <div class="step" id="step2-indicator">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Datos</div>
+                    </div>
+                    <div class="step" id="step3-indicator">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Servicios</div>
+                    </div>
+                    <div class="step" id="step4-indicator">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Pago</div>
+                    </div>
+                </div>
+
+                <!-- Paso 1: Búsqueda IMEI -->
+                <div id="searchStep" class="step-container">
+                    <h2>Verificación de IMEI</h2>
+                    <h3>Ejemplo de Imei bloqueado : 123456789012345</h3>
+                    <div class="form-group">
+                        <button id="consultarIMEI" class="btn-primary">Consultar IMEI</button>
+                    </div>
+                </div>
+
+                <!-- Paso 2: Datos del Cliente -->
+                <div id="datoCliente" class="step-container hidden">
+                    <h2>Datos del Cliente</h2>
+                    <form id="searchForm">
+                        <div class="form-group">
+                            <label for="mostrarIMEI">IMEI:</label>
+                            <input type="text" id="mostrarIMEI" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombreCliente">Nombre Completo:</label>
+                            <input type="text" id="nombreCliente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefonoCliente">Teléfono:</label>
+                            <input type="tel" id="telefonoCliente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailCliente">Email:</label>
+                            <input type="email" id="emailCliente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="marcaCelular">Marca del Dispositivo:</label>
+                            <input type="text" id="marcaCelular" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modeloCelular">Modelo:</label>
+                            <input type="text" id="modeloCelular" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sistema">Sistema Operativo:</label>
+                            <select id="sistema" required>
+                                <option value="">Seleccione sistema</option>
+                                <option value="android">Android</option>
+                                <option value="ios">iOS</option>
+                                <option value="windows">Windows</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="provincia">Provincia:</label>
+                            <select id="provincia" required>
+                                <option value="">Seleccione Provincia</option>
+                                <option value="Callao">Callao</option>
+                                <option value="Lima">Lima</option>
+                                <option value="Arequipa">Arequipa</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="Continuar">Continuar</button>
+                    </form>
+                </div>
+
+                <!-- Paso 3: Selección de Servicio -->
+                <div id="servicio" class="step-container hidden">
+                    <h2>Selección de Servicio</h2>
+                    <form id="formServicio">
+                        <div class="form-group">
+                            <label>
+                                <input type="radio" name="servicio" value="mantenimiento">
+                                Mantenimiento
+                            </label>
+                            <label>
+                                <input type="radio" name="servicio" value="revision">
+                                Revisión
+                            </label>
+                        </div>
+
+                        <!-- Opciones de Mantenimiento -->
+                        <div id="mantenimiento" class="option-group">
+                            <div class="form-group">
+                                <h4>Seleccione el dispositivo:</h4>
+                                <label>
+                                    <input type="radio" name="dispositivo" value="celular">
+                                    Celular
+                                </label>
+                                <label>
+                                    <input type="radio" name="dispositivo" value="laptop">
+                                    Laptop
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Opciones de Revisión -->
+                        <div id="revision" class="option-group">
+                            <div class="form-group">
+                                <h4>Tipo de revisión:</h4>
+                                <label>
+                                    <input type="radio" name="tipoRevision" value="tecnica">
+                                    Revisión Técnica
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Detalles del Servicio -->
+                        <div id="detallesServicio" class="option-group">
+                            <div class="form-group">
+                                <h4>Seleccione la provincia:</h4>
+                                <select id="selectProvincia">
+                                    <option value="">Seleccione una provincia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <h4>Seleccione el técnico:</h4>
+                                <select id="selectTecnico">
+                                    <option value="">Seleccione un técnico</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <h4>Precio del servicio:</h4>
+                                <p id="precioServicio">S/. 0.00</p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Solicitar Servicio</button>
+                    </form>
+                </div>
+
+                <!-- Paso 4: Confirmación -->
+                <div id="confirmacionStep" class="step-container hidden">
+                    <h2>Confirmación de Servicio</h2>
+                    <div id="formularioPago">
+                        <h2>Proceso de Pago</h2>
+
+                        <form id="formularioAutorizacion">
+                            <h3>Autorización de Servicio</h3>
+                            <input type="file" id="archivoAutorizacion" required>
+                            <button type="submit">Subir Autorización</button>
+                        </form>
+
+                        <div id="seccionPago" class="hidden">
+                            <h3>Detalles del Pago</h3>
+                            <p>Monto Total: <span id="montoTotal">S/. 0.00</span></p>
+                            <p>Adelanto Requerido (50%): <span id="montoAdelanto">S/. 0.00</span></p>
+                            <button id="confirmarPago">Confirmar Pago</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel del técnico -->
+                <div id="panelTecnico" class="panel-tecnico hidden">
+                    <div class="panel-header">
+                        <h2>Panel de Técnico</h2>
+                        <button id="cerrarPanel" class="btn-cerrar">&times;</button>
+                    </div>
+
+                    <!-- Formulario de Login -->
+                    <form id="loginTecnico" class="form-login">
+                        <h3>Iniciar Sesión</h3>
+                        <div class="alert alert-info">
+                            Usuarios de prueba: Juan.Perez, Ana.Silva, Carlos.Lopez, Maria.Torres
+                            <br>
+                            Contraseña: 123456
+                        </div>
+                        <div class="form-group">
+                            <label for="usuarioTecnico">Usuario:</label>
+                            <input type="text" id="usuarioTecnico" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordTecnico">Contraseña:</label>
+                            <input type="password" id="passwordTecnico" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                    </form>
+
+                    <!-- Contenido del Panel -->
+                    <div id="contenidoPanel" class="panel-contenido hidden">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3>Panel de Gestión</h3>
+                            <div class="usuario-info">
+                                <span id="nombreUsuario" class="mr-3"></span>
+                                <button class="btn btn-outline-danger btn-cerrar-sesion">
+                                    Cerrar Sesión
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="filtro-tecnicos">
+                            <h4>Filtrar por Técnico</h4>
+                            <select id="selectFiltroTecnico" class="form-control">
+                                <option value="">Seleccione un técnico</option>
+                            </select>
+                        </div>
+
+                        <div id="listaServicios" class="lista-servicios">
+                            <!-- Los servicios se cargarán aquí dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts.js"></script>
+    </div>
+</body>
+
+</html>
