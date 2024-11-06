@@ -1,0 +1,91 @@
+.custom-height {
+    height: 150px; 
+    width: auto; 
+}
+
+
+.custom-label {
+    color: #010913; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+}
+
+
+
+.ocultar {
+    visibility: hidden;
+}
+.ocultar * {
+    visibility: hidden;
+}
+
+
+.jumbotron-custom {
+    background-image: url('Images/FondoServicioTecnico.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+   .nav-link {
+            color: #007bff;
+        }
+        .nav-link:hover {
+            color: #0056b3;
+        }
+        .nav-container {
+            margin-top: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        .hamburger-lines {
+            display: none;
+        }
+        .menu-items {
+            display: flex;
+            list-style: none;
+        }
+        .menu-items li {
+            margin: 0 10px;
+        }
+        .menu-items a {
+            color: white;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .hamburger-lines {
+                display: block;
+            }
+            .menu-items {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            .menu-items li {
+                margin: 10px 0;
+            }
+            .checkbox:checked ~ .menu-items {
+                display: flex;
+            }
+        }
+
+        #company-info {
+            background-color: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            margin-top: 20px;
+        }
+        
+        #company-info .custom-label {
+            display: block; 
+            font-size: 1.2em; 
+            color: #333; 
+            margin-bottom: 10px; 
+        }

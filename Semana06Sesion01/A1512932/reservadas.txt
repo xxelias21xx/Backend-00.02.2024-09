@@ -1,0 +1,14 @@
+Explicación de palabras reservadas:
+let: Declara una variable con un ámbito de bloque, lo que significa que solo es accesible dentro del bloque en el que se declara.
+console.log(): Método que imprime información en la consola.
+class: Define una clase, que es una plantilla para crear objetos con propiedades y métodos.
+constructor: Método especial para inicializar objetos de la clase.
+this: Referencia al objeto actual de la clase.
+JSON.stringify: Convierte un objeto JavaScript en una cadena JSON.
+JSON.parse: Convierte una cadena JSON en un objeto JavaScript.
+async: Declara una función asincrónica.
+await: Pausa la ejecución de una función asincrónica hasta que se resuelva una promesa.
+fetch: Realiza solicitudes HTTP a una API.
+try-catch: Maneja errores; try contiene el código a probar, y catch captura errores si los hay.
+typeof: Devuelve el tipo de dato de una variable o expresión.
+Storage, localStorage, sessionStorage: Objetos de almacenamiento en el navegador. localStorage almacena datos de manera persistente y sessionStorage almacena datos solo durante la sesión actual.

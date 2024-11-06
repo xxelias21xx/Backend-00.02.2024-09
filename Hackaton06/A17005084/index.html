@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="script.js"></script>
+    <script src="./libreria/BaseDato.js"></script>
+
+    <title>Hackaton 06</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row jumbotron jumbotron-custom align-items-center">
+            <div class="col-md-2">
+                <img src="Images/ServiTecnico.jpg" class="rounded-circle custom-height"/>
+            </div>       
+        </div>
+        <div class="col-md-12">
+            <div id="company-info">
+                <label id="NomEmpresa" class="custom-label"></label>
+                <label id="RucEmpresa" class="custom-label"></label>
+                <label id="NomSucursal" class="custom-label"></label>
+                <label id="CodSucursal" class="custom-label" hidden>0</label>
+            </div>
+        </div>
+
+        <div class="row nav-container">
+            <div class="col-md-12">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="LnkServicio">Servicio Técnico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="LnkDiagnostico">Lista Diagnosticado</a>
+                    </li>
+                    <li class="nav-item dropdown ml-md-auto">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cambiar Sucursal</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
+                            <!-- Opciones de sucursal -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row" id="FormRegistrarServicio" style="display: none;">
+            <div class="container mt-4">
+                <h2>Servicio Técnico</h2>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nomCliente">Cliente</label>
+                        <input type="text" class="form-control" id="nomCliente" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="docCliente">Doc. Cliente</label>
+                        <input type="text" class="form-control" id="docCliente" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nroIMEI">Nro. IMEI</label>
+                        <input type="text" class="form-control" id="nroIMEI" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nroSerie">Nro. Serie</label>
+                        <input type="text" class="form-control" id="nroSerie" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nroCelular">Nro. Celular</label>
+                        <input type="tel" class="form-control" id="nroCelular" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="CboMarca">Marca</label>
+                        <select class="form-control" id="CboMarca" required>
+                            <!-- Opciones de marca -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="NomModelo">Modelo</label>
+                        <input type="text" class="form-control" id="NomModelo" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="CboTecnico">Técnico</label>
+                        <select class="form-control" id="CboTecnico" required>
+                            <!-- Opciones de técnico -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="diagnostico">Diagnóstico</label>
+                        <textarea class="form-control" id="diagnostico" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="form-row align-items-end">
+                    <div class="form-group col-md-4">
+                        <label for="costo">Costo</label>
+                        <input type="number" class="form-control" id="costo" step="0.01" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button class="btn btn-primary" id="BtnDiagnosticar">Diagnosticar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="row" id="TableDiagnos" style="display: none;">
+            <div class="container">
+                <table id="TblAutorizar" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="ocultar">Nro.Diag.</th>
+                            <th>Cliente</th>
+                            <th>Doc.Cliente</th>
+                            <th class="ocultar">Marca</th>
+                            <th>Modelo</th>
+                            <th>Imei</th>
+                            <th>Serie</th>
+                            <th class="ocultar">tecnico</th>
+                            <th>Diagnostico</th>
+                            <th>Costo</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="row" id="FormAutorizar" style="display: none;">
+            <div class="container mt-4">
+                <h2>Servicio Técnico</h2>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nomClienteAuto">Cliente</label>
+                        <label id="NroDiagAuto" class="col-md-2 col-form-label" hidden></label>
+                        <input type="text" class="form-control" id="nomClienteAuto" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="docClienteAuto">Doc. Cliente</label>
+                        <input type="text" class="form-control" id="docClienteAuto" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nroIMEIAuto">Nro. IMEI</label>
+                        <input type="text" class="form-control" id="nroIMEIAuto" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nroSerieAuto">Nro. Serie</label>
+                        <input type="text" class="form-control" id="nroSerieAuto" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nroCelularAuto">Nro. Celular</label>
+                        <input type="tel" class="form-control" id="nroCelularAuto" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="TxtMarcaAuto">Marca</label>
+                        <input type="text" class="form-control" id="TxtMarcaAuto" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="NomModeloAuto">Modelo</label>
+                        <input type="text" class="form-control" id="NomModeloAuto" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="TxtTecnicoAuto">Técnico</label>
+                        <input type="text" class="form-control" id="TxtTecnicoAuto" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="diagnosticoAuto">Diagnóstico</label>
+                        <textarea class="form-control" id="diagnosticoAuto" rows="3" required></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="costoAuto">Costo</label>
+                        <input type="number" class="form-control" id="costoAuto" step="0.01" required>
+                    </div>
+                </div>
+
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="CboRepuesto">Repuesto</label>
+                        <select class="form-control" id="CboRepuesto" required>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="TxtTotRepues">Cost.Repuesto</label>
+                        <input type="number" class="form-control" id="TxtTotRepues" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="form-row align-items-end">
+                    <div class="form-group col-md-4">
+                        <label for="TxtTotal">Total Pagar</label>
+                        <input type="number" class="form-control" id="TxtTotal" step="0.01" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button class="btn btn-primary" id="BtnAutorizar">Autorizar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let objCentral={
+            Empresa: "TecnoSevices Wari EIRL",
+            RucEmpr: "20145236987"
+        }
+
+        const objGenera=CargaDatos.init(objCentral);
+
+
+
+        // $(document).ready(function() {
+        //     let objCentral = {
+        //         Empresa: "TecnoSevices Wari EIRL",
+        //         RucEmpr: "20145236987"
+        //     };
+
+        //     const objGenera = CargaDatos.init(objCentral);
+        // });
+    </script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
