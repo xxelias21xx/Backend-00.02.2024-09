@@ -29,7 +29,7 @@ function ejercicio2() {
 
 // 3. Crea una función que tome números y devuelva la suma de sus cubos. sumOfCubes(1, 5, 9) ➞ 855
 function ejercicio3() {
-    let num1 = parseFloat(prompt("Escribe Dos numeros para realizar la suma de ambos ; Ingrese el primer Numero"));
+    let num1 = parseFloat(prompt("Escribe tres numeros para retornar la suma de sus cubos ; Ingrese el primer Numero"));
     let num2 = parseFloat(prompt(" Ingrese el segundo Numero"));
     let num3 = parseFloat(prompt(" Ingrese el tercer Numero"));
 
@@ -114,14 +114,67 @@ function ejercicio5() {
 
 //1.Utilizando función arrow, crear una función que reciba como parámetros un nombre, apellido y edad y 
 //los retorne en un string concatenado “Hola mi nombre es sebastián yabiku y mi edad 33”
+function ejercicios1(){
+    let nombre = prompt(`Alumnito, ingrese sus Nombres`);
+    let apellido = prompt("Alumnito, ingrese sus Apellidos");
+    let edad = parseInt(prompt("Alumnito, ingrese su Edad."));
 
+    const datos = (nombre,apellido,edad) => `Hola, mi nombre es ${nombre} ${apellido} y mi edad es ${edad}`;
 
+    showResultReto02(datos(nombre,apellido,edad));
+}   
 
+//2.Cree una función que tome números y devuelva la suma de sus cubos.
+function ejercicios2() {
+    let num1 = parseFloat(prompt("Escribe tres numeros para retornar la suma de sus cubos ; Ingrese el primer Numero"));
+    let num2 = parseFloat(prompt(" Ingrese el segundo Numero"));
+    let num3 = parseFloat(prompt(" Ingrese el tercer Numero"));
 
+    numeros = [num1,num2,num3];
+    // Verifica que todos los números sean válidos
+    if (numeros.every(num => !isNaN(num))) {
+        //let numCubo = reduce(numeros.map(num => Math.pow(num, 3)));
+        let numCubo = numeros.reduce((sum, num) => sum + Math.pow(num, 3), 0)
 
+            showResultReto02(`Ejercicio 2: La suma de los numeros ${num1},${num2},${num3}, al 3 es : ${numCubo}`);
+    } else {
+        showResultReto02("Ups!.Alumnito, ingrese un número porfavor.");
 
+    }
+}
 
+//3.Crear una funcion que me retorne el tipo de valor entregado, invocar la función para los distintos tipos de js
+function ejercicios3() {
+    let dato = prompt("Digite el valor y se retornara el tipo de valor escrito");
 
+    let tipoDato;
+
+    if (!isNaN(dato) && dato.trim() !== "") {
+        tipoDato = 'number'; 
+    } else {
+        tipoDato = typeof dato; 
+    }
+
+    showResultReto02(`El tipo de valor escrito es: ${tipoDato}`);
+}
+
+//4.Crear una función que reciba n cantidad de argumentos y los sume ( utilizar parametros rest)
+//5
+//6
+//7
+//8
+//9
+//10
+//11
+//12
+//13
+//14
+//15
+//16
+//17
+//18
+//19
+//20
 
 
 //================================================================================
@@ -167,7 +220,7 @@ for (let i = 1; i <= 22; i++) {
         if (typeof ejercicioFunction === "function") {
             ejercicioFunction(); // Ejecuta la función correspondiente al ejercicio
         } else {
-            showResult(`Ejercicio ${i}: Sin función asignada`);
+            showResultReto02(`Ejercicio ${i}: Sin función asignada`);
         }
     };
 
@@ -179,51 +232,3 @@ function showResultReto02(result) {
     const output = document.getElementById('output-reto02');
     output.innerHTML = result;
 }
-
-// const buttonsContainer = document.getElementById('buttons-container');
-// for (let i = 1; i <= 40; i++) {
-//     const button = document.createElement('button');
-//     button.innerText = `Ejercicio ${i}`;
-    
-//     // Asignar funciones específicas a cada botón
-//     button.onclick = function() {
-//         switch (i) {
-//             case 1:
-//                 ejercicio1();
-//                 break;
-//             case 2:
-//                 ejercicio2();
-//                 break;
-//             case 3:
-//                 ejercicio3();
-//                 break;
-//             case 4:
-//                 ejercicio4();
-//                 break;
-//             case 5:
-//                 ejercicio5();
-//                 break;
-//             case 6:
-//                 ejercicio6();
-//                 break;
-//             case 7:
-//                 ejercicio7();
-//                 break;
-//             case 8:
-//                 ejercicio8();
-//                 break;
-//             case 9:
-//                 ejercicio9();
-//                 break;
-//             case 10:
-//                 ejercicio10();
-//                 break;
-                
-//             default:
-//                 showResult(`Ejercicio ${i}: Sin función asignada`);
-//         }
-//     };
-
-//     buttonsContainer.appendChild(button);
-// }
-
