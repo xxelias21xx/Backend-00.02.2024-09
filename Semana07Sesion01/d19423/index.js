@@ -3,6 +3,9 @@ let server = require("http");
 //definimos el puerto que vamos a usar
 let port = 3000;
 var moment = require('moment'); // require
+let fecha = require('./miModulo')
+let fs = require('fs');
+var url = require('url');
 
 //creamos un servidor con el http y usamos createserver()
 server.createServer(function(req, res){//le pasamos una funcion para que nos de una resuesta
