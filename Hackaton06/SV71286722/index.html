@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table, th, td {
+    border:1px solid black;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    <div>
+        <select id="selectBranch">
+            <option value="0">Jesus Maria</option>
+        </select>
+    </div>
+    
+    <h1 id="branch"></h1>
+    <h2 id="city"></h2>
+
+    <h3>Cliente</h3>
+    <div>
+        <label for="clientName">Nombre del cliente</label>
+        <input type="text" id="clientName">
+        <p></p>
+        <label for="clientContact">Contacto del cliente</label>
+        <input type="number" id="clientContact">
+    </div>
+
+    <h3>Celular</h3>
+
+    <div>
+        <label for="IMEI">IMEI</label>
+        <input type="number" id="IMEI">
+        <p></p>
+        <label for="serialNumber">Número de Serie</label>
+        <input type="number" id="serialNumber">
+        <p></p>
+        <label for="selectBrand">Seleccionar Marca</label>
+        <select id="selectBrand">
+            <option value="Iphone">Iphone</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="Huawei">Huawei</option>
+        </select>
+        <p></p>
+        <label for="inputModel">Modelo</label>
+        <input type="text" id="inputModel">
+    </div>
+
+    <p></p>
+
+    <h3>Técnico</h3>
+    <div>
+        <select id="selectTechnician">
+        </select>
+    </div>
+
+    <p></p>
+
+    <button id="addTicket" onclick="newTicket()">Guardar Consulta</button>
+
+    <p></p>
+
+    <table>
+        <tr>
+            <th>Numero de Serie</th>
+            <th>Modelo</th>
+            <th>Cliente</th>
+            <th>Acciones</th>
+        </tr>
+        <tbody id="table">
+
+        </tbody>
+    </table>
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

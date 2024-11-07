@@ -87,7 +87,7 @@ const Reserva = function () //a
                  reserva.avionIda.agregarPasajeros(data);
                  reserva.avionVuelta.agregarPasajeros(data);
                  dibujarReserva(reserva);
-           });
+            });
             console.log(reserva)
             
         }
