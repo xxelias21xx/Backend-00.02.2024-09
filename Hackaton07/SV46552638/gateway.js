@@ -22,6 +22,37 @@ app.get('/', (req, res) => {
 });
 
 
+app.post("/github", (req, res) => {
+    const github = req.body.github;
+    const config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://api.github.com/users/${github}`,
+    };
+
+    axios.request(config)
+        .then((response) => {
+            const user = response.data;
+            res.write(`<h1>Datos de ${github}</h1>`);
+
+            res.write(`
+                <p>Usuario: ${user.login} </p>
+                <p>Tipo: ${user.type} </p>
+                <p>Nombre: ${user.name} </p>
+                <p>Empresa: ${user.company} </p>
+                <p>Ubicacion: ${user.location} </p>
+                <p>Ocupación: ${user.bio} </p>
+                <p>Visibilidad: ${user.user_view_type} </p>
+                <p>Repositorios Publicos: ${user.public_repos} </p>
+                <p>Blog: ${user.blog} </p>`);
+            res.end();
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error al consultar el Usuario de GitHub");
+        });
+});
+
 // Ruta para procesar la consulta de clima
 app.post("/clima", (req, res) => {
     const city = req.body.city;
@@ -47,8 +78,6 @@ app.post("/clima", (req, res) => {
             res.status(500).send("Error al consultar el clima");
         });
 });
-
-
 
 
 app.post("/pokemon", (req, res) => {
@@ -184,53 +213,70 @@ app.post("/cocteles", (req, res) => {
 });
 
 
-// app.get('/cocteles', async (req, res) => {
-//     const cocteles = req.body.cocteles;
-//     try {
+app.post("/productos", (req, res) => {
+
+    const config = {
         
-//         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${cocteles}`);
-//         const drinks = response.data.drinks;
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://fakestoreapi.com/products`,
+    };
 
-//         // Build HTML to display the drinks
-//         let html = `<h1>Vodka Cocktails</h1><ul>`;
-//         drinks.forEach(drink => {
-//             html += `
-//                 <li>
-//                     <h2>${drink.strDrink}</h2>
-//                 </li>
-//             `;
-//         });
-//         html += `</ul>`;
+    axios.request(config)
+        .then((response) => {
+            const productos = response.data;
+            // Extrae solo los nombres de los Pokémon y los convierte en una lista HTML
+            const objeto = productos.map(producto => `<li>
+                Nombre: ${producto.title}</br> 
+                Precio:${producto.price}</br> 
+                Descripcion:${producto.description}</br> 
+                Categoria:${producto.category}</br> 
+                Calificacion :${producto.rating.rate}</br> 
+                Usuarios :${producto.rating.count}</br> 
+                </li>`).join("");
+            // Envía la lista formateada como respuesta HTML
+            res.write(`<h1>Productos y detalles: </h1>`);
+            res.write(`<ul>${objeto}</ul>`);
+            res.end();
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error al consultar lista productos");
+        });
+});
 
-//         res.send(html);
-//     } catch (error) {
-//         console.error('Error fetching data:', error);
-//         res.status(500).send('Failed to fetch data from the API');
-//     }
-// });
 
+app.post("/datosFail", (req, res) => {
 
-// app.get("/clima",(req, res)=>{
-//     let config = {
-//         method: 'get',
-//         maxBodyLength: Infinity,
-//         url: 'https://weather-api138.p.rapidapi.com/weather?city_name=Lima',
-//         headers: { 
-//           'x-rapidapi-host': 'weather-api138.p.rapidapi.com', 
-//           'x-rapidapi-key': '73d70d2c28msh7f79106bce6c25ep19a96ajsn943644966186'
-//         }
-//       };
-//       axios.request(config)
-//       .then((response) => {
-//         console.log(JSON.stringify(response.data));
-//         res.write("Ya consulto "+ ((parseFloat( response.data.main.temp)-273.15)));
-//         res.end();
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-// })
+    const config = {
+        
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://randomuser.me/api/`,
+    };
 
+    axios.request(config)
+        .then((response) => {
+            const usuarios = response.data.results;
+            // Extrae solo los nombres de los Pokémon y los convierte en una lista HTML
+            const user = usuarios.map(usuario => `<li>
+                Nombre Completo: ${usuario.name.first} ${usuario.name.last}</br> 
+                Genero:${usuario.gender}</br> 
+                Edad:${usuario.dob.age}</br> 
+                Telefono:${usuario.phone}</br> 
+                Correo Electronico :${usuario.email}</br> 
+                Ubicacion :${usuario.location.country} - ${usuario.location.state}- ${usuario.location.city} - ${usuario.location.street.name} - ${usuario.location.street.number}</br> 
+                </li>`).join("");
+            // Envía la lista formateada como respuesta HTML
+            res.write(`<h1>Productos y detalles: </h1>`);
+            res.write(`<ul>${user}</ul>`);
+            res.end();
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error al consultar lista productos");
+        });
+});
 
 
 app.listen(PORT,()=>{
