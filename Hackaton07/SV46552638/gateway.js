@@ -80,6 +80,36 @@ app.post("/clima", (req, res) => {
 });
 
 
+
+app.post("/cambioDolar", (req, res) => {
+    const config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://api.apis.net.pe/v2/sunat/tipo-cambio`,
+        headers: { 
+            'Authorization': `Bearer apis-token-11446.WO0my1ZsanuVZc9UXFRchyh84NdmdXBD`, 
+        }
+    };
+
+    axios.request(config)
+        .then((response) => {
+            const tipoCambio = response.data;
+            res.write(`
+                <p> Tipo de Cambio del Dolar </p>
+                <p>Compra: ${tipoCambio.precioCompra} </p>
+                <p>Venta: ${tipoCambio.precioVenta} </p>
+                `);
+            res.end();
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error al consultar el Tipo de cambio");
+        });
+});
+
+
+
+
 app.post("/pokemon", (req, res) => {
     const config = {
         method: 'get',
@@ -277,6 +307,76 @@ app.post("/datosFail", (req, res) => {
             res.status(500).send("Error al consultar lista productos");
         });
 });
+
+
+app.post("/peliculasEstreno", (req, res) => {
+
+    const config = {
+        
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`,
+        headers: { 
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNjQ4MzdhODJhZTVjM2M2ZGM5YTUzMWU5ZDE2ZWQ0OSIsIm5iZiI6MTczMTE5ODIyMi42MTY5MDksInN1YiI6IjY3MmZmYTVjYTcxYWVhN2NhZmY5ZDI5ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0LNVRYs9ALznf_ZWRRS-DjJ6D_CAFJrhuoJ0vYHNXFI`, 
+        }
+    };
+
+    axios.request(config)
+        .then((response) => {
+            const peliculasEstreno = response.data.results;
+            // Extrae solo los nombres de los Pokémon y los convierte en una lista HTML
+            const objeto = peliculasEstreno.map(pelicula => `<li> Titulo: ${pelicula.title}</li>`).join("");
+            // Envía la lista formateada como respuesta HTML
+            res.write(`<h1>Peliculas de Estreno: </h1>`);
+            res.write(`<ul>${objeto}</ul>`);
+            res.end();
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error al consultar lista Peliculas de estreno");
+        });
+});
+
+
+app.post("/peliculaDetalle", (req, res) => {
+    const peliculaDetalle = req.body.peliculaDetalle;
+    console.log(peliculaDetalle);
+    const config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://api.themoviedb.org/3/search/movie?query=${peliculaDetalle}`,
+        headers: { 
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNjQ4MzdhODJhZTVjM2M2ZGM5YTUzMWU5ZDE2ZWQ0OSIsIm5iZiI6MTczMTE5ODIyMi42MTY5MDksInN1YiI6IjY3MmZmYTVjYTcxYWVhN2NhZmY5ZDI5ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0LNVRYs9ALznf_ZWRRS-DjJ6D_CAFJrhuoJ0vYHNXFI`, 
+        }
+    };
+
+    axios.request(config)
+        .then((response) => {
+            const peliculasDetalle = response.data.results;
+            // Extrae solo los nombres de los Pokémon y los convierte en una lista HTML
+            const objeto = peliculasDetalle.map(pelicula => `
+                <li>Titulo: ${pelicula.title}</br>
+                    Fecha de estreno: ${pelicula.release_date}</br>
+                    Valoracio: ${pelicula.vote_average}</br>
+                    Sinapsis: ${pelicula.overview}</br>
+                    Idioma orginal: ${pelicula.original_language}</li>`).join("");
+            // Envía la lista formateada como respuesta HTML
+            res.write(`<h1>Pelicula: </h1>`);
+            res.write(`<ul>${objeto}</ul>`);
+            res.end();
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error al consultar lista Peliculas de estreno");
+        });
+});
+
+
+
+
+//marte:
+// Account Email: luislaoschaqui2@gmail.com
+// Account ID: 214bfcb7-cc64-4f27-b634-9ee3c904ac07
 
 
 app.listen(PORT,()=>{
