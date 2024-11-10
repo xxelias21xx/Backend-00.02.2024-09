@@ -376,7 +376,32 @@ app.post("/peliculaDetalle", (req, res) => {
 
 //marte:
 // Account Email: luislaoschaqui2@gmail.com
+// https://api.nasa.gov/insight_weather/?
 // Account ID: 214bfcb7-cc64-4f27-b634-9ee3c904ac07
+
+app.post("/consultaMarte", (req, res) => {
+    const apiKey = "hCHoT9gQrr4sh5kZTucUvZsmnSk9pavgTd6mogT6";  
+    const config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `https://api.nasa.gov/insight_weather/?api_key=${apiKey}&feedtype=json&ver=1.0`,  
+    };
+
+    axios.request(config)
+    .then((response) => {
+        const datosmarte = response.data;
+        // Aquí puedes acceder a datos específicos de `datosmarte` si sabes la estructura
+        res.write(`
+            <h1>Datos de Marte</h1>
+            <pre>${JSON.stringify(datosmarte, null, 2)}</pre>  <!-- Muestra los datos de Marte en JSON -->
+        `);
+        res.end();
+    })
+    .catch((error) => {
+        console.error(error);
+        res.status(500).send("Error al consultar datos de Marte");
+    });
+});
 
 
 app.listen(PORT,()=>{

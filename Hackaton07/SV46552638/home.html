@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
   </head>
   <body>
-    <h1>Hackcaton 7</h1>
+    <div class="container">
+      <h2>Hackcaton 7</h2>
     <div>
       <ul>
         <li>
@@ -82,16 +84,12 @@
             Consultar y traer Fotografias con un determinado tema y tamaño
           </h2>
           <form action="/fotos" method="post">
-            <label for="city">Ciudad:</label>
-            <input type="text" id="city" name="city" required />
             <button type="submit">Consultar </button>
           </form>
         </li>
         <li>
           <h2>Consultar citas famosas</h2>
           <form action="/citasTextuales" method="post">
-            <label for="city">Ciudad:</label>
-            <input type="text" id="city" name="city" required />
             <button type="submit">Consultar </button>
           </form>
         </li>
@@ -118,12 +116,15 @@
         <li>
           <h2>Consultar datos especificos de Marte</h2>
           <form action="/consultaMarte" method="post">
-            <label for="city">Ciudad:</label>
-            <input type="text" id="city" name="city" required />
+            <!-- <label for="city">Ciudad:</label>
+            <input type="text" id="city" name="city" required /> -->
             <button type="submit">Consultar </button>
           </form>
         </li>
       </ul>
+    </div>
+
+
     </div>
   </body>
 </html>
