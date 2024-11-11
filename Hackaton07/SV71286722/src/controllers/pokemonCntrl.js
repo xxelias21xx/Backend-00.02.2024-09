@@ -3,7 +3,7 @@ const axios = require('axios')
 const pokemonController = async (req, res) => {
 
     const size = req.params.size
-    const url = `${process.env.API_POKEMON_URL}${size}`
+    const url = `${process.env.API_POKEMON_URL}?limit=${size}`
 
     try {
         const response = await axios.get(url)
