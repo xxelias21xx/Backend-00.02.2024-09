@@ -11,7 +11,7 @@ const exchangeController = async (req, res) => {
         const response = await axios.get(url)
         res.json(response.data)
     } catch (error) {
-        res.status(500).json({ error: 'Error al obtener datos de GitHub' })
+        res.status(500).json({ error: 'Error al obtener datos de Exchange API' })
     }
 }
 

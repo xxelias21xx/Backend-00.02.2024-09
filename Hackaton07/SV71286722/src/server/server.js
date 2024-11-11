@@ -3,6 +3,7 @@ const axios = require("axios")
 const github = require("../routes/1.github.js")
 const weather = require("../routes/2.weather.js")
 const exchange = require("../routes/3.exchange.js")
+const pokemon = require("../routes/4.pokemon.js")
 
 class Server {
     constructor() {
@@ -23,6 +24,8 @@ class Server {
         this.app.use('/weather', weather)
 
         this.app.use('/exchange', exchange)
+
+        this.app.use('/pokemon', pokemon)
 
     }
 
