@@ -4,7 +4,7 @@ const weather = require("../routes/2.weather.js")
 const exchange = require("../routes/3.exchange.js")
 const pokemon = require("../routes/4.pokemon.js")
 const pokemonAbility = require("../routes/5.pokemonAbility.js")
-// const mainRickAndMorty = require("../routes/6.mainRickAndMorty.js")
+const mainRickAndMorty = require("../routes/6.mainRickAndMorty.js")
 // const detailsRickAndMorty = require("../routes/7.detailsRickAndMorty.js")
 // const topDrinks = require("../routes/8.topDrinks.js")
 // const shopList = require("../routes/9.shopList.js")
@@ -38,6 +38,8 @@ class Server {
         this.app.use('/pokemon/list', pokemon)
 
         this.app.use('/pokemon/ability', pokemonAbility)
+
+        this.app.use('/RickMorty', pokemonAbility)
 
     }
 
