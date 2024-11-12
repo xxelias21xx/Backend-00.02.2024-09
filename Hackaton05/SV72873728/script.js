@@ -95,6 +95,7 @@ class SistemaReparaciones {
 
         // Actualizar el estado del servicio
         console.log(`Reparación en proceso para el cliente ${cliente}. Técnico asignado: ${tecnico.nombre}. Estado: ${nuevoTicket.estado}`);
+        
     }
 }
 
