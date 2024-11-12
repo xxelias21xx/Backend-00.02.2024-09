@@ -13,7 +13,7 @@ git fetch fuentes
 git merge fuentes/main main
 
 # Profesor: Roberto Pineda
-## Luis Laos Chaqui 
+## Luis Laos Chaqui git fetch 
 ## Victor Elias Vivanco Rivera
 ## Carlos usuriaga Guerrero
 ## Alvaro Roberto Paredes Del Castillo
