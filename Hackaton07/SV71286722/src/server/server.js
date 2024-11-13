@@ -39,7 +39,7 @@ class Server {
 
         this.app.use('/pokemon/ability', pokemonAbility)
 
-        this.app.use('/RickMorty', pokemonAbility)
+        this.app.use('/RickMorty', mainRickAndMorty)
 
     }
 
