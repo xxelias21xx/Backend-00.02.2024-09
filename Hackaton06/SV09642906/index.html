@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparación de Celulares</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Selecciona una Oficina para Reparar Celular</h1>
+
+    <select id="officeSelect">
+        <option value="principal">Oficina Principal</option>
+        <option value="chimbote">Chimbote</option>
+        <option value="arequipa">Arequipa</option>
+    </select>
+
+    <button onclick="crearSucursal()">Crear Nueva Sucursal</button>
+
+    <h2>Ingrese IMEI para Reparación</h2>
+    <input type="text" id="imeiInput" placeholder="Ingrese IMEI">
+    <button onclick="verificarImei()">Verificar IMEI</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
