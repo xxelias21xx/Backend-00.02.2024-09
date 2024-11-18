@@ -9,7 +9,6 @@ const namerickmortyController = async (req, res) => {
     const type = query.type || ""
     const gender = query.gender || ""
 
-    console.log(query)
     const url = `https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${species}&type=${type}&gender=${gender}`
 
     try {
