@@ -226,3 +226,27 @@ values(1,1,null,1),
 (1,2,'2023-11-03 18:00 -05',1);
 
 select * from mascota_vacuna;
+
+
+select 
+m.nombre,
+m.fecha_nacimiento,
+m.color,
+e.descripcion as Especie,
+r.descripcion as Raza,
+s.descripcion as Sexo,
+p.nombres as Nombre_Propietario,
+p.apellidos as Apellido_Propietario,
+u.provincia,
+u.departamento,
+u.distrito,
+n.descripcion as nacionalidad
+
+from mascota m 
+
+inner join especie e on m.id_especie = e.id
+inner join raza r on m.id_raza = r.id
+inner join sexo s on m.id_sexo = s.id
+inner join propietario p on m.id_propietario  = p.id
+inner join ubigeo u on p.ubigeo = u.ubigeo
+inner join nacionalidad n on p.id_nacionalidad = n.id;
