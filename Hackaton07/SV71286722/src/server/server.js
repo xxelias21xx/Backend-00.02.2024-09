@@ -5,7 +5,7 @@ const exchange = require("../routes/3.exchange.js")
 const pokemon = require("../routes/4.pokemon.js")
 const pokemonAbility = require("../routes/5.pokemonAbility.js")
 const mainRickAndMorty = require("../routes/6.mainRickAndMorty.js")
-// const detailsRickAndMorty = require("../routes/7.detailsRickAndMorty.js")
+const nameRickAndMorty = require("../routes/7.nameRickAndMorty.js")
 // const topDrinks = require("../routes/8.topDrinks.js")
 // const shopList = require("../routes/9.shopList.js")
 // const image = require("../routes/10.image.js")
@@ -39,8 +39,11 @@ class Server {
 
         this.app.use('/pokemon/ability', pokemonAbility)
 
-        this.app.use('/RickMorty', pokemonAbility)
+        this.app.use('/RickMorty/main', mainRickAndMorty)
+        
+        this.app.use('/RickMorty/characterfind', nameRickAndMorty)
 
+        
     }
 
     listen() {
