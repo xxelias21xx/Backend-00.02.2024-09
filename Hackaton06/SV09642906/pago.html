@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago de Reparación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Detalles del Pago</h1>
+    <select id="ordenesPagoSelect"></select><br>
+
+    <label for="pagoSelect">¿Pago Completo o Parcial?</label>
+    <select id="pagoSelect">
+        <option value="50">50%</option>
+        <option value="100">100%</option>
+    </select><br>
+
+    <button onclick="procesarPago()">Procesar Pago</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
