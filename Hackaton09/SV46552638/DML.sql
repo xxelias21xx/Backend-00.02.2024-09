@@ -123,49 +123,138 @@ WHERE unit_price BETWEEN 50 AND 200;
 --27. Visualizar el nombre y el id de la compania del cliente,fecha,
 --precio unitario y producto de la orden
 SELECT 
-    c.customer_id,
-    c.company_name,
+    cu.customer_id,
+    cu.company_name,
     o.order_date,
     od.unit_price,
     od.product_id
-FROM orders o
-INNER JOIN customers c
-ON c.customer_id=o.customer_id
-INNER JOIN order_details od
-ON o.order_id=od.order_id;
+FROM order_details od
+inner join orders o
+on od.order_id= o.order_id
+inner join products pro
+on pro.product_id= od.product_id
+inner join customers cu
+on  cu.customer_id = o.customer_id;
 
 --28. Visualizar el nombre de la categoria y el numero de productos 
 --que hay por cada categoria.
+SELECT 
+    c.category_name, 
+    count(p.product_id)as lista
+FROM categories c
+INNER JOIN products p
+ON c.category_id=p.category_id
+GROUP BY c.category_id, c.category_name
+ORDER BY lista DESC;
 
 --29. Seleccionar los 5 productos mas vendidos
-
+SELECT 
+    product_id,count(*) 
+FROM order_details
+GROUP BY product_id
+ORDER BY count(*) DESC
+LIMIT 5;
 --30. Seleccionar los jefes de los empleados
 
+SELECT 
+    e.title AS "Jefes", 
+    COUNT(r.reports_to) 
+FROM employees e
+INNER JOIN employees r
+ON e.employee_id = r.reports_to
+GROUP BY e.employee_id
+ORDER BY e.employee_id;
 --31. Obtener todos los productos cuyo nombre comienzan con M y 
 --tienen un precio comprendido entre 28 y 129
+SELECT *
+FROM products
+WHERE product_name LIKE 'M%'
+AND unit_price BETWEEN 28 AND 129;
 
 --32. Obtener todos los clientes del Pais de USA,Francia y UK
+SELECT * FROM customers
+WHERE lower(country) in ('usa','france','uk');
 
 --33. Obtener todos los productos descontinuados o con stock cero.
-
+SELECT * FROM products
+WHERE discontinued = 1 
+OR units_in_stock = 0; 
 --34. Obtener todas las ordenes hechas por el empleado King Robert
-
+SELECT 
+    o.*, 
+    e.first_name 
+FROM orders o
+INNER JOIN employees e
+ON o.employee_id = e.employee_id
+WHERE concat(e.last_name,' ',e.first_name)='King Robert';
 --35. Obtener todas las ordenes por el cliente cuya compania es "Que delicia"
+SELECT 
+    o.*,
+    c.company_name
+FROM orders o
+INNER JOIN customers c
+ON o.customer_id = c.customer_id
+WHERE company_name = 'Que Delícia';
 
 --36. Obtener todas las ordenes hechas por el empleado King Robert,
 --Davolio Nancy y Fuller Andrew
+SELECT 
+    o.*, 
+    e.first_name 
+FROM orders o
+INNER JOIN employees e
+ON o.employee_id = e.employee_id
+WHERE concat(e.last_name,' ',e.first_name) IN (
+    'King Robert',
+    'Davolio Nancy',
+    'Fuller Andrew'
+)ORDER BY employee_id;
 
 --37. Obtener todos los productos(codigo,nombre,precio,stock) de la orden 10257
+SELECT 
+    od.order_id     AS "Orden",
+    p.product_id    AS "Código",
+    p.product_name  AS "Nombre",
+    p.unit_price    AS "Precio",
+    units_in_stock  AS "Stock"
+FROM order_details od
+INNER JOIN products p
+ON od.product_id = p.product_id
+WHERE od.order_id = '10257';
 
 --38. Obtener todos los productos(codigo,nombre,precio,stock) 
 --de las ordenes hechas desde 1997 hasta la fecha de hoy.
 
+SELECT 
+    od.order_id     AS "Orden",
+    p.product_id    AS "Código",
+    p.product_name  AS "Nombre",
+    p.unit_price    AS "Precio",
+    units_in_stock  AS "Stock"
+FROM order_details od
+INNER JOIN products p
+ON od.product_id = p.product_id
+INNER JOIN orders o
+ON o.order_id = od.order_id
+WHERE o.order_date BETWEEN '1997-01-01' AND now();
 --39. Calcular los 15 productos mas caros
+SELECT * FROM products
+ORDER BY unit_price DESC LIMIT 15;
 
 --40. Calcular los 5 productos mas baratos
-
+SELECT * FROM products
+ORDER BY unit_price ASC LIMIT 5;
 --41. Obtener el nombre de todas las categorias y los nombres de sus productos,
 --precio y stock.
+SELECT 
+    c.category_name AS "Orden",
+    p.product_name  AS "Nombre",
+    p.unit_price    AS "Precio",
+    units_in_stock  AS "Stock"
+FROM products p
+INNER JOIN categories c
+ON p.category_id = c.category_id
+ORDER BY c.category_name ASC;
 
 --42. Obtener el nombre de todas las categorias y los nombres de sus productos,
 --solo los productos que su nombre no comience con la letra P
