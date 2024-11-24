@@ -247,10 +247,10 @@ ORDER BY unit_price ASC LIMIT 5;
 --41. Obtener el nombre de todas las categorias y los nombres de sus productos,
 --precio y stock.
 SELECT 
-    c.category_name AS "Orden",
+    c.category_name AS "Categoría",
     p.product_name  AS "Nombre",
     p.unit_price    AS "Precio",
-    units_in_stock  AS "Stock"
+    p.units_in_stock  AS "Stock"
 FROM products p
 INNER JOIN categories c
 ON p.category_id = c.category_id
@@ -258,31 +258,112 @@ ORDER BY c.category_name ASC;
 
 --42. Obtener el nombre de todas las categorias y los nombres de sus productos,
 --solo los productos que su nombre no comience con la letra P
+SELECT 
+    c.category_name AS "Categoría",
+    p.product_name  AS "Nombre"
+FROM products p
+INNER JOIN categories c
+ON p.category_id = c.category_id
+WHERE p.product_name NOT LIKE 'P%'
+ORDER BY p.product_name ASC;
 
 --43. Calcular el stock de productos por cada categoria.
-
 --Mostrar el nombre de la categoria y el stock por categoria.
+SELECT 
+    ca.category_name,
+    sum(p.units_in_stock) 
+FROM products p
+INNER JOIN categories ca
+ON p.category_id = ca.category_id
+GROUP BY ca.category_name
+ORDER BY sum(p.units_in_stock) DESC;
 
 --44. Obtener el Nombre del cliente,Nombre del Proveedor,Nombre del empleado 
 --y el nombre de los productos que estan en la orden 10794
+SELECT 
+    od.order_id AS "N° Orden",
+    c.company_name     AS "Cliente",
+    s.company_name    AS "Proveedor",
+    e.first_name  AS "Empleado",
+    p.product_name    AS "Productos"
+FROM orders o
+INNER JOIN employees e
+ON o.employee_id = e.employee_id
+INNER JOIN customers c
+ON o.customer_id = c.customer_id
+INNER JOIN order_details od
+ON o.order_id = od.order_id
+INNER JOIN products p
+ON od.product_id = p.product_id
+INNER JOIN suppliers s
+ON p.supplier_id = s.supplier_id
+WHERE o.order_id = '10794';
 
 --45. Mostrar el numero de ordenes de cada uno de los clientes por año,
 --luego ordenar codigo del cliente y el año.
+SELECT
+    count(o.order_id) AS "Cantidad de Pedidos",
+    c.customer_id AS "Codigo",
+    EXTRACT (YEAR FROM o.order_date) AS año
+FROM orders o
+INNER JOIN customers c
+ON o.customer_id = c.customer_id
+GROUP BY 
+c.customer_id,
+EXTRACT (year from o.order_date)
+ORDER BY 
+    año ASC,
+    c.customer_id ASC;
 
 --46. Contar el numero de ordenes que se han realizado por años y meses ,
 --luego debe ser ordenado por año y por mes.
+
+SELECT
+    EXTRACT (YEAR FROM o.order_date) AS an,
+    EXTRACT (MONTH FROM o.order_date) AS mes,
+    count(o.order_id) AS "Cantidad de Pedidos"
+FROM orders o
+INNER JOIN customers c
+ON o.customer_id = c.customer_id
+GROUP BY 
+EXTRACT (year from o.order_date),
+EXTRACT (MONTH FROM o.order_date) 
+ORDER BY 
+    an ASC,
+    mes ASC;
 
 --47. Seleccionar 
 --el nombre de la compañía del cliente,
 --él código de la orden de compra,
 --la fecha de la orden de compra, 
---código del producto, 
+--código del producto ,
 --cantidad pedida del producto,
 --nombre del producto, 
 --el nombre de la compañía proveedora y 
---la ciudad del proveedor ,usar Join
+--la ciudad del proveedor ok ,usar Join
 
---48. Seleccionar el nombre de la compañía del cliente, 
+SELECT 
+    c.company_name  AS "Cliente",
+    od.order_id     AS "N° Orden",
+    o.order_date    AS "Fecha N° Orden",
+    p.product_id    AS "Codigo Producto",
+    od.quantity     AS "Cantidad",
+    p.product_name  AS "Productos",
+    s.company_name  AS "Proveedor",
+    s.city          AS "Ciudad Proveedor"
+FROM orders AS o
+INNER JOIN customers AS c
+ON o.customer_id = c.customer_id
+INNER JOIN order_details AS od
+ON o.order_id = od.order_id
+INNER JOIN products AS p
+ON od.product_id = p.product_id
+INNER JOIN suppliers AS s
+ON p.supplier_id = s.supplier_id
+ORDER BY o.order_date DESC, od.order_id;
+
+
+--48. Seleccionar el nombre de la compañía del cliente,
 --nombre del contacto, 
 --el código de la orden de compra, 
 --la fecha de la orden de compra, 
@@ -292,3 +373,24 @@ ORDER BY c.category_name ASC;
 --el nombre de la compañía proveedora, 
 --usas JOIN.Solamente las compañías proveedoras que comienzan con la letra de la A hasta la letra G,
 --además la cantidad pedida del producto debe estar entre 23 y 187.
+SELECT 
+    c.company_name  AS "Cliente",
+    c.contact_name  AS "Representante",
+    od.order_id     AS "N° Orden",
+    o.order_date    AS "Fecha N° Orden",
+    p.product_id    AS "Codigo Producto",
+    od.quantity     AS "Cantidad",
+    p.product_name  AS "Productos",
+    s.company_name  AS "Proveedor"
+FROM orders o
+INNER JOIN customers AS c
+ON o.customer_id = c.customer_id
+INNER JOIN order_details AS od
+ON o.order_id = od.order_id
+INNER JOIN products AS p
+ON od.product_id = p.product_id
+INNER JOIN suppliers AS s
+ON p.supplier_id = s.supplier_id
+WHERE s.company_name >= 'A' AND s.company_name < 'H'
+AND od.quantity BETWEEN 23 AND 187
+ORDER BY o.order_date DESC, od.order_id;
