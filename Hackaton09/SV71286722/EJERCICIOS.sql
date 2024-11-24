@@ -112,25 +112,56 @@ INNER JOIN CATEGORIES C ON P.CATEGORY_ID IN (1,3,5) AND P.CATEGORY_ID = C.CATEGO
 ORDER BY CATEGORY_ID ASC;
 
 --26. Seleccionar los productos cuyos precios unitarios estan entre 50 y 200
---
---27. Visualizar el nombre y el id de la compania del cliente,--fecha,precio unitario y producto de la orden
---
---28. Visualizar el nombre de la categoria y el numero de --productos que hay por cada categoria.
---
+SELECT * FROM PRODUCTS WHERE UNIT_PRICE BETWEEN 50 AND 200;
+
+--27. Visualizar el nombre y el id de la compania del cliente,fecha,precio unitario y producto de la orden
+SELECT
+	C.COMPANY_NAME,
+	O.ORDER_DATE, 
+	OD.UNIT_PRICE, 
+	P.PRODUCT_NAME 
+FROM ORDERS O
+INNER JOIN CUSTOMERS C ON O.CUSTOMER_ID = C.CUSTOMER_ID
+INNER JOIN ORDER_DETAILS OD ON O.ORDER_ID = OD.ORDER_ID
+INNER JOIN PRODUCTS P ON OD.PRODUCT_ID = P.PRODUCT_ID;
+
+--28. Visualizar el nombre de la categoria y el numero de productos que hay por cada categoria.
+SELECT
+	C.CATEGORY_NAME,
+	SUM(P.UNITS_IN_STOCK) AS PRODUCTS
+FROM PRODUCTS P
+INNER JOIN CATEGORIES C ON P.CATEGORY_ID = C.CATEGORY_ID
+GROUP BY C.CATEGORY_NAME;
+
 --29. Seleccionar los 5 productos mas vendidos
---
+SELECT 
+	PRODUCT_ID,
+	SUM(QUANTITY) AS  SOLD
+FROM ORDER_DETAILS
+GROUP BY PRODUCT_ID
+ORDER BY SOLD DESC
+LIMIT 5;
+
 --30. Seleccionar los jefes de los empleados
---
---31. Obtener todos los productos cuyo nombre comienzan con M y --tienen un precio comprendido entre 28 y 129
---
+--NO EXISTE UNA RELACIÓN QUE EXPRESE ESTA PETICIÓN
+
+--31. Obtener todos los productos cuyo nombre comienzan con M y tienen un precio comprendido entre 28 y 129
+SELECT * FROM PRODUCTS WHERE LOWER(PRODUCT_NAME) LIKE 'm%' AND UNIT_PRICE BETWEEN 28 AND 129;
+
 --32. Obtener todos los clientes del Pais de USA,Francia y UK
---
+SELECT * FROM CUSTOMERS WHERE COUNTRY IN ('USA','France','UK');
+
 --33. Obtener todos los productos descontinuados o con stock cero.
---
+SELECT * FROM PRODUCTS WHERE DISCONTINUED = '0' OR UNITS_IN_STOCK = '0';
+
 --34. Obtener todas las ordenes hechas por el empleado King Robert
---
---35. Obtener todas las ordenes por el cliente cuya compania es --"Que delicia"
---
+SELECT O.* FROM ORDERS O
+INNER JOIN EMPLOYEES E  ON O.EMPLOYEE_ID = E.EMPLOYEE_ID
+WHERE CONCAT(E.LAST_NAME,' ',E.FIRST_NAME) = 'King Robert'
+
+--35. Obtener todas las ordenes por el cliente cuya compania es "Que delicia"
+SELECT * FROM CUSTOMERS
+
 --36. Obtener todas las ordenes hechas por el empleado King
 --    Robert,Davolio Nancy y Fuller Andrew
 --
