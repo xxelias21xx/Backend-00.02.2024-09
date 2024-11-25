@@ -26,4 +26,3 @@ git merge fuentes/main main
 ## Wilbert Soto
 ## Bruno Buttgenbach Gustavson
 ## Valeria Milagros Ccoa Banda
-

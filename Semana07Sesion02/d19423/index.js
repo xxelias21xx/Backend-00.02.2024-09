@@ -29,8 +29,12 @@ const axios = require('axios');
 const app = express();
 const bodyParser = require("body-parser")
 const PORT = 3000;
+
+
+
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.json())
+
 app.get('',(req, res)=>{
     fs.readFile("form.html",function(error, data){
         res.write(data)
