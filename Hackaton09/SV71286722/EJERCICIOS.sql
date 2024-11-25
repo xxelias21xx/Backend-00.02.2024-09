@@ -157,35 +157,140 @@ SELECT * FROM PRODUCTS WHERE DISCONTINUED = '0' OR UNITS_IN_STOCK = '0';
 --34. Obtener todas las ordenes hechas por el empleado King Robert
 SELECT O.* FROM ORDERS O
 INNER JOIN EMPLOYEES E  ON O.EMPLOYEE_ID = E.EMPLOYEE_ID
-WHERE CONCAT(E.LAST_NAME,' ',E.FIRST_NAME) = 'King Robert'
+WHERE CONCAT(E.LAST_NAME,' ',E.FIRST_NAME) = 'King Robert';
 
 --35. Obtener todas las ordenes por el cliente cuya compania es "Que delicia"
-SELECT * FROM CUSTOMERS
+SELECT O.* FROM ORDERS O
+INNER JOIN CUSTOMERS C ON O.CUSTOMER_ID = C.CUSTOMER_ID
+WHERE COMPANY_NAME = 'Que Delícia';
 
---36. Obtener todas las ordenes hechas por el empleado King
---    Robert,Davolio Nancy y Fuller Andrew
---
---37. Obtener todos los productos(codigo,nombre,precio,stock) de --la orden
---    10257
---
---38. Obtener todos los productos(codigo,nombre,precio,stock) de --las ordenes hechas desde 1997 hasta la fecha de hoy.
---
+--36. Obtener todas las ordenes hechas por el empleado King Robert,Davolio Nancy y Fuller Andrew
+SELECT O.* FROM ORDERS O
+INNER JOIN EMPLOYEES E  ON O.EMPLOYEE_ID = E.EMPLOYEE_ID
+WHERE CONCAT(E.LAST_NAME,' ',E.FIRST_NAME) IN ('King Robert','Davolio Nancy','Fuller Andrew');
+
+--37. Obtener todos los productos(codigo,nombre,precio,stock) de la orden 10257
+SELECT P.PRODUCT_ID,
+	P.PRODUCT_NAME,
+	P.UNIT_PRICE,
+	P.UNITS_IN_STOCK
+FROM PRODUCTS P
+INNER JOIN ORDER_DETAILS OD ON OD.PRODUCT_ID = P.PRODUCT_ID
+WHERE OD.ORDER_ID = '10257';
+
+--38. Obtener todos los productos(codigo,nombre,precio,stock) de las ordenes hechas desde 1997 hasta la fecha de hoy.
+SELECT DISTINCT P.PRODUCT_ID,
+	P.PRODUCT_NAME,
+	P.UNIT_PRICE,
+	P.UNITS_IN_STOCK
+FROM PRODUCTS P
+INNER JOIN ORDER_DETAILS OD ON OD.PRODUCT_ID = P.PRODUCT_ID
+INNER JOIN ORDERS O ON O.ORDER_ID = OD.ORDER_ID 
+WHERE DATE_PART('YEAR', O.ORDER_DATE) > 1997;
+
 --39. Calcular los 15 productos mas caros
+SELECT * FROM PRODUCTS
+ORDER BY UNIT_PRICE DESC
+LIMIT 15;
+
 --40. Calcular los 5 productos mas baratos
---
---41. Obtener el nombre de todas las categorias y los nombres de --sus productos,precio y stock.
---
---42. Obtener el nombre de todas las categorias y los nombres de --sus productos,solo los productos que su nombre no comience con --la letra
---    P
---
---43. Calcular el stock de productos por cada categoria.Mostrar --el nombre de la categoria y el stock por categoria.
---
---44. Obtener el Nombre del cliente,Nombre del Proveedor,Nombre --del empleado y el nombre de los productos que estan en la orden --10794
---
---45. Mostrar el numero de ordenes de cada uno de los clientes --por año,luego ordenar codigo del cliente y el año.
---
---46. Contar el numero de ordenes que se han realizado por años y --meses ,luego debe ser ordenado por año y por mes.
---
---47. Seleccionar el nombre de la compañía del cliente,él código --de la orden de compra,la fecha de la orden de compra, código --del producto, cantidad pedida del producto,nombre del producto, --el nombre de la compañía proveedora y la ciudad del proveedor ,--usar Join
---
---48. Seleccionar el nombre de la compañía del cliente, nombre --del contacto, el código de la orden de compra, la fecha de la --orden de compra, el código del producto,cantidad pedida del --producto, nombre del producto y el nombre de la compañía --proveedora, usas JOIN.Solamente las compañías proveedoras que --comienzan con la letra de la A hasta la letra G,además la --cantidad pedida del producto debe estar entre 23 y 187.
+SELECT * FROM PRODUCTS
+ORDER BY UNIT_PRICE ASC
+LIMIT 5;
+
+--41. Obtener el nombre de todas las categorias y los nombres de sus productos,precio y stock.
+SELECT C.CATEGORY_NAME,
+	P.PRODUCT_NAME,
+	P.UNIT_PRICE,
+	P.UNITS_IN_STOCK
+FROM CATEGORIES C
+INNER JOIN PRODUCTS P ON C.CATEGORY_ID = P.CATEGORY_ID
+
+--42. Obtener el nombre de todas las categorias y los nombres de sus productos,solo los productos que su nombre no comience con la letra  P
+SELECT C.CATEGORY_NAME,
+	P.PRODUCT_NAME,
+	P.UNIT_PRICE,
+	P.UNITS_IN_STOCK
+FROM CATEGORIES C
+INNER JOIN PRODUCTS P ON C.CATEGORY_ID = P.CATEGORY_ID
+WHERE P.PRODUCT_NAME NOT LIKE 'P%';
+
+--43. Calcular el stock de productos por cada categoria. Mostrar el nombre de la categoria y el stock por categoria.
+SELECT C.CATEGORY_NAME,
+	SUM(P.UNITS_IN_STOCK) AS CATEGORIE_STOCK
+FROM CATEGORIES C
+INNER JOIN PRODUCTS P ON C.CATEGORY_ID = P.CATEGORY_ID
+GROUP BY C.CATEGORY_ID;
+
+--44. Obtener el Nombre del cliente,Nombre del Proveedor,Nombre del empleado y el nombre de los productos que estan en la orden 10794
+SELECT 
+	C.CONTACT_NAME AS CLIENT_NAME,
+	S.CONTACT_NAME AS SUPPLIER_NAME,
+	CONCAT(E.LAST_NAME,' ',E.FIRST_NAME) AS EMPLOYEE_NAME,
+	P.PRODUCT_NAME AS PRODUCT_NAME
+FROM ORDERS O
+INNER JOIN ORDER_DETAILS OD ON O.ORDER_ID = OD.ORDER_ID
+INNER JOIN PRODUCTS P ON OD.PRODUCT_ID = P.PRODUCT_ID
+INNER JOIN SUPPLIERS S ON P.SUPPLIER_ID = S.SUPPLIER_ID
+INNER JOIN CUSTOMERS C ON O.CUSTOMER_ID = C.CUSTOMER_ID
+INNER JOIN EMPLOYEES E ON O.EMPLOYEE_ID = E.EMPLOYEE_ID
+WHERE O.ORDER_ID = '10794';
+
+--45. Mostrar el numero de ordenes de cada uno de los clientes por año,luego ordenar codigo del cliente y el año.
+SELECT CUSTOMER_ID,
+	COUNT(ORDER_ID) AS ORDERS_COUNT,
+	DATE_PART('YEAR',ORDER_DATE) AS ORDER_YEAR
+FROM ORDERS
+GROUP BY CUSTOMER_ID, ORDER_YEAR
+ORDER BY CUSTOMER_ID ASC, ORDER_YEAR ASC;
+
+--46. Contar el numero de ordenes que se han realizado por años y meses ,luego debe ser ordenado por año y por mes.
+SELECT CUSTOMER_ID,
+	COUNT(ORDER_ID) AS ORDERS_COUNT,
+	DATE_PART('YEAR',ORDER_DATE) AS ORDER_YEAR,
+	DATE_PART('MONTH',ORDER_DATE) AS ORDER_MONTH
+FROM ORDERS
+GROUP BY CUSTOMER_ID, ORDER_YEAR, ORDER_MONTH
+ORDER BY ORDER_YEAR ASC, ORDER_MONTH ASC;
+
+--47. Seleccionar el nombre de la compañía del cliente,él código de la orden de compra,la fecha de la orden de compra,
+--código del producto, cantidad pedida del producto,nombre del producto, el nombre de la compañía proveedora y la ciudad
+--del proveedor ,usar Join
+
+SELECT
+	C.COMPANY_NAME AS CLIENT_COMPANY,
+	O.ORDER_ID,
+	O.ORDER_DATE,
+	P.PRODUCT_ID,
+	OD.QUANTITY,
+	P.PRODUCT_NAME,
+	S.COMPANY_NAME AS SUPPLIER_COMPANY,
+	S.CITY AS SUPPLIER_CITY
+FROM ORDERS O
+INNER JOIN ORDER_DETAILS OD ON O.ORDER_ID = OD.ORDER_ID
+INNER JOIN PRODUCTS P ON OD.PRODUCT_ID = P.PRODUCT_ID
+INNER JOIN SUPPLIERS S ON P.SUPPLIER_ID = S.SUPPLIER_ID
+INNER JOIN CUSTOMERS C ON O.CUSTOMER_ID = C.CUSTOMER_ID;
+
+
+--48. Seleccionar el nombre de la compañía del cliente, nombre del contacto, el código de la orden de compra, la fecha de
+--la orden de compra, el código del producto,cantidad pedida del producto, nombre del producto y el nombre de la compañía
+--proveedora, usas JOIN.Solamente las compañías proveedoras que comienzan con la letra de la A hasta la letra G,además la
+--cantidad pedida del producto debe estar entre 23 y 187.
+
+SELECT
+	C.COMPANY_NAME AS CLIENT_COMPANY,
+	C.CONTACT_NAME AS CLIENT_CONTACT,
+	O.ORDER_ID,
+	O.ORDER_DATE,
+	P.PRODUCT_ID,
+	OD.QUANTITY,
+	P.PRODUCT_NAME,
+	S.COMPANY_NAME AS SUPPLIER_COMPANY
+FROM ORDERS O
+INNER JOIN ORDER_DETAILS OD ON O.ORDER_ID = OD.ORDER_ID
+INNER JOIN PRODUCTS P ON OD.PRODUCT_ID = P.PRODUCT_ID
+INNER JOIN SUPPLIERS S ON P.SUPPLIER_ID = S.SUPPLIER_ID
+INNER JOIN CUSTOMERS C ON O.CUSTOMER_ID = C.CUSTOMER_ID
+WHERE S.COMPANY_NAME  ~ '^[A-G].*$' AND OD.QUANTITY BETWEEN 23 AND 187
+ORDER BY S.COMPANY_NAME ASC;
