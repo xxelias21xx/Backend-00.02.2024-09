@@ -204,7 +204,7 @@ SELECT C.CATEGORY_NAME,
 	P.UNIT_PRICE,
 	P.UNITS_IN_STOCK
 FROM CATEGORIES C
-INNER JOIN PRODUCTS P ON C.CATEGORY_ID = P.CATEGORY_ID
+INNER JOIN PRODUCTS P ON C.CATEGORY_ID = P.CATEGORY_ID;
 
 --42. Obtener el nombre de todas las categorias y los nombres de sus productos,solo los productos que su nombre no comience con la letra  P
 SELECT C.CATEGORY_NAME,
