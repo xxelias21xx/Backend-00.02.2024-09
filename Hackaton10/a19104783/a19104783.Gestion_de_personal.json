@@ -1,0 +1,198 @@
+[{
+  "_id": {
+    "$oid": "6748c90267ff10198120253d"
+  },
+  "nombre_empleado": "Juan Pérez",
+  "cargo": "Supervisor",
+  "fecha_ingreso": "2022-03-12T00:00:00Z",
+  "salario": 2500,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Ana Pérez - 987654321"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff10198120253e"
+  },
+  "nombre_empleado": "María López",
+  "cargo": "Supervisor",
+  "fecha_ingreso": "2021-11-05T00:00:00Z",
+  "salario": 2700,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Carlos López - 654321987"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff10198120253f"
+  },
+  "nombre_empleado": "Carlos Rodríguez",
+  "cargo": "Supervisor",
+  "fecha_ingreso": "2020-08-19T00:00:00Z",
+  "salario": 2800,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Lucía Rodríguez - 321654987"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202540"
+  },
+  "nombre_empleado": "Luis García",
+  "cargo": "Supervisor",
+  "fecha_ingreso": "2019-02-23T00:00:00Z",
+  "salario": 2900,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Marta García - 123987456"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202541"
+  },
+  "nombre_empleado": "Isabel Martínez",
+  "cargo": "Supervisor",
+  "fecha_ingreso": "2023-06-15T00:00:00Z",
+  "salario": 2600,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "José Martínez - 456789123"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202542"
+  },
+  "nombre_empleado": "Pedro Sánchez",
+  "cargo": "Carpintero",
+  "fecha_ingreso": "2022-09-05T00:00:00Z",
+  "salario": 1600,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Raquel Sánchez - 987654321"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202543"
+  },
+  "nombre_empleado": "Juan Carlos Ruiz",
+  "cargo": "Carpintero",
+  "fecha_ingreso": "2021-07-11T00:00:00Z",
+  "salario": 1500,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Patricia Ruiz - 654987321"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202544"
+  },
+  "nombre_empleado": "Ana González",
+  "cargo": "Carpintero",
+  "fecha_ingreso": "2020-12-01T00:00:00Z",
+  "salario": 1550,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Luis González - 123456789"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202545"
+  },
+  "nombre_empleado": "Roberto Fernández",
+  "cargo": "Carpintero",
+  "fecha_ingreso": "2023-01-18T00:00:00Z",
+  "salario": 1650,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Carmen Fernández - 456123789"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202546"
+  },
+  "nombre_empleado": "Silvia Díaz",
+  "cargo": "Carpintero",
+  "fecha_ingreso": "2019-05-10T00:00:00Z",
+  "salario": 1700,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Raúl Díaz - 789654321"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202547"
+  },
+  "nombre_empleado": "José Pérez",
+  "cargo": "Operario",
+  "fecha_ingreso": "2022-05-10T00:00:00Z",
+  "salario": 1200,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "María Pérez - 987654321"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202548"
+  },
+  "nombre_empleado": "Luis Martínez",
+  "cargo": "Operario",
+  "fecha_ingreso": "2021-08-15T00:00:00Z",
+  "salario": 1150,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "José Martínez - 654321987"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff101981202549"
+  },
+  "nombre_empleado": "Patricia Ruiz",
+  "cargo": "Operario",
+  "fecha_ingreso": "2023-02-20T00:00:00Z",
+  "salario": 1100,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Antonio Ruiz - 321654987"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff10198120254a"
+  },
+  "nombre_empleado": "Santiago Gómez",
+  "cargo": "Operario",
+  "fecha_ingreso": "2020-11-22T00:00:00Z",
+  "salario": 1250,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Lucía Gómez - 123987456"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff10198120254b"
+  },
+  "nombre_empleado": "Elena Torres",
+  "cargo": "Operario",
+  "fecha_ingreso": "2023-04-03T00:00:00Z",
+  "salario": 1200,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Carlos Torres - 456789123"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff10198120254d"
+  },
+  "nombre_empleado": "Marta Gómez",
+  "cargo": "Operario",
+  "fecha_ingreso": "2022-03-01T00:00:00Z",
+  "salario": 1150,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "José Gómez - 654321987"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff10198120254e"
+  },
+  "nombre_empleado": "Antonio Ruiz",
+  "cargo": "Operario",
+  "fecha_ingreso": "2021-07-05T00:00:00Z",
+  "salario": 1200,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Laura Ruiz - 789654321"
+},
+{
+  "_id": {
+    "$oid": "6748c90267ff10198120254f"
+  },
+  "nombre_empleado": "Claudia Herrera",
+  "cargo": "Supevisor",
+  "fecha_ingreso": "2023-03-18T00:00:00Z",
+  "salario": 1100,
+  "estado_empleo": "Activo",
+  "contacto_emergencia": "Alberto Herrera - 321654987"
+}]
