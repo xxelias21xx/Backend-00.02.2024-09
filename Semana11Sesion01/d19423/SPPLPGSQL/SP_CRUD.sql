@@ -16,7 +16,9 @@ BEGIN
   	
 		update categories set category_name = p_name, description = p_description
 		where category_id = p_id;
-	
+  ELSIF(accion = 'borrar') then
+  	
+		delete from  categories where category_id= p_id;
   END IF;
 END;
 $BODY$;
@@ -25,6 +27,8 @@ call sp_crud_category('insertar', 99, 'miCategoria', 'Micategoriadescrip');
 
 
 call sp_crud_category('actualizar', 99, 'miCategoriaUPD', 'MicategoriadescripUPD');
+
+call sp_crud_category('borrar', 99, null, null);
 select * from categories;
 
 
