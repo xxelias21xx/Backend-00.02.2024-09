@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tester</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">API Testing Interface</h1>
+
+        <!-- GitHub -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">GitHub User</h2>
+            <div class="flex gap-4 mb-4">
+                <input type="text" id="githubUsername" placeholder="Enter username" 
+                       class="flex-1 p-2 border rounded">
+                <button onclick="fetchGithubUser()" 
+                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    Fetch User
+                </button>
+            </div>
+            <pre id="githubResult" class="bg-gray-100 p-4 rounded hidden"></pre>
+        </div>
+
+        <!-- Pokémon -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Pokémon</h2>
+            <div class="flex gap-4 mb-4">
+                <button onclick="fetchPokemonList()" 
+                        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    Get Pokémon List
+                </button>
+                <input type="text" id="pokemonName" placeholder="Enter pokemon name" 
+                       class="flex-1 p-2 border rounded">
+                <button onclick="fetchPokemonAbilities()" 
+                        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    Get Abilities
+                </button>
+            </div>
+            <pre id="pokemonResult" class="bg-gray-100 p-4 rounded hidden"></pre>
+        </div>
+
+        <!-- Rick and Morty -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Rick and Morty</h2>
+            <div class="flex gap-4 mb-4">
+                <button onclick="fetchRickMortyCharacters()" 
+                        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Get Characters
+                </button>
+                <input type="number" id="characterId" placeholder="Enter character ID" 
+                       class="flex-1 p-2 border rounded">
+                <button onclick="fetchCharacterDetail()" 
+                        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Get Character Detail
+                </button>
+            </div>
+            <pre id="rickMortyResult" class="bg-gray-100 p-4 rounded hidden"></pre>
+        </div>
+
+        <!-- Cocktails and Store -->
+        <div class="grid grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-700">Cocktails</h2>
+                <button onclick="fetchCocktails()" 
+                        class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 w-full">
+                    Get Top 10 Cocktails
+                </button>
+                <pre id="cocktailsResult" class="bg-gray-100 p-4 rounded mt-4 hidden"></pre>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-700">Store</h2>
+                <button onclick="fetchStoreProducts()" 
+                        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 w-full">
+                    Get Store Products
+                </button>
+                <pre id="storeResult" class="bg-gray-100 p-4 rounded mt-4 hidden"></pre>
+            </div>
+        </div>
+
+        <!-- Photos -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Photos</h2>
+            <div class="flex gap-4 mb-4">
+                <input type="text" id="photoTheme" placeholder="Enter theme" 
+                       class="flex-1 p-2 border rounded">
+                <input type="number" id="photoSize" placeholder="Size (default: 10)" 
+                       class="w-40 p-2 border rounded">
+                <button onclick="fetchPhotos()" 
+                        class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">
+                    Get Photos
+                </button>
+            </div>
+            <pre id="photosResult" class="bg-gray-100 p-4 rounded hidden"></pre>
+        </div>
+
+        <!-- Movies -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Movies</h2>
+            <div class="flex gap-4 mb-4">
+                <button onclick="fetchTopMovies()" 
+                        class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
+                    Get Top Movies
+                </button>
+                <input type="number" id="movieId" placeholder="Enter movie ID" 
+                       class="flex-1 p-2 border rounded">
+                <button onclick="fetchMovieDetail()" 
+                        class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
+                    Get Movie Detail
+                </button>
+            </div>
+            <pre id="moviesResult" class="bg-gray-100 p-4 rounded hidden"></pre>
+        </div>
+
+        <!-- Mars Data -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Mars Data</h2>
+            <button onclick="fetchMarsData()" 
+                    class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800 w-full">
+                Get Mars Data
+            </button>
+            <pre id="marsResult" class="bg-gray-100 p-4 rounded mt-4 hidden"></pre>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3000/api';
+
+        // Función auxiliar para mostrar resultados
+        function showResult(elementId, data) {
+            const element = document.getElementById(elementId);
+            element.textContent = JSON.stringify(data, null, 2);
+            element.classList.remove('hidden');
+        }
+
+        // Función auxiliar para manejar errores
+        function handleError(error, elementId) {
+            showResult(elementId, {
+                error: error.message,
+                status: error.response?.status || 'Unknown'
+            });
+        }
+
+        // GitHub
+        async function fetchGithubUser() {
+            const username = document.getElementById('githubUsername').value;
+            try {
+                const response = await fetch(`${API_BASE}/github/${username}`);
+                const data = await response.json();
+                showResult('githubResult', data);
+            } catch (error) {
+                handleError(error, 'githubResult');
+            }
+        }
+
+        // Pokémon
+        async function fetchPokemonList() {
+            try {
+                const response = await fetch(`${API_BASE}/pokemon`);
+                const data = await response.json();
+                showResult('pokemonResult', data);
+            } catch (error) {
+                handleError(error, 'pokemonResult');
+            }
+        }
+
+        async function fetchPokemonAbilities() {
+            const name = document.getElementById('pokemonName').value;
+            try {
+                const response = await fetch(`${API_BASE}/pokemon/${name}`);
+                const data = await response.json();
+                showResult('pokemonResult', data);
+            } catch (error) {
+                handleError(error, 'pokemonResult');
+            }
+        }
+
+        // Rick and Morty
+        async function fetchRickMortyCharacters() {
+            try {
+                const response = await fetch(`${API_BASE}/rickmorty/characters`);
+                const data = await response.json();
+                showResult('rickMortyResult', data);
+            } catch (error) {
+                handleError(error, 'rickMortyResult');
+            }
+        }
+
+        async function fetchCharacterDetail() {
+            const id = document.getElementById('characterId').value;
+            try {
+                const response = await fetch(`${API_BASE}/rickmorty/character/${id}`);
+                const data = await response.json();
+                showResult('rickMortyResult', data);
+            } catch (error) {
+                handleError(error, 'rickMortyResult');
+            }
+        }
+
+        // Cocktails
+        async function fetchCocktails() {
+            try {
+                const response = await fetch(`${API_BASE}/cocktails`);
+                const data = await response.json();
+                showResult('cocktailsResult', data);
+            } catch (error) {
+                handleError(error, 'cocktailsResult');
+            }
+        }
+
+        // Store
+        async function fetchStoreProducts() {
+            try {
+                const response = await fetch(`${API_BASE}/store`);
+                const data = await response.json();
+                showResult('storeResult', data);
+            } catch (error) {
+                handleError(error, 'storeResult');
+            }
+        }
+
+        // Photos
+        async function fetchPhotos() {
+            const theme = document.getElementById('photoTheme').value;
+            const size = document.getElementById('photoSize').value;
+            try {
+                const response = await fetch(`${API_BASE}/photos?theme=${theme}&size=${size}`);
+                const data = await response.json();
+                showResult('photosResult', data);
+            } catch (error) {
+                handleError(error, 'photosResult');
+            }
+        }
+
+        // Movies
+        async function fetchTopMovies() {
+            try {
+                const response = await fetch(`${API_BASE}/movies/top`);
+                const data = await response.json();
+                showResult('moviesResult', data);
+            } catch (error) {
+                handleError(error, 'moviesResult');
+            }
+        }
+
+        async function fetchMovieDetail() {
+            const id = document.getElementById('movieId').value;
+            try {
+                const response = await fetch(`${API_BASE}/movies/${id}`);
+                const data = await response.json();
+                showResult('moviesResult', data);
+            } catch (error) {
+                handleError(error, 'moviesResult');
+            }
+        }
+
+        // Mars
+        async function fetchMarsData() {
+            try {
+                const response = await fetch(`${API_BASE}/mars`);
+                const data = await response.json();
+                showResult('marsResult', data);
+            } catch (error) {
+                handleError(error, 'marsResult');
+            }
+        }
+    </script>
+</body>
+</html>
