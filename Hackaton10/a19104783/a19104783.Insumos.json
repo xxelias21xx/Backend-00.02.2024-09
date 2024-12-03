@@ -1,0 +1,264 @@
+[{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d8e"
+  },
+  "nombre_insumo": "MDF (Medium Density Fiberboard)",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 70,
+  "precio_unitario": 20.5,
+  "proveedor": "Proveedor A",
+  "fecha_compra": "2024-11-01",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d8f"
+  },
+  "nombre_insumo": "Aglomerado",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 200,
+  "precio_unitario": 15.75,
+  "proveedor": "Proveedor B",
+  "fecha_compra": "2024-11-03",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d90"
+  },
+  "nombre_insumo": "Madera Maciza",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 50,
+  "precio_unitario": 50,
+  "proveedor": "Proveedor C",
+  "fecha_compra": "2024-11-05",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d91"
+  },
+  "nombre_insumo": "Contrachapado",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 75,
+  "precio_unitario": 30.25,
+  "proveedor": "Proveedor D",
+  "fecha_compra": "2024-11-07",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d92"
+  },
+  "nombre_insumo": "Melamina",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 150,
+  "precio_unitario": 10.6,
+  "proveedor": "Proveedor A",
+  "fecha_compra": "2024-11-09",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d93"
+  },
+  "nombre_insumo": "Laminado (HPL)",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 80,
+  "precio_unitario": 45,
+  "proveedor": "Proveedor E",
+  "fecha_compra": "2024-11-11",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d94"
+  },
+  "nombre_insumo": "Vidrio",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 60,
+  "precio_unitario": 12,
+  "proveedor": "Proveedor F",
+  "fecha_compra": "2024-11-13",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d95"
+  },
+  "nombre_insumo": "Bisagras",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 500,
+  "precio_unitario": 1.75,
+  "proveedor": "Proveedor G",
+  "fecha_compra": "2024-11-15",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d96"
+  },
+  "nombre_insumo": "Tiradores/Manijas",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 200,
+  "precio_unitario": 2.5,
+  "proveedor": "Proveedor H",
+  "fecha_compra": "2024-11-17",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d97"
+  },
+  "nombre_insumo": "Cajones (kits con guías deslizantes)",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 100,
+  "precio_unitario": 8,
+  "proveedor": "Proveedor I",
+  "fecha_compra": "2024-11-19",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d98"
+  },
+  "nombre_insumo": "Guías de Estantes",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 300,
+  "precio_unitario": 3,
+  "proveedor": "Proveedor J",
+  "fecha_compra": "2024-11-21",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d99"
+  },
+  "nombre_insumo": "Rieles de Puertas Correderas",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 150,
+  "precio_unitario": 5.5,
+  "proveedor": "Proveedor K",
+  "fecha_compra": "2024-11-23",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d9a"
+  },
+  "nombre_insumo": "Sistemas de Cierre Suave",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 120,
+  "precio_unitario": 6.5,
+  "proveedor": "Proveedor L",
+  "fecha_compra": "2024-11-25",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d9b"
+  },
+  "nombre_insumo": "Barniz",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 50,
+  "precio_unitario": 7,
+  "proveedor": "Proveedor M",
+  "fecha_compra": "2024-11-27",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d9c"
+  },
+  "nombre_insumo": "Laca",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 40,
+  "precio_unitario": 9,
+  "proveedor": "Proveedor N",
+  "fecha_compra": "2024-11-29",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d9d"
+  },
+  "nombre_insumo": "Pintura",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 100,
+  "precio_unitario": 3.5,
+  "proveedor": "Proveedor O",
+  "fecha_compra": "2024-11-30",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d9e"
+  },
+  "nombre_insumo": "Aceite para Madera",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 30,
+  "precio_unitario": 12,
+  "proveedor": "Proveedor P",
+  "fecha_compra": "2024-12-02",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546d9f"
+  },
+  "nombre_insumo": "Cera para Madera",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 50,
+  "precio_unitario": 4.5,
+  "proveedor": "Proveedor Q",
+  "fecha_compra": "2024-12-04",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546da0"
+  },
+  "nombre_insumo": "Lijas",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 200,
+  "precio_unitario": 0.8,
+  "proveedor": "Proveedor R",
+  "fecha_compra": "2024-12-06",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb6b1d0b2a89f0f546da1"
+  },
+  "nombre_insumo": "Sellador de Madera",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 100,
+  "precio_unitario": 2,
+  "proveedor": "Proveedor S",
+  "fecha_compra": "2024-12-08",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bb93bd0b2a89f0f546da2"
+  },
+  "nombre_insumo": "Tornillos",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 76,
+  "precio_unitario": 2,
+  "proveedor": "Proveedor S",
+  "fecha_compra": "2024-12-08",
+  "estado": "Nuevo"
+},
+{
+  "_id": {
+    "$oid": "674bbae1533f4adce2b6cff9"
+  },
+  "nombre_insumo": "Manijas de aluminio",
+  "tipo_insumo": "Material",
+  "cantidad_comprada": 100,
+  "precio_unitario": 2,
+  "proveedor": "Proveedor S",
+  "fecha_compra": "2024-12-08",
+  "estado": "Nuevo"
+}]

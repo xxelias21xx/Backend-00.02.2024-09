@@ -1,0 +1,207 @@
+use SV46552638
+
+db.createCollection("raw_materials", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["name", "description", "stock", "available"],
+            properties: {
+                name: {
+                    bsonType: "string",
+                    minLength: 3,
+                    maxLength: 50,
+                    description: "Name of the material"
+                },
+                description: {
+                    bsonType: "string",
+                    minLength: 5,
+                    maxLength: 100,
+                    description: "Description of the material"
+                },
+                stock: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 999999,
+                    description: "Stock must be between 1 and 999999"
+                },
+                available: {
+                    bsonType: "bool",
+                    description: "Availability status of the material"
+                }
+            }
+        }
+    }
+});
+
+db.createCollection("supplies", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["name", "description", "stock", "available"],
+            properties: {
+                name: {
+                    bsonType: "string",
+                    minLength: 2,
+                    maxLength: 50,
+                    description: "Name of the material"
+                },
+                description: {
+                    bsonType: "string",
+                    minLength: 5,
+                    maxLength: 100,
+                    description: "Description of the material"
+                },
+                stock: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 999999,
+                    description: "Stock must be between 1 and 999999"
+                },
+                available: {
+                    bsonType: "bool",
+                    description: "Availability status of the material"
+                }
+            }
+        }
+    }
+});
+
+db.createCollection("employees",{
+    validator:{
+        $jsonSchema:{
+            bsonType:"object",
+            required:["name","lastname","dni","hours_worked","available"],
+            properties:{
+                name:{
+                    bsonType: "string",
+                    minLength: 3,
+                    maxLength: 50,
+                    description: "name field should not be empty"
+                },
+                lastname:{
+                    bsonType: "string",
+                    minLength: 3,
+                    maxLength: 50,
+                    description: "lastname field should not be empty"
+                },
+                dni:{
+                    bsonType: "int",
+                    pattern: "^[0-9]{8}$",
+                    description: "dni lastname field should not be empty"
+                },
+                hours_worked:{
+                    bsonType: "int",
+                    minLength: 3,
+                    maxLength: 50,
+                    description: "hours_worked field should not be empty"
+                },
+                available:{
+                    bsonType: "bool",
+                    description: "available field should not be empty"
+                }
+            }
+        }
+    }
+});
+
+db.createCollection("production", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["product", "raw_materials_used", "supplies_used", "employee_id", "date"],
+            properties: {
+                product: {
+                    bsonType: "string",
+                    minLength: 3,
+                    maxLength: 50,
+                    description: "El producto debe ser una cadena entre 3 y 50 caracteres"
+                },
+                raw_materials_used: {
+                    bsonType: "array",
+                    minItems: 1,
+                    items: {
+                        bsonType: "object",
+                        required: ["raw_material_id", "quantity"],
+                        properties: {
+                            raw_material_id: {
+                                bsonType: "objectId",
+                                description: "ID de la materia prima usada"
+                            },
+                            quantity: {
+                                bsonType: "int",
+                                minimum: 1,
+                                description: "La cantidad de materia prima debe ser al menos 1"
+                            }
+                        }
+                    },
+                    description: "Debe incluir al menos una materia prima utilizada"
+                },
+                supplies_used: {
+                    bsonType: "array",
+                    minItems: 1,
+                    items: {
+                        bsonType: "object",
+                        required: ["supply_id", "quantity"],
+                        properties: {
+                            supply_id: {
+                                bsonType: "objectId",
+                                description: "ID del insumo usado"
+                            },
+                            quantity: {
+                                bsonType: "int",
+                                minimum: 1,
+                                description: "La cantidad de insumo debe ser al menos 1"
+                            }
+                        }
+                    },
+                    description: "Debe incluir al menos un insumo utilizado"
+                },
+                employee_id: {
+                    bsonType: "objectId",
+                    description: "ID del empleado asignado"
+                },
+                hours_worked: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 24,
+                    description: "El tiempo trabajado debe estar entre 1 y 24 horas"
+                },
+                date: {
+                    bsonType: "date",
+                    description: "La fecha de producción es obligatoria"
+                }
+            }
+        }
+    }
+});
+
+db.raw_materials.insertMany([
+    { name: "Melamina Blanca", description: "Tableros Hispanos 2.14m X 2.44m x 18 mm", stock: 150, coste: 170.50, available: true },
+    { name: "Melamina Roble", description: "Tableros Placacentro 2.14m X 2.44m x 18 mm", stock: 75, coste: 220.00 available: true },
+    { name: "MDF", description: "Tablero de fibra 1.22m X 2.44m x 3 mm", stock: 100,coste: 25.00, available: true },
+    { name: "Triplay", description: "Tablero de madera contrachapada", stock: 100, coste: 21.50, available: true },
+    { name: "Pino", description: "Madera sólida de pino", stock: 150, coste: 270.50, available: true },
+    { name: "Cedro", description: "Madera sólida de cedro", stock: 80,coste: 350.50, available: false },
+    { name: "Melamina Gris", description: "Tableros Hispanos 2.14m X 2.44m x 18 mm", stock: 120, coste: 230.00, available: true },
+    { name: "Melamina Negra", description: "Tableros Hispanos 2.14m X 2.44m x 18 mm", stock: 110, coste: 180.00, available: true },
+    { name: "Roble Oscuro", description: "Madera sólida de roble oscuro", stock: 60,coste: 370.50, available: false },
+    { name: "Madera Reciclada", description: "Madera reutilizada para proyectos sostenibles", stock: 40, coste: 0, available: true }
+]);
+
+
+db.supplies.insertMany([
+    { name: "Clavos 1 pulgada", description: "Clavos pequeños para ensamblar madera", stock: 6000, coste: 0.015,available: true },
+    { name: "Clavos 2 pulgadas", description: "Clavos medianos para muebles grandes", stock: 8000,  coste: 0.025,available: true },
+    { name: "Tornillos autorroscantes", description: "Tornillos para ensamblaje rápido", stock: 10000,  coste: 0.05,available: true },
+    { name: "Tornillos para melamina", description: "Tornillos especiales para melamina", stock: 9000,  coste: 0.045, available: true },
+    { name: "Adhesivo de contacto", description: "Pegamento resistente para madera y melamina", stock: 40, coste: 5.00, available: true },
+    { name: "Silicona líquida", description: "Silicona para acabados", stock: 150, coste: 3.50, available: true }
+]);
+
+db.employees.insertMany([
+    { name: "Juan", lastname: "Pérez", dni: 12345678, hours_worked: 40, available: true },
+    { name: "María", lastname: "Gómez", dni: 87654321, hours_worked: 35, available: true },
+    { name: "Carlos", lastname: "Ramírez", dni: 45678912, hours_worked: 20, available: false },
+    { name: "Ana", lastname: "Martínez", dni: 78912345, hours_worked: 25, available: true }
+]);
+
