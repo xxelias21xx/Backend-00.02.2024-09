@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "6748a61d8dd418dd20d89216"
+  },
+  "nombre_producto": "Madera Contrachapada",
+  "material_tipo": "madera",
+  "precio": "100",
+  "stock": "45",
+  "proveedor": "Kronospan"
+},
+{
+  "_id": {
+    "$oid": "6748a998d30673c40bae5239"
+  },
+  "nombre_producto": "Madera Maciza",
+  "material_tipo": "madera",
+  "precio": "90",
+  "stock": "40",
+  "proveedor": "Kronospan"
+},
+{
+  "_id": {
+    "$oid": "6748a9f08dd418dd20d8921d"
+  },
+  "nombre_producto": "Melamina",
+  "material_tipo": "melamina",
+  "precio": "120",
+  "stock": "40",
+  "proveedor": "Egger"
+},
+{
+  "_id": {
+    "$oid": "6748aaed8dd418dd20d8921f"
+  },
+  "nombre_producto": "Aglomerado",
+  "material_tipo": "madera compuesta",
+  "precio": "130",
+  "stock": "30",
+  "proveedor": "Plycem"
+},
+{
+  "_id": {
+    "$oid": "6748ab8e8dd418dd20d89220"
+  },
+  "nombre_producto": "Madera Maciza",
+  "material_tipo": "madera natural",
+  "precio": "130",
+  "stock": "30",
+  "proveedor": "Maderas Aserradas Ugalde"
+},
+{
+  "_id": {
+    "$oid": "6748abdc8dd418dd20d89221"
+  },
+  "nombre_producto": "Laminado de Alta Presión",
+  "material_tipo": "Laminado HPL",
+  "precio": "140",
+  "stock": "90",
+  "proveedor": "Wilsonart"
+},
+{
+  "_id": {
+    "$oid": "6748ac668dd418dd20d89223"
+  },
+  "nombre_producto": "Vidrio",
+  "material_tipo": "Vidrio",
+  "precio": "150",
+  "stock": "60",
+  "proveedor": "Guardian Glass"
+},
+{
+  "_id": {
+    "$oid": "6748acf68dd418dd20d89224"
+  },
+  "nombre_producto": "Aluminio",
+  "material_tipo": "metal",
+  "precio": "150",
+  "stock": "60",
+  "proveedor": "Alcoa"
+},
+{
+  "_id": {
+    "$oid": "6748ad548dd418dd20d89225"
+  },
+  "nombre_producto": "Acero Inoxidable",
+  "material_tipo": "Metal",
+  "precio": "140",
+  "stock": "90",
+  "proveedor": "Aceros Arequipa"
+},
+{
+  "_id": {
+    "$oid": "6748add48dd418dd20d89226"
+  },
+  "nombre_producto": "Tiradores y Herrajes",
+  "material_tipo": "Acero Inoxidable",
+  "precio": "140",
+  "stock": "90",
+  "proveedor": "Blum"
+}]
