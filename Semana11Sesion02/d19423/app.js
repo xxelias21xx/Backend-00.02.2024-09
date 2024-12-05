@@ -18,7 +18,6 @@ db.sequelize.sync().then(()=>{
     console.log("Base de datos sincronizada")
 }).catch((err)=>{
     console.error(err);
-    
 })
 
 
@@ -26,6 +25,7 @@ db.sequelize.sync().then(()=>{
 app.get("/",(req,res)=>{
     res.json({message:"Bienvenido a mi API"})
 })
+require('./app/routes/tutorial.routes')(app);
 app.listen(PORT,()=>{
     console.log("Aplicacion inicializada en el puerto: "+ PORT);
 })
