@@ -1,0 +1,254 @@
+[{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b077d"
+  },
+  "nombre_producto": "Armario 2 puertas",
+  "cantidad_producida": 50,
+  "fecha_produccion": "2024-11-20T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-01T00:00:00Z",
+  "estado_produccion": "Terminado",
+  "empleado_responsable": "Carlos Rodríguez",
+  "horas_trabajadas": 120,
+  "materia_prima_utilizada": [
+    "MDF",
+    "Tornillos",
+    "Pintura",
+    "Manijas de aluminio"
+  ],
+  "coste_produccion": 3500,
+  "prioridad": "Alta",
+  "comentarios": "Se cumplió con el plazo de entrega"
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b077e"
+  },
+  "nombre_producto": "Armario con puertas correderas",
+  "cantidad_producida": 30,
+  "fecha_produccion": "2024-11-22T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-03T00:00:00Z",
+  "estado_produccion": "Terminado",
+  "empleado_responsable": "María López",
+  "horas_trabajadas": 95,
+  "materia_prima_utilizada": [
+    "Contrachapado",
+    "Vidrio",
+    "Bisagras",
+    "Tiradores/Manijas"
+  ],
+  "coste_produccion": 2700,
+  "prioridad": "Media",
+  "comentarios": "Hubo un pequeño retraso debido a problemas con los vidrios."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b077f"
+  },
+  "nombre_producto": "Armario de 4 puertas",
+  "cantidad_producida": 15,
+  "fecha_produccion": "2024-11-23T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-05T00:00:00Z",
+  "estado_produccion": "En progreso",
+  "empleado_responsable": "Juan Pérez",
+  "horas_trabajadas": 180,
+  "materia_prima_utilizada": [
+    "Aglomerado",
+    "Tornillos",
+    "Melamina",
+    "Cajones (kits con guías deslizantes)"
+  ],
+  "coste_produccion": 5000,
+  "prioridad": "Alta",
+  "comentarios": "Se espera cumplir con la fecha de entrega."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b0780"
+  },
+  "nombre_producto": "Armario modular",
+  "cantidad_producida": 60,
+  "fecha_produccion": "2024-11-25T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-07T00:00:00Z",
+  "estado_produccion": "Terminado",
+  "empleado_responsable": "Isabel Martínez",
+  "horas_trabajadas": 200,
+  "materia_prima_utilizada": [
+    "Madera Maciza",
+    "Laminado (HPL)",
+    "Bisagras",
+    "Tiradores/Manijas"
+  ],
+  "coste_produccion": 4500,
+  "prioridad": "Baja",
+  "comentarios": "Producción fluida, sin incidencias."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b0781"
+  },
+  "nombre_producto": "Armario esquineros",
+  "cantidad_producida": 20,
+  "fecha_produccion": "2024-11-27T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-09T00:00:00Z",
+  "estado_produccion": "En progreso",
+  "empleado_responsable": "Carlos Rodríguez",
+  "horas_trabajadas": 150,
+  "materia_prima_utilizada": [
+    "MDF",
+    "Tornillos",
+    "Vidrio",
+    "Cajones (kits con guías deslizantes)"
+  ],
+  "coste_produccion": 3800,
+  "prioridad": "Media",
+  "comentarios": "En curso, no se esperan problemas."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b0782"
+  },
+  "nombre_producto": "Armario con espejo",
+  "cantidad_producida": 40,
+  "fecha_produccion": "2024-11-29T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-10T00:00:00Z",
+  "estado_produccion": "Terminado",
+  "empleado_responsable": "Luis García",
+  "horas_trabajadas": 170,
+  "materia_prima_utilizada": [
+    "Aglomerado",
+    "Espejos",
+    "Tiradores/Manijas",
+    "Laminado (HPL)"
+  ],
+  "coste_produccion": 4200,
+  "prioridad": "Alta",
+  "comentarios": "Producto terminado con éxito, el espejo fue instalado correctamente."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b0783"
+  },
+  "nombre_producto": "Armario con puertas abatibles",
+  "cantidad_producida": 25,
+  "fecha_produccion": "2024-11-30T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-12T00:00:00Z",
+  "estado_produccion": "En progreso",
+  "empleado_responsable": "Juan Pérez",
+  "horas_trabajadas": 160,
+  "materia_prima_utilizada": [
+    "Contrachapado",
+    "Pintura",
+    "Bisagras",
+    "Manijas de aluminio"
+  ],
+  "coste_produccion": 3900,
+  "prioridad": "Alta",
+  "comentarios": "En proceso, se espera que todo esté listo a tiempo."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b0784"
+  },
+  "nombre_producto": "Armario de pared",
+  "cantidad_producida": 18,
+  "fecha_produccion": "2024-11-20T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-02T00:00:00Z",
+  "estado_produccion": "Terminado",
+  "empleado_responsable": "María López",
+  "horas_trabajadas": 140,
+  "materia_prima_utilizada": [
+    "Madera Maciza",
+    "Tornillos",
+    "Pintura",
+    "Cajones (kits con guías deslizantes)"
+  ],
+  "coste_produccion": 3000,
+  "prioridad": "Media",
+  "comentarios": "Producto listo y entregado en plazo."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b0785"
+  },
+  "nombre_producto": "Armario con estantería",
+  "cantidad_producida": 35,
+  "fecha_produccion": "2024-11-21T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-03T00:00:00Z",
+  "estado_produccion": "En progreso",
+  "empleado_responsable": "Isabel Martínez",
+  "horas_trabajadas": 130,
+  "materia_prima_utilizada": [
+    "MDF",
+    "Melamina",
+    "Guías de Estantes",
+    "Tiradores/Manijas"
+  ],
+  "coste_produccion": 4200,
+  "prioridad": "Alta",
+  "comentarios": "El trabajo va según lo planeado."
+},
+{
+  "_id": {
+    "$oid": "6748cfc3684cfdd6e89b0786"
+  },
+  "nombre_producto": "Armario con zapatero",
+  "cantidad_producida": 12,
+  "fecha_produccion": "2024-11-22T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-04T00:00:00Z",
+  "estado_produccion": "Terminado",
+  "empleado_responsable": "Luis García",
+  "horas_trabajadas": 110,
+  "materia_prima_utilizada": [
+    "Contrachapado",
+    "Pintura",
+    "Tornillos",
+    "Cajones (kits con guías deslizantes)"
+  ],
+  "coste_produccion": 3200,
+  "prioridad": "Baja",
+  "comentarios": "Sin problemas durante la fabricación."
+},
+{
+  "_id": {
+    "$oid": "674bb194491b211f75133139"
+  },
+  "nombre_producto": "Armario simple",
+  "cantidad_producida": 5,
+  "fecha_produccion": "2024-11-20T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-01T00:00:00Z",
+  "estado_produccion": "Proceso",
+  "empleado_responsable": "Carlos Rodríguez",
+  "horas_trabajadas": 48,
+  "materia_prima_utilizada": [
+    "MDF",
+    "Tornillos",
+    "Pintura",
+    "Manijas de aluminio"
+  ],
+  "coste_produccion": 1500,
+  "prioridad": "Alta",
+  "comentarios": "El trabajo va por buen camino"
+},
+{
+  "_id": {
+    "$oid": "674cbe6d2df4deb1f58e88c8"
+  },
+  "nombre_producto": "Armario con Cajones",
+  "cantidad_producida": 10,
+  "fecha_produccion": "2024-11-20T00:00:00Z",
+  "fecha_entrega_estimada": "2024-12-01T00:00:00Z",
+  "estado_produccion": "proceso",
+  "empleado_responsable": "Carlos Rodríguez",
+  "horas_trabajadas": 120,
+  "materia_prima_utilizada": [
+    {
+      "MDF": 4,
+      "Tornillos": 15,
+      "Pintura": 3,
+      "Manijas de aluminio": 5
+    }
+  ],
+  "coste_produccion": 1500,
+  "prioridad": "Alta",
+  "comentarios": "Se cumplió con el plazo de entrega"
+}]

@@ -1,0 +1,68 @@
+use a19104783
+db.CreateCollection("Compra_de_Insumos");
+db.CreateCollection("Gestion_de_personal");
+db.CreateCollection("Produccion");
+db.CreateCollection("materia_prima");
+
+todas las collecciones cuentan con datos, pero ahora añadiremos 1 mas para poder insertar y actuzalizar y mostrar sus rutinas
+
+
+
+-------------------------------------------------------------------------------------------------------------
+mostramos la lista de todos los insumos:
+db.Insumos.find()
+
+------------------------------------------------------------------------------------------------------------
+agregamos un insumo, si existe solo modificamos la cantidad, pero si no, insertamos uno nuevo
+
+db.insumos.updateOne(
+  { "nombre_insumo": "Aglomerado" },
+    $inc: { "cantidad_comprada": 200 },  
+    $set: {
+      "tipo_insumo": "Material",        
+      "precio_unitario": 15.75,  
+      "proveedor": "Proveedor B", 
+      "fecha_compra": new ISODate("2024-11-03"),  
+      "estado": "Nuevo"      
+  },
+  { 
+    upsert: true  
+  }
+);
+
+
+en este caso actualizamos 
+
+
+------------------------------------------------------------------------------------------------------------
+
+insertamos una nueva producción:
+
+{"nombre_producto": "Armario con Cajones",
+  "cantidad_producida": 10,
+  "fecha_produccion": '2024-11-20T00:00:00Z',
+  "fecha_entrega_estimada": '2024-12-01T00:00:00Z',
+  "estado_produccion": "proceso",
+  "empleado_responsable": "Carlos Rodríguez",
+  "horas_trabajadas": 120,
+  "materia_prima_utilizada": [
+    {"MDF":4},
+    {"Tornillos":15},
+    {"Pintura":3},
+    {"Manijas de aluminio":5}
+  ],
+  "coste_produccion": 1500,
+  "prioridad": "Alta",
+  "comentarios": "Se cumplió con el plazo de entrega"
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+
+actulizamos la tabla insumos con los datos que se consumieron en producción:
+
+db.Insumos.updateOne({"nombre_insumo":"MDF (Medium Density Fiberboard)"},{$inc:{"cantidad_comprada":-30}});
+db.Insumos.updateOne({"nombre_insumo":"Pintura"},{$inc:{"cantidad_comprada": -3}}),
+db.Insumos.updateOne({"nombre_insumo":"Manija de aluminio"},{$inc:{"cantidad_comprada": -6}}),
+db.Insumos.updateOne({"nombre_insumo":"MDF (Medium Density Fiberboard)"},{$inc:{"cantidad_comprada": -10}})
+

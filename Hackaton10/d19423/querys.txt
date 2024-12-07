@@ -1,0 +1,2 @@
+use d19423;
+db.createCollection("MateriaPrima");
