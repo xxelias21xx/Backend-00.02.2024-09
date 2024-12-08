@@ -173,6 +173,8 @@ db.produccion.insertMany([
   }
 ])
 
+
+---------------------------------------------------------------------------------------
 //CONSULTAS PARA LA PRIMERA PRODUCCIÓN
 // Materias Primas
 db.materias_primas.updateOne(
@@ -201,6 +203,7 @@ db.insumos.updateOne(
   { $inc: { stock_actual: -5 } } // Disminuir 5 paquetes de Lijas
 );
 
+---------------------------------------------------------------------------------------
 //CONSULTAS PARA LA SEGUNDA PRODUCCIÓN
 // Materias Primas
 db.materias_primas.updateOne(
