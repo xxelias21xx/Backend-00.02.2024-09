@@ -2,7 +2,7 @@ const db = require('../models');
 const Op = db.sequelize.Op;
 const Nationality = db.nationality;
 
-exports.create=(req,res)=>{
+exports.create=(req,res)=>{ 
     if(!req.body.description){
         res.status(400).send({
             message: "El campo description no puede estar vacio"
