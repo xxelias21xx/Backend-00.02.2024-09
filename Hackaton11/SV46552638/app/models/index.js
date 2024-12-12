@@ -9,7 +9,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{
         max: dbConfig.pool.max,
         min: dbConfig.pool.min,
         acquire: dbConfig.pool.acquire,
-        idle: dbConfig.pool.idle 
+        idle: dbConfig.pool.idle
     }
 })
 const db = {};
@@ -29,28 +29,56 @@ db.species = require('./species.model')(sequelize,Sequelize);
 //tablas que contienen foreneas
 db.customer = require('./customer.model')(sequelize,Sequelize);
 db.pet= require('./pet.model')(sequelize,Sequelize);
-//Definicion de relaciones foraneas(FK)
-// db.tutorials.hasMany(db.comments,{
-//     as:"comments"
-// });
-// // db.comments.belongsTo(db.tutorials,{
-//     foreignKey: 'tutorialId',
-//     as: "tutorials"
-// });
 
-// db.tags.belongsToMany(db.tutorials,{
-//     through: 'tutorial_tag',
-//     as: 'tutorials',
-//     foreignKey: "tag_id"
-// });
-// db.tutorials.belongsToMany(db.tags,{
-//     through: 'tutorial_tag',
-//     as: 'tags',
-//     foreignKey: "tutorial_id"
-// });
+//Definicion de relaciones foraneas(FK) del cliente
+db.nationality.hasMany(db.customer,{
+    as:"customers"
+});
+db.customer.belongsTo(db.nationality,{
+    foreignKey: 'nationalityID',
+    as: "nationalities"
+});
 
+db.ubigeo.hasMany(db.customer,{
+    as:"customers"
+});
+db.customer.belongsTo(db.ubigeo,{
+    foreignKey: 'ubigeoID',
+    as: "ubigeos"
+});
 
+////Definicion de relaciones foraneas(FK) de la mascota
 
+db.vaccine.hasMany(db.pet,{
+    as:"pets"
+});
+db.pet.belongsTo(db.vaccine,{
+    foreignKey: 'vaccineID',
+    as: "vaccines"
+});
 
+db.sex.hasMany(db.pet,{
+    as:"pets"
+});
+db.pet.belongsTo(db.sex,{
+    foreignKey: 'sexID',
+    as: "sexs"
+});
+
+db.race.hasMany(db.pet,{
+    as:"pets"
+});
+db.pet.belongsTo(db.race,{
+    foreignKey: 'raceID',
+    as: "races"
+});
+
+db.species.hasMany(db.pet,{
+    as:"pets"
+});
+db.pet.belongsTo(db.species,{
+    foreignKey: 'speciesID',
+    as: "species"
+});
 
 module.exports = db;
