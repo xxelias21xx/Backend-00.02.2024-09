@@ -19,5 +19,5 @@ module.exports= app=>{
     router.post("/tag/tutorial", tag.addTutorial)
 
 
-    app.use('/api/tutorial', router);
+    app.use('/api/tutorial', router); 
 }
