@@ -1,10 +1,9 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import sequelize from "../src/config/db/sequelize.cofig.js";
+import sequelize from "./config/db/sequelize.cofig.js";
 import Clientes from "../src/models/clients.model.js";
 import Mascotas from "./models/mascota.model.js";
-import { where } from "sequelize";
 const app = express();
 const port = 3000;
 
