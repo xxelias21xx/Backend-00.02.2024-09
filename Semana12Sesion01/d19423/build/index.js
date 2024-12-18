@@ -13,7 +13,7 @@ arrNumeros.push(55);
 let tupInfo = [33, "Hola", true];
 tupInfo[1] = "dd";
 let arrHobbies = ["Aeromodelismo", "Musica", "Natacion", "Fotografia"];
-let objPersona = {
+let objPersona = { 
     nombre: "Roberto",
     apellido: "Pineda",
     edad: 41,
