@@ -4,7 +4,7 @@ const Nationality = db.nationality;
 
 exports.create=(req,res)=>{ 
     if(!req.body.description){
-        res.status(400).send({
+        res.status(400).send({ 
             message: "El campo description no puede estar vacio"
         })
         return;

@@ -25,7 +25,7 @@ let objPersona: { nombre: string, apellido: string, edad: number, isCasado: bool
     nombre: "Roberto",
     apellido: "Pineda",
     edad: 41,
-    isCasado: false
+    isCasado: false 
 }
 
 let objPersona2 = {
