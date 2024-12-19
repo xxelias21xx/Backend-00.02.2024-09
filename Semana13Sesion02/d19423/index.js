@@ -20,6 +20,11 @@ app.use(express.json());
 app.get('/', (req,res)=>{
     res.send({message:"Mi API"});
 })
+
+
+const AuthorizationRouter = require('./authorization/routes.config');
+AuthorizationRouter.routesConfig(app);
+
 const UsersRouter = require('./users/routes.config');
 UsersRouter.routesConfig(app);
 
