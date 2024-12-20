@@ -9,7 +9,7 @@ exports.create=(req,res)=>{
     Tag.create(tag).then(data=>{
         res.send(data);
     }).catch(err=>{
-        res.status(500).send({
+        res.status(500).send({ 
             message: "Hubo un error al crear el tag"
         })
     })
