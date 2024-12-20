@@ -1,5 +1,3 @@
-const { validate } = require("../config/dbconfig");
-
 module.exports=(sequelize, DataType)=>{
     const Clientes= sequelize.define("clientes",{
         dni: {

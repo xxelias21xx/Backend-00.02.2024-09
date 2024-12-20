@@ -5,7 +5,6 @@ class Server {
     constructor() {
         this.port = process.env.PORT
         this.app = express()
-
         this.routes()
     }
 
