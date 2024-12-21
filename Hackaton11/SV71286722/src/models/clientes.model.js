@@ -1,7 +1,7 @@
-module.exports=(sequelize, DataType)=>{
-    const Clientes= sequelize.define("clientes",{
+const clientesModel = (sequelize, DataType)=>{
+    const Clientes = sequelize.define("clientes",{
         dni: {
-            type: DataType.STRING,
+            type: DataType.INTEGER,
             allowNull: false,
             primaryKey: true,
             validate: {
@@ -19,7 +19,7 @@ module.exports=(sequelize, DataType)=>{
             type: DataType.STRING
         },
         email: {
-            type: DataType.EMAIL,
+            type: DataType.STRING,
             validate:{
                 isEmail:true
             }
@@ -32,5 +32,8 @@ module.exports=(sequelize, DataType)=>{
         }
     });
 
+    console.log('Clientes')
     return Clientes;
 }
+
+export default clientesModel

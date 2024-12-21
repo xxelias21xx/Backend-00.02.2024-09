@@ -1,30 +1,15 @@
-module.exports = (sequelize, DataType) => {
+const consultasModel = (sequelize, DataType) => {
     const Consultas = sequelize.define("consultas", {
-        id: {
+        consulta_id: {
             type: DataType.INTEGER,
             autoIncrement: true,
             primaryKey: true
 
-        },
-        nombre: {
-            type: DataType.STRING
-        },
-        raza: {
-            type: DataType.STRING
-        },
-        color: {
-            type: DataType.STRING
-        },
-        edad: {
-            type: DataType.INTEGER
-        },
-        tipo: {
-            type: DataType.STRING
-        },
-        peso: {
-            type: DataType.STRING
         }
     });
 
+    console.log('Consultas')
     return Consultas;
 };
+
+export default consultasModel

@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataType) => {
+const mascotasModel = (sequelize, DataType) => {
     const Mascotas = sequelize.define("mascotas", {
-        id: {
+        mascota_id: {
             type: DataType.INTEGER,
             autoIncrement: true,
             primaryKey: true
@@ -26,5 +26,8 @@ module.exports = (sequelize, DataType) => {
         }
     });
 
+    console.log('Mascotas')
     return Mascotas;
 };
+
+export default mascotasModel

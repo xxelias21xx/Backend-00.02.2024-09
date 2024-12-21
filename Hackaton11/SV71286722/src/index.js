@@ -1,16 +1,19 @@
-require("dotenv").config();
+import "dotenv/config"
 
-const { sequelize } = require("./models/index.js");
-const {Server} = require('./server/server.js')
+import db from "./models/index.js"
+import { Server } from "./server/server.js"
 
 
 const server = new Server();
 
-try{
-    sequelize.authenticate()
-    console.log('OK')
-}catch(e){
-    console.error('BAD')
+const start = async () => {
+    try{
+        await db.sequelize.sync( {force:true} )
+        console.log('OK')
+    }catch(e){
+        console.error('BAD')
+    }
 }
 
-server.listen();
+start()
+server.listen()

@@ -1,7 +1,7 @@
-const express = require("express")
+import express from "express"
 
 
-class Server {
+export class Server{
     constructor() {
         this.port = process.env.PORT
         this.app = express()
@@ -23,7 +23,3 @@ class Server {
     });
     }
 }
-
-module.exports = {
-  Server,
-};

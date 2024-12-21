@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataType) => {
-    const Mascotas = sequelize.define("mascotas", {
-        id: {
+const serviciosModel = (sequelize, DataType) => {
+    const Servicios = sequelize.define("servicios", {
+        servicio_id: {
             type: DataType.INTEGER,
             autoIncrement: true,
             primaryKey: true
@@ -9,22 +9,16 @@ module.exports = (sequelize, DataType) => {
         nombre: {
             type: DataType.STRING
         },
-        raza: {
+        descripcion: {
             type: DataType.STRING
         },
-        color: {
-            type: DataType.STRING
-        },
-        edad: {
+        precio: {
             type: DataType.INTEGER
-        },
-        tipo: {
-            type: DataType.STRING
-        },
-        peso: {
-            type: DataType.STRING
         }
     });
 
-    return Mascotas;
+    console.log('Servicios')
+    return Servicios;
 };
+
+export default serviciosModel
