@@ -1,5 +1,5 @@
 import express from "express"
-
+import clientesRoutes from "../routes/clientes.route.js"
 
 export class Server{
     constructor() {
@@ -13,6 +13,9 @@ export class Server{
         this.app.get('/',(req,res) => {
             res.send("<h1>Servidor</h1>")
         })
+
+        this.app.use(express.json())
+        this.app.use('/clientes', clientesRoutes)
 
         
     }

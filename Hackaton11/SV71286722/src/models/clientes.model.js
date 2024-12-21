@@ -1,7 +1,7 @@
 const clientesModel = (sequelize, DataType)=>{
     const Clientes = sequelize.define("clientes",{
         dni: {
-            type: DataType.INTEGER,
+            type: DataType.STRING,
             allowNull: false,
             primaryKey: true,
             validate: {
