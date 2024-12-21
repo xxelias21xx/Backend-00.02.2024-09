@@ -1,8 +1,10 @@
-import db from '../models/index.js'
+import db from '../models/index.js' //Importando la base de datos
 
-const Cliente = db.Clientes
+const Cliente = db.Clientes //Importando el modelo cliente
 
+//Obtener Cliente
 export const getClientes = async (req, res) => {
+
     try{
         const clientes = await Cliente.findAll()
         res.json(clientes)
@@ -11,6 +13,7 @@ export const getClientes = async (req, res) => {
     }
 }
 
+//Añadir Cliente
 export const addClientes = async (req, res) => {
 
     try{
@@ -21,6 +24,7 @@ export const addClientes = async (req, res) => {
     }
 }
 
+//Actualizar Cliente
 export const updateClientes = async (req, res) => {
     const dni = req.params.id
 
@@ -34,6 +38,7 @@ export const updateClientes = async (req, res) => {
     }
 }
 
+//Borrar Cliente
 export const deleteCliente = async (req, res) => {
     const dni = req.params.id
 
@@ -47,6 +52,7 @@ export const deleteCliente = async (req, res) => {
     }
 }
 
+//Obtener Cliente por DNI
 export const getClientesbyDNI = async (req, res) => {
     const dni = req.params.id
 
