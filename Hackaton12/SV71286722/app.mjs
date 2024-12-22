@@ -2,58 +2,67 @@ import http from 'node:http'
 import url from 'node:url'
 
 let listSales = [];
-const server = http.createServer((req, res) => {
- 
-    const parseUrl = url.parse(req.url, true);
-    const path = parseUrl.pathname;
 
-    //localhost:3000/api/products -- get
-    // endpoint: lists
-    if (req.method == "GET" && path === "/api/lista") {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        return res.end(JSON.stringify(listSales));
-    }
-    // Ruta para mostrar los elementos pendientes
-    if (req.method == "GET" && path === "/api/lista/pendientes") {
-        const pendientes = listSales.filter(item => !item.esCompletado);
-        res.writeHead(200, { "Content-Type": "application/json" });
-        return res.end(JSON.stringify(pendientes));
-    }
+const processRequest = (req, res) => {
+    const { method, url } = req
 
-    // Ruta para mostrar los elementos completados
-    if (req.method == "GET" && path === "/api/shopping-list/completed") {
-        const completados = listSales.filter(item => item.esCompletado);
-        res.writeHead(200, { "Content-Type": "application/json" });
-        return res.write(JSON.stringify(completados));
-    }
+    switch (method) {
+        case 'GET':
+            switch (url) {
+                case '/api/lista':
+                    res.writeHead(200, { "Content-Type": "application/json" });
+                    return res.end(JSON.stringify(listSales));
 
-    // endpoint: crear elemento de lista
-    if (req.method == "POST" && path == "/api/lista") {
-        console.log("creating a new sale");
+                case '/api/lista/pendientes':
+                    const pendientes = listSales.filter(item => !item.esCompletado);
+                    res.writeHead(200, { "Content-Type": "application/json" });
+                    return res.end(JSON.stringify(pendientes));
 
-        let body = "";
-        req.on("data", (chunk) => {
-                body += chunk.toString();
-        });
+                case '/api/lista/completados':
+                    const completados = listSales.filter(item => item.esCompletado);
+                    res.writeHead(200, { "Content-Type": "application/json" });
+                    return res.end(JSON.stringify(completados));
 
-        return req.on("end", () => {
-            const { name, description, date, esCompletado  } = JSON.parse(body);
+                default:
+                    res.writeHead(503, { "content-type": "application/json" });
+                    return res.end(JSON.stringify({ message: "endpoint not found" }));
 
-            if (!name || !description || !date || !esCompletado) {
-                res.writeHead(400, { "content-type": "apllication/json" });
-                return res.end(JSON.stringify({ message: "faltan campos" }));
             }
-
-            listSales.push(data);
-
-            res.writeHead(201, { "content-type": "apllication/json" });
-            return res.end(JSON.stringify(listSales));
-        });
+        
+        case 'POST':
+            switch (url) {
+                case 'api/lista':
+                    let body = "";
+                    req.on("data", (chunk) => {
+                            body += chunk.toString();
+                    });
+            
+                    return req.on("end", () => {
+                        const { name, description, date, esCompletado  } = JSON.parse(body);
+            
+                        if (!name || !description || !date || !esCompletado) {
+                            res.writeHead(400, { "content-type": "apllication/json" });
+                            return res.end(JSON.stringify({ message: "faltan campos" }));
+                        }
+            
+                        listSales.push(data);
+            
+                        res.writeHead(201, { "content-type": "application/json" });
+                        return res.end(JSON.stringify(listSales));
+                    });
+                
+                default:
+                    res.writeHead(503, { "content-type": "application/json" });
+                    return res.end(JSON.stringify({ message: "endpoint not found" }));
+            }
+        
+        default:
+            res.writeHead(503, { "content-type": "application/json" });
+            return res.end(JSON.stringify({ message: "endpoint not found" }));
     }
+}
 
-    res.writeHead(503, { "content-type": "apllication/json" });
-    res.end(JSON.stringify({ message: "endpoint not found" }));
-});
+const server = http.createServer(processRequest);
  
 server.listen(3000, () => {
     console.log("Server is running on port 3000");
