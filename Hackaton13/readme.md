@@ -1,6 +1,6 @@
 # HACKATHON SEMANAL
 
-## LOGRO: Utilizar NodeJS. 
+## LOGRO: Utilizar ExpressJS NodeJS. 
 
 ### I.	Es hora de demostrar lo aprendido:
 Demostrarás todo lo aprendido en este reto que se basará en las clases dictadas durante la semana.
@@ -18,14 +18,17 @@ Demostrarás todo lo aprendido en este reto que se basará en las clases dictada
 
 ## Reto 1:
 
-### TÍTULO: NodeJS
+### TÍTULO: CRUD en Mongoose
+Utilizar Mongoose para definir las consultas mediante el uso de Objetos de Base de datos no relacionales para resolver el problema
+#### EL PROBLEMA: 
 
-Vamos a crear una pagina web con el modulo http de NodeJs que permita cargar una lista de compras 
+Se necesita crear el backend de un sistema de venta de cursos online que debe tener en cuenta los siguientes casos de uso:
 
-- Crear una ruta para crear la lista
-- - Nombre, Descripcion, Fecha, EsCompletado 
-- Crear una ruta para mostrar los pendientes
-- Crear una ruta para mostrar los completados
+- Login de usuario / Crear usuario
+- CRUD de cursos disponibles (nombre, descripcion, img, portada, valor)
+- CRUD de ordenes de compra de cursos
+- Pasarela de pagos (simulacion de pago)
+- CRUD de Cupones de descuento
 
 
 ### V.	Solución del reto
