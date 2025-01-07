@@ -38,8 +38,32 @@ function onOpen(evt){
 }
 
 function onMessage(evt){
-    let area = document.getElementById("mensajes");
-    area.append(evt.data);
+
+    objMessage = JSON.parse(evt.data);
+    let strContent = '';
+    switch (objMessage.type) {
+        case "clima":
+            strContent = JSON2HTMLList(objMessage.content).innerHTML;
+            break;
+    
+        default:
+            strContent = `${objMessage.content}`;
+            break;
+    }
+
+    let strData = `
+    <div class="d-flex justify-content-start mb-4">
+    <div class="img_cont_msg">
+        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+    </div>
+    <div class="msg_cotainer">
+         ${strContent}
+        <span class="msg_time">${moment().format('LT')}</span>
+    </div>
+</div>
+    `;
+    var area=document.getElementById("contenedorMensajes")
+    area.innerHTML+=strData;
 }
 
 function doSend(message){
