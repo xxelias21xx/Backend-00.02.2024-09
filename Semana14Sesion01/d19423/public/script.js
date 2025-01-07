@@ -27,4 +27,28 @@ function onError(evt){
 
 function onClose(evt){
     document.getElementById("enviar").disabled = true;
+    setTimeout(function(){
+        wsConnect();
+    }, 2000);
+}
+
+function onOpen(evt){
+    document.getElementById("enviar").disabled = false;
+    doSend("Hola");
+}
+
+function onMessage(evt){
+    let area = document.getElementById("mensajes");
+    area.append(evt.data);
+}
+
+function doSend(message){
+    console.log(`Enviando ${message} al servidor`);
+    websocket.send(message);
+}
+
+function enviarTexto(event){
+    event.preventDefault();
+    let campo = event.target.texto;
+    doSend(campo.value);
 }

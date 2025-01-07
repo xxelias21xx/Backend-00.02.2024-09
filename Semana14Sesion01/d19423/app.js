@@ -16,6 +16,7 @@ const wsServer = new webSocketServer({
 
 
 
+
 function originIsAllowed(origin){
     if(origin === "http://localhost:8089"){
         return true
@@ -23,6 +24,19 @@ function originIsAllowed(origin){
     return false;
 }
 
+
+wsServer.on("request",(request)=>{
+    if(!originIsAllowed(request.origin)){
+        request.reject();
+        console.log(new Date()+" Conexion dek origen "+request.origin+" rechazada");
+        return;
+    }
+    const connection = request.accept(null, request.origin);
+    connection.on("message", (message)=>{
+        console.log(message.utf8Data);
+        connection.sendUTF(message.utf8Data);
+    })
+})
 
 server.listen(app.get("port"), ()=>{
     console.log("Servidor iniciado en el puerto "+ app.get("port"));
