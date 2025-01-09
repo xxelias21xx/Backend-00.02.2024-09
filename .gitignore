@@ -396,6 +396,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-Semana10Sesion02/d19423/.env
-Hackaton11/SV71286722/.env
-Hackaton07/SV71286722/.env
+.env
