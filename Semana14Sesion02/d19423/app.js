@@ -10,6 +10,11 @@ const io = socketIO(server);
 const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 
+const OpenAI = require('openai')
+const openai = new OpenAI({
+    apikey: process.env.OPENAI_API_KEY
+})
+
 
 io.on("connection",(socket)=>{
     console.log("Nuevo usuario conectado")
@@ -24,6 +29,8 @@ io.on("connection",(socket)=>{
     })
     socket.on("disconnect", ()=>{console.log("Usuario Desconectado")})
 })
+
+
 
 
 server.listen(PORT, ()=>{
