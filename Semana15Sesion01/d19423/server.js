@@ -13,9 +13,13 @@ app.use(
     })
 );
 
+require('./app/routes/auth.routes')(app);
+
 app.get('/', (req,res)=>{
     res.send("Hola");
 })
+
+
 
 const db = require('./app/models');
 const Role = db.role;
