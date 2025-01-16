@@ -14,6 +14,7 @@ app.use(
 );
 
 require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
 
 app.get('/', (req,res)=>{
     res.send("Hola");
