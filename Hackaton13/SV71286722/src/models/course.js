@@ -25,6 +25,30 @@ const courseSchema = mongoose.Schema({
     timestamps: true,
 })
 
-const Course = mongoose.model('Course', courseSchema)
+courseSchema.statics.getAll = async function(){
+    try{
+        return this.find()
+    }catch(e){
+        return null
+    }
+}
 
-export default { Course }
+courseSchema.statics.findByName = async function(courseName){
+    try{
+        return this.find({ name: courseName })
+    }catch(e){
+        return null
+    }
+}
+
+courseSchema.statics.create = async function({ input }){
+    try{
+        const { name, description, img, cover, price } = input
+        const newCourse = new this({ name, description, img, cover, price })
+        return await newCourse.save()
+    }catch(e){
+        return null
+    }
+}
+
+export const Course = mongoose.model('Course', courseSchema)

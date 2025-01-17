@@ -18,6 +18,22 @@ const couponSchema = mongoose.Schema({
     timestamps: true,
 })
 
-const Coupon = mongoose.model('Coupon', couponSchema)
+couponSchema.statics.getAll = async function(){
+    try{
+        return await this.find()
+    }catch(e){
+        return null
+    }
+}
 
-export default { Coupon }
+couponSchema.statics.create = async function({ input }){
+    try{
+        const { code, discount, expirationDate } = input
+        const newCoupon = new this({ code, discount, expirationDate })
+        return await newCoupon.save()
+    }catch(e){
+        return null
+    }
+}
+
+export const Coupon = mongoose.model('Coupon', couponSchema)
