@@ -32,6 +32,17 @@ const orderSchema = mongoose.Schema({
     timestamps: true,
 })
 
+orderSchema.statics.getAll = async function(){
+    try{
+        return await this.find().populate('user').populate('course')
+    }catch(e){
+        return null
+    }
+}
+
+
+
+
 const Order = mongoose.model('Order', orderSchema)
 
 export default { Order }
