@@ -1,6 +1,6 @@
 # HACKATHON SEMANAL
 
-## LOGRO: Utilizar ExpressJS NodeJS Socket.io. 
+## LOGRO: Utilizar ExpressJS NodeJS Socket.io Mysql OAUTH. 
 
 ### I.	Es hora de demostrar lo aprendido:
 Demostrarás todo lo aprendido en este reto que se basará en las clases dictadas durante la semana.
@@ -10,7 +10,7 @@ Demostrarás todo lo aprendido en este reto que se basará en las clases dictada
 
 ### III.	Descripción del reto
 - Investigar y resolver las preguntas y ejercicios planteados
-- Resolver problemas, definir algoritmos, utilizando las nuevas funcionalidades NodeJS, API, socket.io y ChatGPT
+- Resolver problemas, definir algoritmos, utilizando las nuevas funcionalidades NodeJS, API y socket.io
 
 ### IV.	Pasos a seguir para resolver los retos: 
 
@@ -18,18 +18,12 @@ Demostrarás todo lo aprendido en este reto que se basará en las clases dictada
 
 ## Reto 1:
 
-### TÍTULO: CHAT con Base de Datos (SQL o NoSQL)
-Utilizar un motor de base de datos SQL o NoSQL para definir las consultas mediante el uso de Objetos de Base de datos para resolver el problema
+### TÍTULO: Sistema de Curier online
+Utilizar un motor de base de datos SQL para definir las consultas mediante el uso de Objetos de Base de datos para resolver el problema
 #### EL PROBLEMA: 
 
-Crear un chat persistente que guarde los mensajes que se emitan desde los diferentes clientes, ademas de usar palabras clave o acciones(botones o enlaces) para borrar el historial y editar los mensajes
+Crear un sistema de curier persistente que guarde los paquetes, mensajes, ubicacion del paquete hasta su recepcion que se emitan desde los diferentes clientes logueados por OAUTH.
 
-No vamos a olvidarnos de CHATGPT y vamos a implementar un asistente (Bot)
-
-
-
-Como ayuda seguir este tutorial:
-- https://youtu.be/MYqpw0P31ms?si=NCLIUKle4pI-ZBY0
 
 
 ### V.	Solución del reto
