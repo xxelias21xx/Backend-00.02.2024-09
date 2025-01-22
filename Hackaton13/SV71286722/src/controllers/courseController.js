@@ -24,18 +24,18 @@ export class CourseController{
     }
 
     static async create(req, res) {
-            const result = req.body
-    
-            if(!result){
-                return res.status(400).json({"message":"client error"})
-            }
-    
-            const newCourse = await Course.create({ input : result })
-    
-            if(!newCourse){
-                return res.status(500).json({"message":"server error"})
-            }
-    
-            res.status(201).json(newCourse)
+        const result = req.body
+
+        if(!result){
+            return res.status(400).json({"message":"client error"})
         }
+
+        const newCourse = await Course.create({ input : result })
+
+        if(!newCourse){
+            return res.status(500).json({"message":"server error"})
+        }
+
+        res.status(201).json(newCourse)
+    }
 }
