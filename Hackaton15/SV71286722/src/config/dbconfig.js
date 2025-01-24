@@ -12,9 +12,3 @@ export const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER,
         idle:10000
     }
 });
-
-try{
-    await sequelize.authenticate();
-}catch(e){
-    console.log(e);
-}
