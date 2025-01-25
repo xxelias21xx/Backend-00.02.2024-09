@@ -1,5 +1,6 @@
 import "dotenv/config"
 import express from "express"
+import { messageRoute } from "../routes/message.route.js";
 
 export class Server{
     constructor(){
@@ -17,6 +18,7 @@ export class Server{
         this.app.get('/', (req, res) => {
             res.json( {message:"Hello World!"} )
         })
+        this.app.use('/message', messageRoute)
     }
 
     listen(){
