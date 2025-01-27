@@ -8,14 +8,16 @@ export class MessageModel extends Model {
         return messages 
     }
 
-    static async createMessage( input ){
+    static async createMessage(input){
         const messageCreated = await MessageModel.create( input )
         return messageCreated
     }
 
-    static async updateMessage(id,  input ){
+    static async updateMessage(id,  input){
         const messageUpdated = await MessageModel.update(
-             input ,
+            {
+                message: input.message
+            } ,
             {
                 where: { id }
             }

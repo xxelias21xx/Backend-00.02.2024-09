@@ -23,25 +23,41 @@ export class UserModel extends Model {
     }
 
     static async deleteUser(id){
-        const userDeleted = await UserModel.destroy({where:{id}})
+        const userDeleted = await UserModel.update(
+            {
+                estadoCuenta : false
+            },
+            {
+                where: {id}
+            }
+        )
         return userDeleted
+    }
+
+    static async getUserbyID(id){
+        const user = await UserModel.findByPk(id)
+        return user
     }
 }
 
 UserModel.init(
     {
         nombre: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
         },
         apellido: {
             type: DataTypes.STRING
         },
         correo: {
             type: DataTypes.STRING,
-            validate: { isEmail: true }
+            validate: { isEmail: true },
+            unique: true
         },
         contraseña: {
             type: DataTypes.STRING
+        },
+        estadoCuenta:{
+            type: DataTypes.BOOLEAN
         }
     },
     {

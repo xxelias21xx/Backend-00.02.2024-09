@@ -1,4 +1,4 @@
-import { MessageModel } from "../models/message.model.js"
+import { MessageModel } from "../models/index.js"
 
 export class MessageController{
     static async getAll(req, res){
@@ -13,7 +13,7 @@ export class MessageController{
         const input = req.body
         const message = await MessageModel.createMessage(input)
         if(!message){
-            return res.json({ message : "No se pudo crear"})
+            return res.json({ message : "No se pudo crear el mensaje"})
         }
         res.json(message)
     }
@@ -34,6 +34,6 @@ export class MessageController{
         if(!isDeleted){
             return res.json({ message: "No se eliminó"})
         }
-        res.json({ message : `Se eliminó el mensaje con id = ${id}`})
+        res.json({ message : `Se eliminó el mensaje con ID: ${id}`})
     }
 }
