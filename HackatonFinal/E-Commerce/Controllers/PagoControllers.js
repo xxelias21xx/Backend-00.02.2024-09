@@ -23,13 +23,13 @@ exports.RegistrarPagoPedido=async(req,res)=>{
         const DatosPago = await ProcesandoPago(PedidoPago);
         let ValorError="";
         if (ValorError==="") {
-            // if (DatosPago.message && DatosPago.message.object) {
-            //     ValorError = DatosPago.message.object;
-            // }
-            // if (ValorError || ValorError === "error") {
-            //     const DescError=DatosPago.message.user_message;
-            //     return res.status(500).json({ mensaje: 'Error al procesar el pago', DescError: DescError });
-            // }
+            if (DatosPago.message && DatosPago.message.object) {
+                ValorError = DatosPago.message.object;
+            }
+            if (ValorError || ValorError === "error") {
+                const DescError=DatosPago.message.user_message;
+                return res.status(500).json({ mensaje: 'Error al procesar el pago', DescError: DescError });
+            }
 
             const DataPago = new TblPago({
                 NroPago,
@@ -53,7 +53,7 @@ exports.RegistrarPagoPedido=async(req,res)=>{
 
             const DtProcePago={
                 DataPago:DataPago,
-                // ProcePagoCulqi: DatosPago,
+                ProcePagoCulqi: DatosPago,
                 Pedido:EstadoPedido
             }
 
